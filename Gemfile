@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'dotenv-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
@@ -28,6 +29,17 @@ gem 'bcrypt', '~> 3.1.7'
 
 # faker
 gem 'faker'
+
+# stripe
+gem 'stripe'
+
+gem 'vacuum', '~> 1.4'
+
+# Facebook outh login
+gem 'omniauth-facebook'
+
+
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
