@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, only:[:create, :destroy]
+
+  root to: 'users#index'
 end
