@@ -16,5 +16,9 @@ Rails.application.routes.draw do
 
   resources :sessions, only:[:create, :destroy]
 
+  get 'auth/:provider/callback', to: 'omniauth_sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
   root to: 'users#index'
 end
