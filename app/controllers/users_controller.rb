@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def index
+    @cart = Cart.new
+    @all = Cart.all # Remove later
   end
 
   def create

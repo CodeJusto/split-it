@@ -1,2 +1,22 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
+
+<% if current_user %>
+  <%= form_for @cart, url: carts_path(@cart) do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :name %> 
+  <br>
+  <%= f.label "Minimum Payment" %>
+  <%= f.number_field :minimum_payment %>
+  <br>
+  <%= f.label "Due Date" %>
+  <%= f.date_field :expiry %>
+  <br>
+  <%= f.submit "Submit" %>
+  <% end %>
+
+  <%= @all.each do |cart| %>
+    <p><%= cart.name %></p>
+    <%= link_to "View cart", cart_path(cart) %>
+  <% end %>
+<% end %>
