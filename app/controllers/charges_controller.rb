@@ -25,7 +25,12 @@ class ChargesController < ApplicationController
       :capture     => false
     )
 
-    puts @purchase.inspect
+
+    puts "Customer ID: #{charge.customer}"
+    puts "Charge ID: #{charge.id}"
+    puts "Charge amount: #{charge.amount}"
+    puts "Charge captured: #{charge.captured}"
+    
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
