@@ -12,11 +12,6 @@ $(document).on('page:load', function() {
   });
 
 
-  $('.inviteLink').on('click', function(e) {
-    e.preventDefault();
-    document.execCommand("copy")
-  });
-
   $('.inviteLink').attr("href", (window.location.hostname + ':3000/invite/' + $('.inviteLink').data("key")));
   // console.log("Test")
 
