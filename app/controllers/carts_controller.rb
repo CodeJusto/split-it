@@ -30,7 +30,7 @@ class CartsController < ApplicationController
 
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
-        binding.pry
+        # binding.pry
         render 'show' and return
       end
     end

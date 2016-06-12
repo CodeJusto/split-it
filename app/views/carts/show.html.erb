@@ -5,7 +5,9 @@
 
 <h1>List of contributors</h1>
 <% @current_users.uniq.each do |user| %>
-  <%= user.name %>
+  <%= user.name %><br>
 <% end %>
+<br>
+<button data-key= <%= @cart.key %> class="sendInvite">Invite through Facebook</button>
 
 <a data-key=<%= @cart.key %> class="inviteLink">Invite Link</a<
