@@ -1,7 +1,8 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Split it!</h1>
+
 
 <% if current_user %>
+<h3>Create a new gift</h3>
   <%= form_for @cart, url: carts_path(@cart) do |f| %>
   <%= f.label "Name" %>
   <%= f.text_field :name %> 
@@ -15,7 +16,7 @@
   <%= f.submit "Submit" %>
   <% end %>
 
-  <%= @all.each do |cart| %>
+  <% @all.each do |cart| %>
     <p><%= cart.name %></p>
     <%= link_to "View cart", cart_path(cart) %>
   <% end %>
