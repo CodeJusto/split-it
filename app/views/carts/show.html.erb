@@ -4,8 +4,9 @@
 <!-- <%= @cart.cart_roles %> -->
 
 <h1>List of contributors</h1>
-<% @contributors.uniq.each do |user| %>
-  <%= user.name %><br>
+<% @contributors.each do |user| %>
+  <span><%= User.find(user.user_id).name %>:
+  <%= Role.find(user.role_id).role_text %></span><br>
 <% end %>
 <br>
 <button data-key= <%= @cart.key %> class="FBInvite">Invite through Facebook</button>

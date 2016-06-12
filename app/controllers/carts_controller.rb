@@ -15,8 +15,6 @@ class CartsController < ApplicationController
       current_user.cart_roles.create(user_id: current_user.id, cart_id: @cart.id, role_id: 1)
       params[:cart_id] = @cart.id
       redirect_to cart_path(@cart)
-    else
-
     end
   end
 
@@ -26,11 +24,10 @@ class CartsController < ApplicationController
     # Connect users, cart_roles, and carts
     @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
     # Sorts through those users to find which users belong to your current cart
-    @contributors = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
+    @contributors = CartRole.where(cart_id: @cart.id).uniq
 
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
-        # binding.pry
         render 'show' and return
       end
     end
@@ -39,7 +36,6 @@ class CartsController < ApplicationController
     redirect_to root_path
   end
 
- #  get '/invite/:user_id/:cart_name', to: 'carts#invite', as 'carts_invite'
   def invite
     @cart = Cart.find_by(key: params[:key])
     @cart_array = @cart.cart_roles.map do |c|
@@ -51,6 +47,9 @@ class CartsController < ApplicationController
   end
 
   def destroy
+    @cart = Cart.find(params[:id])
+    @cart.destroy
+    redirect_to root_path
   end
 
   protected 
