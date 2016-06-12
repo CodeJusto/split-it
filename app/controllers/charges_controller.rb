@@ -1,7 +1,7 @@
 class ChargesController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
-1
+
   def new
   end
 
@@ -21,8 +21,7 @@ class ChargesController < ApplicationController
       :customer    => customer.id,
       :amount      => @amount,
       :description => 'Rails Stripe customer',
-      :currency    => 'usd',
-      :capture     => false
+      :currency    => 'usd'    
     )
 
     puts "Customer ID: #{charge.customer}"
@@ -45,6 +44,10 @@ class ChargesController < ApplicationController
       flash[:error] = e.message
       redirect_to new_charge_path
 
+  end
+
+  def refund
+    puts "issuing a refund"
   end
 
 end
