@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :carts
 
+  get '/invite/:key', to: 'carts#invite', as: 'carts_invite'
+
   namespace :final_boss do
     resources :users
     resources :carts

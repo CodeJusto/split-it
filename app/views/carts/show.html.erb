@@ -1,4 +1,11 @@
 <h1>Carts#show</h1>
 <p>Find me in app/views/carts/show.html.erb</p>
 
-<p>Invite Link: <span class="inviteLink"></span></p>
+<!-- <%= @cart.cart_roles %> -->
+
+<h1>List of contributors</h1>
+<% @current_users.uniq.each do |user| %>
+  <%= user.name %>
+<% end %>
+
+<a data-key=<%= @cart.key %> class="inviteLink">Invite Link</a<
