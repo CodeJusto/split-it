@@ -4454,3 +4454,1673 @@ Completed 200 OK in 47ms (Views: 29.1ms | ActiveRecord: 3.0ms)
   [1m[36mSQL (0.2ms)[0m  [1mUPDATE "products" SET "external_id" = $1, "updated_at" = $2 WHERE "products"."id" = $3[0m  [["external_id", "B01AVF6UO8"], ["updated_at", "2016-06-12 21:06:56.496839"], ["id", 8]]
   [1m[35m (0.3ms)[0m  COMMIT
   [1m[36mProduct Load (0.7ms)[0m  [1mSELECT "products".* FROM "products"[0m
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:09:36 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.1ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.1ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 28ms (Views: 23.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 14:09:36 -0700
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"[0m
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:37:42 -0700
+
+SyntaxError (/Users/pengjunp/lighthouse/split-it/app/controllers/carts_controller.rb:80: syntax error, unexpected ','
+/Users/pengjunp/lighthouse/split-it/app/controllers/carts_controller.rb:81: syntax error, unexpected =>, expecting keyword_end
+        'ResponseGroup' => 'ItemAttributes,Small,Images,OfferSummary'
+                          ^
+/Users/pengjunp/lighthouse/split-it/app/controllers/carts_controller.rb:82: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/carts_controller.rb:80: syntax error, unexpected ','
+  app/controllers/carts_controller.rb:81: syntax error, unexpected =>, expecting keyword_end
+  app/controllers/carts_controller.rb:82: syntax error, unexpected '}', expecting keyword_end
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.0ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (50.1ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (114.7ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:38:16 -0700
+
+SyntaxError (/Users/pengjunp/lighthouse/split-it/app/controllers/carts_controller.rb:81: syntax error, unexpected tSTRING_BEG, expecting '}'
+        'ResponseGroup' => 'ItemAttributes,Small,Images,OfferSummary'
+         ^
+/Users/pengjunp/lighthouse/split-it/app/controllers/carts_controller.rb:81: syntax error, unexpected =>, expecting keyword_end
+        'ResponseGroup' => 'ItemAttributes,Small,Images,OfferSummary'
+                          ^
+/Users/pengjunp/lighthouse/split-it/app/controllers/carts_controller.rb:82: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/carts_controller.rb:81: syntax error, unexpected tSTRING_BEG, expecting '}'
+  app/controllers/carts_controller.rb:81: syntax error, unexpected =>, expecting keyword_end
+  app/controllers/carts_controller.rb:82: syntax error, unexpected '}', expecting keyword_end
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.9ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.6ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (59.6ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (128.1ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:38:24 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 6.7ms)
+
+NoMethodError (undefined method `external_id' for []:Array
+Did you mean?  extend):
+  app/controllers/carts_controller.rb:75:in `block in get_amazon_products'
+  app/controllers/carts_controller.rb:75:in `get_amazon_products'
+  app/controllers/carts_controller.rb:33:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (81.7ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (58.6ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (126.6ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:39:05 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.1ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 5.4ms)
+
+NoMethodError (undefined method `+' for #<Product:0x007fd6cb5c0130>):
+  app/controllers/carts_controller.rb:75:in `block in get_amazon_products'
+  app/controllers/carts_controller.rb:75:in `get_amazon_products'
+  app/controllers/carts_controller.rb:33:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.1ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (54.1ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (113.8ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:40:09 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.1ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.1ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 5.2ms)
+
+NoMethodError (undefined method `push' for #<Product:0x007fd6cc75a6c0>
+Did you mean?  puts):
+  app/controllers/carts_controller.rb:75:in `block in get_amazon_products'
+  app/controllers/carts_controller.rb:75:in `get_amazon_products'
+  app/controllers/carts_controller.rb:33:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.8ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (52.1ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (116.6ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:40:41 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.1ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.1ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:41:07 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/show.html.erb within layouts/application (9.4ms)
+Completed 500 Internal Server Error in 21266ms (ActiveRecord: 11.0ms)
+
+ActionView::Template::Error (undefined method `display_name' for #<Array:0x007fd42f357748>
+Did you mean?  display):
+     6: <h1>List of products</h1>
+     7: <ul id="product-list">
+     8:   <% @products.each do |product| %>
+     9:     <li><a href="<%= product_path(product) %>"><%= product.display_name %></a></li>
+    10:   <% end %>
+    11: </ul>
+    12: <%= link_to 'Add product', new_cart_products_path %>
+  app/views/carts/show.html.erb:9:in `block in _app_views_carts_show_html_erb__965570397815839253_70274618551260'
+  app/views/carts/show.html.erb:8:in `each'
+  app/views/carts/show.html.erb:8:in `_app_views_carts_show_html_erb__965570397815839253_70274618551260'
+  app/controllers/carts_controller.rb:34:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.7ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (375.6ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (448.3ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:42:21 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/show.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 170656ms (ActiveRecord: 5.6ms)
+
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+     5: 
+     6: <h1>List of products</h1>
+     7: <ul id="product-list">
+     8:   <% @products["Item"].each do |product| %>
+     9:     <li><h2><%= link_to @product["ItemAttributes"]["Title"], @product["DetailPageURL"] %></h2></li>
+    10:   <% end %>
+    11: </ul>
+  app/views/carts/show.html.erb:8:in `_app_views_carts_show_html_erb__965570397815839253_70274651830660'
+  app/controllers/carts_controller.rb:34:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.6ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (63.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (62.6ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (140.2ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:45:12 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/show.html.erb within layouts/application (3.9ms)
+Completed 500 Internal Server Error in 957ms (ActiveRecord: 11.2ms)
+
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+     6: <h1>List of products</h1>
+     7: <ul id="product-list">
+     8:   <% @products["Item"].each do |product| %>
+     9:     <li><h2><%= link_to @product["ItemAttributes"]["Title"], @product["DetailPageURL"] %></h2></li>
+    10:   <% end %>
+    11: </ul>
+    12: <%= link_to 'Add product', new_cart_products_path %>
+  app/views/carts/show.html.erb:9:in `block in _app_views_carts_show_html_erb__965570397815839253_70274651830660'
+  app/views/carts/show.html.erb:8:in `each'
+  app/views/carts/show.html.erb:8:in `_app_views_carts_show_html_erb__965570397815839253_70274651830660'
+  app/controllers/carts_controller.rb:34:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (84.7ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (81.2ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (171.1ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:45:27 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 631ms (Views: 252.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:45:27 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 14:45:28 -0700
+  [1m[35mCart Load (0.3ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (1.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT 1  [["id", 5]]
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:11:27 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.1ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 1704ms (Views: 24.4ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:11:28 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:11:28 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:11:28 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:11:28 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:11:28 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:11:29 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 15:11:29 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 15:11:29 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 15:11:29 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 15:11:29 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 15:11:29 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:11:29 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:11:29 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:11:29 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:11:29 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 15:11:29 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 15:11:29 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:18:46 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+Completed 500 Internal Server Error in 2794ms (ActiveRecord: 6.4ms)
+
+TypeError (no implicit conversion of String into Integer):
+  app/controllers/carts_controller.rb:100:in `[]'
+  app/controllers/carts_controller.rb:100:in `block in cart_total'
+  app/controllers/carts_controller.rb:100:in `each'
+  app/controllers/carts_controller.rb:100:in `inject'
+  app/controllers/carts_controller.rb:100:in `cart_total'
+  app/controllers/carts_controller.rb:35:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (47.9ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (112.1ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:19:06 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.1ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.1ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+Completed 500 Internal Server Error in 1777ms (ActiveRecord: 6.3ms)
+
+TypeError (no implicit conversion of String into Integer):
+  app/controllers/carts_controller.rb:100:in `[]'
+  app/controllers/carts_controller.rb:100:in `block in cart_total'
+  app/controllers/carts_controller.rb:100:in `each'
+  app/controllers/carts_controller.rb:100:in `inject'
+  app/controllers/carts_controller.rb:100:in `cart_total'
+  app/controllers/carts_controller.rb:35:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.9ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (52.0ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (110.3ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:19:21 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.1ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+Completed 500 Internal Server Error in 5443ms (ActiveRecord: 5.8ms)
+
+TypeError (no implicit conversion of String into Integer):
+  app/controllers/carts_controller.rb:100:in `[]'
+  app/controllers/carts_controller.rb:100:in `block in cart_total'
+  app/controllers/carts_controller.rb:100:in `each'
+  app/controllers/carts_controller.rb:100:in `inject'
+  app/controllers/carts_controller.rb:100:in `cart_total'
+  app/controllers/carts_controller.rb:35:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.7ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (52.0ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (114.3ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:20:51 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.1ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+Completed 500 Internal Server Error in 82210ms (ActiveRecord: 5.8ms)
+
+TypeError (no implicit conversion of String into Integer):
+  app/controllers/carts_controller.rb:102:in `[]'
+  app/controllers/carts_controller.rb:102:in `block in cart_total'
+  app/controllers/carts_controller.rb:102:in `each'
+  app/controllers/carts_controller.rb:102:in `inject'
+  app/controllers/carts_controller.rb:102:in `cart_total'
+  app/controllers/carts_controller.rb:35:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (71.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (50.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (127.9ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:22:14 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.1ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+Completed 500 Internal Server Error in 5012ms (ActiveRecord: 1.1ms)
+
+Excon::Errors::SocketError (No route to host - connect(2) for 54.239.16.120:80 (Errno::EHOSTUNREACH)):
+  app/controllers/carts_controller.rb:78:in `get_amazon_products'
+  app/controllers/carts_controller.rb:33:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.1ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (69.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (91.7ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (251.9ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:22:34 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.1ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+Completed 500 Internal Server Error in 1054ms (ActiveRecord: 1.2ms)
+
+TypeError (no implicit conversion of String into Integer):
+  app/controllers/carts_controller.rb:102:in `[]'
+  app/controllers/carts_controller.rb:102:in `block in cart_total'
+  app/controllers/carts_controller.rb:102:in `each'
+  app/controllers/carts_controller.rb:102:in `inject'
+  app/controllers/carts_controller.rb:102:in `cart_total'
+  app/controllers/carts_controller.rb:35:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.0ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (69.8ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (191.6ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:22:53 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 648ms (Views: 27.6ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 15:22:54 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:23:05 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 1080205ms (Views: 60.8ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:41:05 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.1ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.1ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.5ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 3840ms (Views: 75.3ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 15:41:09 -0700
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."display_name" = $1[0m  [["display_name", "GoPro Mount"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "products" WHERE "products"."id" = $1  [["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "products" WHERE "products"."id" = $1  [["id", 6]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:42:58 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (1.9ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15459ms (Views: 37.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 15:43:14 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:44:32 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.1ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 8510ms (Views: 56.8ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 15:44:41 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:45:31 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.1ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.5ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 7682ms (Views: 57.0ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 15:45:39 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:46:32 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 12263ms (Views: 49.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 15:46:44 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:47:00 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 9380ms (Views: 57.7ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 15:47:10 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:47:21 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.1ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.1ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (1.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 1155ms (Views: 24.7ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 15:47:22 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 15:47:23 -0700
+
+
+Started GET "/cart/1/products/new" for ::1 at 2016-06-12 15:47:55 -0700
+Processing by Cart::ProductsController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendered cart/products/new.html.erb within layouts/application (21.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 57ms (Views: 55.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/cart/1/products" for ::1 at 2016-06-12 15:48:01 -0700
+Processing by Cart::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5MQFXbR/dcCXY2sAYFwQ7Lb9mbckXBLtIE6v29FbfEJsuzyhW9qnn4Rohr52LPM8WcP6vxTzWOHzmbxdBa3ReA==", "product"=>{"display_name"=>"Kindle", "url"=>"https://www.amazon.ca/gp/product/B00KDRU028/ref=kin_comp_dk_k_txt", "quantity"=>"1", "cart_id"=>"1"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("display_name", "url", "quantity", "cart_id", "external_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["display_name", "Kindle"], ["url", "https://www.amazon.ca/gp/product/B00KDRU028/ref=kin_comp_dk_k_txt"], ["quantity", 1], ["cart_id", 1], ["external_id", "B00KDRU028"], ["created_at", "2016-06-12 22:48:01.159849"], ["updated_at", "2016-06-12 22:48:01.159849"]]
+  [1m[35m (5.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/carts/1
+Completed 302 Found in 10ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:48:01 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00KDRU028"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 606ms (Views: 21.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:48:39 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.1ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KDRU028"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 600ms (Views: 22.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 15:48:40 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:50:07 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.1ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00KDRU028"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 44023ms (Views: 61.2ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:50:51 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.1ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.1ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KDRU028"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 791ms (Views: 34.0ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 15:50:52 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:54:33 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.1ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00KDRU028"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 1160ms (ActiveRecord: 6.7ms)
+
+ActionView::Template::Error (no implicit conversion of String into Integer):
+     7: <h1>List of products</h1>
+     8: <ul id="product-list">
+     9:   <% @products.each do |product| %>
+    10:     <li><h2><%= link_to product.display_name, product.url %> <%= @amazon.find{ |i| i["ASIN"] == product.external_id } %> x <%= product.quantity %></h2></li>
+    11:   <% end %>
+    12: </ul>
+    13: <%= link_to 'Add product', new_cart_products_path %>
+  app/views/carts/show.html.erb:10:in `[]'
+  app/views/carts/show.html.erb:10:in `block (2 levels) in _app_views_carts_show_html_erb__965570397815839253_70274680647340'
+  app/views/carts/show.html.erb:10:in `each'
+  app/views/carts/show.html.erb:10:in `find'
+  app/views/carts/show.html.erb:10:in `block in _app_views_carts_show_html_erb__965570397815839253_70274680647340'
+  app/views/carts/show.html.erb:9:in `_app_views_carts_show_html_erb__965570397815839253_70274680647340'
+  app/controllers/carts_controller.rb:36:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.0ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (48.3ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/pengjunp/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (107.1ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 15:55:47 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.1ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KDRU028"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 480874ms (Views: 25.3ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:03:48 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 16:03:49 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 16:03:53 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.1ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00KDRU028"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 82997ms (Views: 31.3ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 16:05:16 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.1ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KDRU028"]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 712ms (Views: 60.9ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 16:05:17 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 16:06:03 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00KDRU028"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B00H4XH5IG"]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1  [["cart_id", 1], ["external_id", "B00KA7SQ2W"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."cart_id" = $1 AND "products"."external_id" = $2 LIMIT 1[0m  [["cart_id", 1], ["external_id", "B01AVF6UO8"]]
+  Rendered carts/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 1197ms (Views: 22.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:06:04 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:06:04 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:06:04 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:06:04 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:06:04 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 16:06:04 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 16:06:04 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 16:06:05 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 16:06:05 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 16:06:05 -0700
+
+
+Started GET "/assets/carts.self-824c6e6e9b986661c794ab9e8f6ff7de0bd1e3ace81b7bd93c41befb37ed6dd3.js?body=1" for ::1 at 2016-06-12 16:06:05 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 16:06:05 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 16:06:05 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 16:06:05 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 16:06:05 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 16:06:05 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 16:06:05 -0700

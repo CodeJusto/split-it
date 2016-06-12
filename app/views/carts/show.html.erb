@@ -2,11 +2,12 @@
 <p>Find me in app/views/carts/show.html.erb</p>
 
 <!-- <%= @cart.cart_roles %> -->
+<h2>CDN$ <%= @cart_total %></h2>
 
 <h1>List of products</h1>
 <ul id="product-list">
   <% @products.each do |product| %>
-    <li><a href="<%= product_path(product) %>"><%= product.display_name %></a></li>
+    <li><h2><%= link_to product.display_name, product.url %> <%= @amazon.find{ |i| i["ASIN"] == product.external_id }["OfferSummary"]["LowestNewPrice"]["FormattedPrice"] %> x <%= product.quantity %></h2></li>
   <% end %>
 </ul>
 <%= link_to 'Add product', new_cart_products_path %>

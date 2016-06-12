@@ -30,7 +30,10 @@ class CartsController < ApplicationController
 
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
+        @amazon = get_amazon_products(@cart.products)
+        # byebug
         @products = @cart.products
+        @cart_total = cart_total(@cart.products)
         render 'show' and return
       end
     end
@@ -68,5 +71,33 @@ class CartsController < ApplicationController
     unless current_user
       redirect_to root_path
     end
+  end
+
+  def get_amazon_products(products)
+    product_ids = products.inject([]) { |arr, product| arr.push(product.external_id)  } 
+
+    response = $amazon_request.item_lookup(
+      query: {
+        'ItemId' => product_ids.join(','),
+        'ResponseGroup' => 'ItemAttributes,Small,Images,OfferSummary'
+      }
+    )
+
+    response.to_h["ItemLookupResponse"]["Items"]["Item"]
+  end
+
+  def cart_total(products)
+    product_ids = products.inject([]) { |arr, product| arr.push(product.external_id)  } 
+
+    response = $amazon_request.item_lookup(
+      query: {
+        'ItemId' => product_ids.join(','),
+        'ResponseGroup' => 'OfferSummary'
+      }
+    )
+
+    items = response.to_h["ItemLookupResponse"]["Items"]["Item"]
+
+    total = items.inject(0) { |sum, item| sum + item["OfferSummary"]["LowestNewPrice"]["Amount"].to_i * @cart.products.find_by(external_id: item["ASIN"]).quantity } / 100.00
   end
 end
