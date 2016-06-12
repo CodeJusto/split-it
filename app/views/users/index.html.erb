@@ -17,7 +17,7 @@
   <% end %>
 
   <% @all.each do |cart| %>
-    <p><%= cart.name %></p>
-    <%= link_to "View cart", cart_path(cart) %>
+  <%= render 'list_carts', cart: cart %>
+
   <% end %>
 <% end %>
