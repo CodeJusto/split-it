@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610214748) do
+ActiveRecord::Schema.define(version: 20160611204049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160610214748) do
     t.integer  "target_amount"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "key"
   end
 
   create_table "notification_templates", force: :cascade do |t|
@@ -74,10 +75,14 @@ ActiveRecord::Schema.define(version: 20160610214748) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "name"
-    t.string  "email"
-    t.string  "password_digest"
-    t.boolean "final_boss",      default: false
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.boolean  "final_boss",       default: false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
 end
