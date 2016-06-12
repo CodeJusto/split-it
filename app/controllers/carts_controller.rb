@@ -21,7 +21,6 @@ class CartsController < ApplicationController
   end
 
   def show
-
     @current_users = []
     @cart = Cart.find(params[:id])
     # @users = User.joins(cart_roles: :carts)
