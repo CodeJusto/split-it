@@ -1,0 +1,32 @@
+<h1>New Product</h1>
+
+<%= form_for [:cart, @product] do |f| %>
+<% if @product.errors.any? %>
+  <div>
+    <%= pluralize(@product.errors.count, "error") %> prevented this movie from being submitted:
+    <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div>
+  <%= f.label :display_name %><br>
+  <%= f.text_field :display_name %>
+</div>
+<div>
+  <%= f.label :url %><br>
+  <%= f.url_field :url %>
+</div>
+<div>
+  <%= f.label :quantity %><br>
+  <%= f.number_field :quantity %>
+</div>
+<div>
+  <%= f.hidden_field(:cart_id, :value => params[:id]) %>
+</div>
+<div>
+  <%= f.submit "Submit" %> 
+</div>
+<% end %>

@@ -30,11 +30,11 @@ class CartsController < ApplicationController
 
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
-        # binding.pry
+        @products = @cart.products
         render 'show' and return
       end
     end
-
+    
     # Notify them they do not have access
     redirect_to root_path
   end

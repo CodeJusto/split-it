@@ -5,9 +5,11 @@
 
 <h1>List of products</h1>
 <ul id="product-list">
-  
+  <% @products.each do |product| %>
+    <li><a href="<%= product_path(product) %>"><%= product.display_name %></a></li>
+  <% end %>
 </ul>
-<button>Add product</button>
+<%= link_to 'Add product', new_cart_products_path %>
 <hr>
 
 <h1>List of contributors</h1>

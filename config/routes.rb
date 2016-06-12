@@ -8,6 +8,14 @@ Rails.application.routes.draw do
 
   resources :carts
 
+  namespace :cart do
+    scope '/:id' do
+      resource :products, only:[:new, :create]
+    end
+  end
+
+  resources :products
+
   get '/invite/:key', to: 'carts#invite', as: 'carts_invite'
 
   namespace :final_boss do
