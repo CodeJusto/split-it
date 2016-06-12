@@ -1,5 +1,5 @@
 
-$(document).on('page:load', function() {
+$(document).ready(function() {
   
   $('.FBInvite').on('click', function(e) {
     console.log("Facebook")
