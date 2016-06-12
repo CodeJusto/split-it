@@ -3,6 +3,13 @@
 
 <!-- <%= @cart.cart_roles %> -->
 
+<h1>List of products</h1>
+<ul id="product-list">
+  
+</ul>
+<button>Add product</button>
+<hr>
+
 <h1>List of contributors</h1>
 <% @current_users.uniq.each do |user| %>
   <%= user.name %><br>
