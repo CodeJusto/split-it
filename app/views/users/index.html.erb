@@ -1,20 +1,8 @@
 <h1>Split it!</h1>
 
-
 <% if current_user %>
 <h3>Create a new gift</h3>
-  <%= form_for @cart, url: carts_path(@cart) do |f| %>
-  <%= f.label "Name" %>
-  <%= f.text_field :name %> 
-  <br>
-  <%= f.label "Minimum Payment" %>
-  <%= f.number_field :minimum_payment %>
-  <br>
-  <%= f.label "Due Date" %>
-  <%= f.date_field :expiry %>
-  <br>
-  <%= f.submit "Submit" %>
-  <% end %>
+  <%= render 'newCart' %>
 
   <% @all.each do |cart| %>
   <%= render 'list_carts', cart: cart %>
