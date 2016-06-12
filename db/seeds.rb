@@ -7,10 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 5.times do 
-  User.create(name: Faker::Name.name, email: Faker::Internet.email, password_digest: 'password' )
+  User.create(name: Faker::Name.name, email: Faker::Internet.email, password: 'password' )
 end
 
-User.create(name: "Chadster", email: "ceebs@faith.com", password_digest: 'password', final_boss: true)
+User.create(name: "Chadster", email: "ceebs@faith.com", password: 'password', final_boss: true)
 
 
 Role.create(role_text: "Organizer")

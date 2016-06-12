@@ -38,7 +38,7 @@ gem 'vacuum', '~> 1.4'
 # Facebook outh login
 gem 'omniauth-facebook'
 
-
+gem 'pry'
 
 
 # Use Unicorn as the app server

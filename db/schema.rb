@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160612114545) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160612114545) do
     t.integer  "target_amount"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "key"
   end
 
   create_table "notification_templates", force: :cascade do |t|
@@ -54,7 +56,7 @@ ActiveRecord::Schema.define(version: 20160612114545) do
     t.datetime "updated_at"
     t.string   "stripe_customer_id"
     t.string   "stripe_charge_id"
-    t.string   "type",               default: "paid"
+    t.string   "type", default: "paid"
   end
 
   create_table "products", force: :cascade do |t|
@@ -76,10 +78,14 @@ ActiveRecord::Schema.define(version: 20160612114545) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "name"
-    t.string  "email"
-    t.string  "password_digest"
-    t.boolean "final_boss",      default: false
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.boolean  "final_boss",       default: false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
 end

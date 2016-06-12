@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>SplitIt</title>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">Stripe.setPublishableKey('pk_test_fUkk8bcH5pCRu0YdNcwWPKXg');</script>
@@ -9,7 +10,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <div id="user_nav">
+    <% if current_user %>
+      Signed in as <strong><%= current_user.name %></strong>!
+      <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    <% else %>
+      <!-- Register to be added later -->
+      <%= form_tag sessions_path do %>
+        <%= label_tag "Email" %>
+        <%= text_field_tag :email %> 
+        <%= label_tag "Password" %>
+        <%= password_field_tag :password %>
+        <%= submit_tag "Submit" %>
+      <% end %> 
+      <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+    <% end %>
+  </div>
 <%= yield %>
 
 </body>
