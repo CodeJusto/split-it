@@ -1,5 +1,6 @@
 class OmniauthSessionsController < ApplicationController
   def create
+    session[:errors] = nil
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
     if session[:key]

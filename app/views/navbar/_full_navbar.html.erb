@@ -1,0 +1,11 @@
+  <div id="user_nav">
+    <% if current_user %>
+     <%= render 'navbar/logged_in' %>
+    <% else %>
+     <%= render 'navbar/registration' %>
+     <%= render 'navbar/login' %> 
+     <%= link_to "Want to use Facebook?", "/auth/facebook", id: "sign_in" %>
+    <% end %>
+  </div>
+
+  <%= render 'navbar/errors' %>
