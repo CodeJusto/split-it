@@ -21,12 +21,12 @@ class CartsController < ApplicationController
   end
 
   def show
-    @current_users = []
+    @contributors = []
     @cart = Cart.find(params[:id])
-    # @users = User.joins(cart_roles: :carts)
+    # Connect users, cart_roles, and carts
     @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
-    @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
-    # @current_users.flatten
+    # Sorts through those users to find which users belong to your current cart
+    @contributors = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
 
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
@@ -45,7 +45,6 @@ class CartsController < ApplicationController
     @cart_array = @cart.cart_roles.map do |c|
       c.user_id
     end
-    # binding.pry
   end
 
   def update
@@ -66,6 +65,7 @@ class CartsController < ApplicationController
 
   def require_login
     unless current_user
+      session[:key] = params[:key]
       redirect_to root_path
     end
   end

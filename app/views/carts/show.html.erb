@@ -4,7 +4,7 @@
 <!-- <%= @cart.cart_roles %> -->
 
 <h1>List of contributors</h1>
-<% @current_users.uniq.each do |user| %>
+<% @contributors.uniq.each do |user| %>
   <%= user.name %><br>
 <% end %>
 <br>
