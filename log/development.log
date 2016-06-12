@@ -4308,3 +4308,2446 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+
+
+Started GET "/" for ::1 at 2016-06-12 12:51:00 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.6) lib/active_record/migration.rb:392:in `check_pending!'
+  activerecord (4.2.6) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (84.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (403.2ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (498.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddOauthToUsers (20160611001315)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "provider" character varying[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "uid" character varying
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "oauth_token" character varying[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "oauth_expires_at" timestamp
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160611001315"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to AddKeyToCarts (20160611204049)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "carts" ADD "key" character varying
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160611204049"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'cart_roles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'carts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'notification_templates'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'notifications'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'payments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'products'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'roles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'statuses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/" for ::1 at 2016-06-12 12:51:15 -0700
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 518ms (Views: 470.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 12:51:16 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 12:51:16 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 12:51:16 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 12:51:16 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 12:51:16 -0700
+
+
+Started POST "/sessions" for ::1 at 2016-06-12 12:51:50 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g9nYkyVZVjMKeFCYVUHF3vkssyX9synys35kFR56fs70RkJwSQ1lgHVb8PcWUHDlNkpA+/RKkVEKK8QeR19vuQ==", "email"=>"stone_grimes@leuschke.org", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "stone_grimes@leuschke.org"]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.8ms)
+
+BCrypt::Errors::InvalidHash (invalid hash):
+  app/controllers/sessions_controller.rb:4:in `create'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (76.1ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (64.1ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (147.5ms)
+
+
+Started GET "/auth/facebook" for ::1 at 2016-06-12 12:52:22 -0700
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook" for ::1 at 2016-06-12 12:52:22 -0700
+(facebook) Request phase initiated.
+
+
+Started POST "/sessions" for ::1 at 2016-06-12 12:53:19 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g9nYkyVZVjMKeFCYVUHF3vkssyX9synys35kFR56fs70RkJwSQ1lgHVb8PcWUHDlNkpA+/RKkVEKK8QeR19vuQ==", "email"=>"ceebs@faith.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "ceebs@faith.com"]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms)
+
+BCrypt::Errors::InvalidHash (invalid hash):
+  app/controllers/sessions_controller.rb:4:in `create'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (69.9ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (71.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (152.4ms)
+
+
+Started POST "/sessions" for ::1 at 2016-06-12 12:53:38 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g9nYkyVZVjMKeFCYVUHF3vkssyX9synys35kFR56fs70RkJwSQ1lgHVb8PcWUHDlNkpA+/RKkVEKK8QeR19vuQ==", "email"=>"ceebs@faith.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "ceebs@faith.com"]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms)
+
+BCrypt::Errors::InvalidHash (invalid hash):
+  app/controllers/sessions_controller.rb:4:in `create'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (70.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (69.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (147.9ms)
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "cart_roles" ("id" serial primary key, "user_id" integer, "cart_id" integer, "role_id" integer) 
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "carts" ("id" serial primary key, "status_id" integer, "expiry" timestamp, "minimum_payment" integer, "name" character varying, "total_paid" integer, "target_amount" integer, "created_at" timestamp, "updated_at" timestamp, "key" character varying) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "notification_templates" ("id" serial primary key, "role_id" integer, "email_text" text, "ui_text" text, "description" character varying) 
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "notifications" ("id" serial primary key, "cart_id" integer, "notification_template_id" integer, "created_at" timestamp) [0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "payments" ("id" serial primary key, "user_id" integer, "cart_id" integer, "amount" integer, "created_at" timestamp, "updated_at" timestamp, "stripe_customer_id" character varying, "stripe_charge_id" character varying, "type" character varying DEFAULT 'paid') 
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "products" ("id" serial primary key, "cart_id" integer, "url" character varying, "display_name" character varying, "external_id" character varying, "quantity" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "roles" ("id" serial primary key, "role_text" character varying) 
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "statuses" ("id" serial primary key, "text" character varying) [0m
+  [1m[35m (4.1ms)[0m  CREATE TABLE "users" ("id" serial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "final_boss" boolean DEFAULT 'f', "provider" character varying, "uid" character varying, "oauth_token" character varying, "oauth_expires_at" timestamp) 
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160612114545')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160610214748')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160610230000')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160611001315')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160611204049')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Newton Roob"], ["email", "jedediah@wilkinson.name"], ["password_digest", "$2a$10$0hQJlYK7B2GKZdqMvD1GaeM3kZfHKz2FIf.C/pYEPBejnJ5SCc6sC"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Ms. Alexandria Kulas"], ["email", "leonora.boyle@hamill.name"], ["password_digest", "$2a$10$y3HmNDAGy2MlRQOYB84U8uGGoAxMoyWvZepLG6iz95iGGMRnB.BSe"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Damaris Stokes"], ["email", "willow@kerluke.name"], ["password_digest", "$2a$10$GcGjrQJa9wdu05D.CLTYfebq7p211ohdlKHvP2bFeSMc5Yw60yMny"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Halie Harber Sr."], ["email", "makayla@hicklekozey.biz"], ["password_digest", "$2a$10$stYsAsnnFpElgrmOww03xOM/V./LOtDsr2PVqLZRmz3W7Wb2IbKl."]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Clark Osinski"], ["email", "katharina_will@beier.net"], ["password_digest", "$2a$10$sL5R3E84q.gAc2PUCRcWGOUPzF33D0TQYTwg67OepgI0gSoztgc46"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "final_boss") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Chadster"], ["email", "ceebs@faith.com"], ["password_digest", "$2a$10$4/0HfqUxKbqb.o5bv/mewerKqVGuxKj0.eYzOrnYb2rB7GTB7WkOK"], ["final_boss", "t"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "roles" ("role_text") VALUES ($1) RETURNING "id"[0m  [["role_text", "Organizer"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "roles" ("role_text") VALUES ($1) RETURNING "id"  [["role_text", "Contributor"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "statuses" ("text") VALUES ($1) RETURNING "id"[0m  [["text", "Pending"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "statuses" ("text") VALUES ($1) RETURNING "id"  [["text", "Active"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "statuses" ("text") VALUES ($1) RETURNING "id"[0m  [["text", "Cancelled"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "statuses" ("text") VALUES ($1) RETURNING "id"  [["text", "Achieved"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "statuses" ("text") VALUES ($1) RETURNING "id"[0m  [["text", "Shipped"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "statuses" ("text") VALUES ($1) RETURNING "id"  [["text", "Archived"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for ::1 at 2016-06-12 12:59:32 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 313ms (Views: 260.2ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/sessions" for ::1 at 2016-06-12 12:59:47 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JbOzQWqoTHsdZdJDFVwbp0FZs/kNv2PWkAjqqDCTyb9SLCmiBvx/yGJGcixWTa6cjj9AJwRG23UpXUqjabbYyA==", "email"=>"jedediah@wilkinson.name", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "jedediah@wilkinson.name"]]
+Completed   in 129211ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2016-06-12 13:02:32 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 283ms (Views: 242.5ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/auth/facebook" for ::1 at 2016-06-12 13:02:46 -0700
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook" for ::1 at 2016-06-12 13:02:47 -0700
+(facebook) Request phase initiated.
+
+
+Started POST "/sessions" for ::1 at 2016-06-12 13:02:57 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zpfkx2ksuHpA2oLrI7nUgK6vCeuCd3xodesrGRA7+/oRCH4kBXiLyT/5IoRgqGG7Ycn6NYuOxMvMvosSSR7qjQ==", "email"=>"jedediah@wilkinson.name", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "jedediah@wilkinson.name"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 94ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2016-06-12 13:02:57 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.5ms)[0m  SELECT "carts".* FROM "carts"
+  Rendered users/index.html.erb within layouts/application (453.9ms)
+Completed 200 OK in 481ms (Views: 479.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/carts" for ::1 at 2016-06-12 13:03:52 -0700
+Processing by CartsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SA0d+RJTCKQFAflNTUDttmBjdUBdekvGKXJBkn6nH88/kocafgc7F3oiWSIOUViNrwWGnlSD82WQJ+GZJ4IOuA==", "cart"=>{"name"=>"Diamond Encrusted Baby Grand with Baby Elephant Tusk Ivory Keys", "minimum_payment"=>"3000", "expiry"=>"2016-07-04"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "carts" ("name", "expiry", "minimum_payment", "status_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Diamond Encrusted Baby Grand with Baby Elephant Tusk Ivory Keys"], ["expiry", "2016-07-04 00:00:00.000000"], ["minimum_payment", 3000], ["status_id", 1], ["key", "9884a607-9ab7-452e-a92a-dc0a6e6ef99d"], ["created_at", "2016-06-12 20:03:52.756036"], ["updated_at", "2016-06-12 20:03:52.756036"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "cart_roles" ("user_id", "cart_id", "role_id") VALUES ($1, $2, $3) RETURNING "id"  [["user_id", 1], ["cart_id", 1], ["role_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/carts/1
+Completed 302 Found in 33ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 13:03:52 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.3ms)
+  Rendered carts/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 47ms (Views: 33.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 13:16:34 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.3ms)
+  Rendered carts/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 64ms (Views: 30.4ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 13:16:34 -0700
+
+
+Started POST "/charges" for ::1 at 2016-06-12 13:16:46 -0700
+Processing by ChargesController#create as HTML
+  Parameters: {"stripeToken"=>"tok_18Lf0kFivzcmVo6mONkX6l4c"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 884ms (ActiveRecord: 0.5ms)
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/charges_controller.rb:34:in `create'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (74.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (74.7ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (160.1ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 13:17:11 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.5ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.4ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  Rendered carts/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 91ms (Views: 41.0ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 13:17:12 -0700
+
+
+Started POST "/charges" for ::1 at 2016-06-12 13:18:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ChargesController#create as HTML
+  Parameters: {"stripeToken"=>"tok_18Lf2YFivzcmVo6mq60MUnxG"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 1167ms (ActiveRecord: 5.4ms)
+
+ActiveRecord::UnknownAttributeError (unknown attribute 'captured' for Payment.):
+  app/controllers/charges_controller.rb:32:in `create'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (395.2ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (471.2ms)
+
+
+Started POST "/charges" for ::1 at 2016-06-12 13:19:13 -0700
+Processing by ChargesController#create as HTML
+  Parameters: {"stripeToken"=>"tok_18Lf37FivzcmVo6m5VUPb4R1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "payments" ("user_id", "stripe_customer_id", "stripe_charge_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["stripe_customer_id", "cus_8cusUNaNgL5DN7"], ["stripe_charge_id", "ch_18Lf38FivzcmVo6melM49YGh"], ["amount", 500], ["created_at", "2016-06-12 20:19:15.167956"], ["updated_at", "2016-06-12 20:19:15.167956"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  Rendered charges/create.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1655ms (Views: 226.3ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/charges" for ::1 at 2016-06-12 13:27:02 -0700
+Processing by ChargesController#create as HTML
+  Parameters: {"stripeToken"=>"tok_18LfAgFivzcmVo6mr7RgIUJE"}
+Completed 500 Internal Server Error in 897ms (ActiveRecord: 0.0ms)
+
+Stripe::InvalidRequestError (Missing required param: amount.):
+  app/controllers/charges_controller.rb:20:in `create'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (74.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (66.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (142.2ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 13:27:43 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.3ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.3ms)
+  Rendered carts/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 99ms (Views: 35.0ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 13:27:43 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 13:28:38 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.4ms)
+  Rendered carts/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 35ms (Views: 30.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 13:28:38 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 13:29:51 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.3ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.3ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.5ms)
+  Rendered carts/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 73ms (Views: 35.3ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 13:29:51 -0700
+
+
+Started POST "/charges" for ::1 at 2016-06-12 13:31:11 -0700
+Processing by ChargesController#create as HTML
+  Parameters: {"stripeToken"=>"tok_18LfEgFivzcmVo6mpXxlgkvo"}
+Completed 500 Internal Server Error in 449ms (ActiveRecord: 0.0ms)
+
+Stripe::InvalidRequestError (Missing required param: amount.):
+  app/controllers/charges_controller.rb:20:in `create'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (72.8ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (65.1ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (145.1ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 13:31:54 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.3ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.5ms)
+  Rendered carts/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 73ms (Views: 34.0ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 13:31:55 -0700
+
+
+Started POST "/charges" for ::1 at 2016-06-12 13:32:09 -0700
+Processing by ChargesController#create as HTML
+  Parameters: {"amount"=>"3000", "stripeToken"=>"tok_18LfFdFivzcmVo6mzBI8VCif"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "payments" ("user_id", "stripe_customer_id", "stripe_charge_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["stripe_customer_id", "cus_8cv5FAMS2lncTB"], ["stripe_charge_id", "ch_18LfFdFivzcmVo6mYqCGyWRn"], ["amount", 3000], ["created_at", "2016-06-12 20:32:10.377511"], ["updated_at", "2016-06-12 20:32:10.377511"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  Rendered charges/create.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1249ms (Views: 28.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 13:34:27 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.3ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.3ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.5ms)
+  Rendered carts/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 69ms (Views: 34.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 13:34:27 -0700
+
+
+Started POST "/charges" for ::1 at 2016-06-12 13:34:41 -0700
+Processing by ChargesController#create as HTML
+  Parameters: {"amount"=>"3000", "cart_id"=>"", "stripeToken"=>"tok_18LfI5FivzcmVo6mMtp9Tzpp"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "payments" ("user_id", "stripe_customer_id", "stripe_charge_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["stripe_customer_id", "cus_8cv8AuY2PiZ28a"], ["stripe_charge_id", "ch_18LfI6FivzcmVo6m0eEtxuX9"], ["amount", 3000], ["created_at", "2016-06-12 20:34:42.862919"], ["updated_at", "2016-06-12 20:34:42.862919"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  Rendered charges/create.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1217ms (Views: 28.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 13:38:06 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.3ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.6ms)
+  Rendered carts/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 75ms (Views: 35.5ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 13:38:06 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 13:38:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.4ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (9.6ms)
+  Rendered carts/show.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 374ms (Views: 266.6ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 13:38:23 -0700
+
+
+Started POST "/charges" for ::1 at 2016-06-12 13:38:46 -0700
+Processing by ChargesController#create as HTML
+  Parameters: {"amount"=>"3000", "cart"=>"", "stripeToken"=>"tok_18LfM2FivzcmVo6mAPFCXmr1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "payments" ("user_id", "stripe_customer_id", "stripe_charge_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["stripe_customer_id", "cus_8cvChI2BEyhkUA"], ["stripe_charge_id", "ch_18LfM3FivzcmVo6msZ6iOfb8"], ["amount", 3000], ["created_at", "2016-06-12 20:38:47.403547"], ["updated_at", "2016-06-12 20:38:47.403547"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered charges/create.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 696ms (Views: 37.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 13:40:03 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.3ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.4ms)
+  Rendered carts/show.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 78ms (Views: 72.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 13:40:03 -0700
+
+
+Started POST "/charges" for ::1 at 2016-06-12 13:40:20 -0700
+Processing by ChargesController#create as HTML
+  Parameters: {"amount"=>"3500", "cart"=>"1", "stripeToken"=>"tok_18LfNYFivzcmVo6mkWBVBjah"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "payments" ("user_id", "cart_id", "stripe_customer_id", "stripe_charge_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["user_id", 1], ["cart_id", 1], ["stripe_customer_id", "cus_8cvEDTCAmz9i72"], ["stripe_charge_id", "ch_18LfNZFivzcmVo6msbt3COlN"], ["amount", 3500], ["created_at", "2016-06-12 20:40:22.705514"], ["updated_at", "2016-06-12 20:40:22.705514"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  Rendered charges/create.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1876ms (Views: 46.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/charges" for ::1 at 2016-06-12 13:45:57 -0700
+
+AbstractController::ActionNotFound (The action 'index' could not be found for ChargesController):
+  actionpack (4.2.6) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  omniauth (1.3.1) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.3.1) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.3.1) lib/omniauth/builder.rb:63:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (390.7ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (477.6ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:00:29 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.4ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.3ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  Rendered carts/_contributions.html.erb (4.0ms)
+  Rendered carts/show.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 7.3ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <% @cart_payments.each do |payment| %>
+    2:   <%= payment.user.name %><br>
+    3: <% end %>
+  app/views/carts/_contributions.html.erb:1:in `_app_views_carts__contributions_html_erb___967463715437750228_70290734683820'
+  app/views/carts/show.html.erb:16:in `_app_views_carts_show_html_erb___43154313500615691_70290739009420'
+  app/controllers/carts_controller.rb:34:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (75.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (61.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (140.7ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:00:47 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.3ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  Rendered carts/_contributions.html.erb (54.7ms)
+  Rendered carts/show.html.erb within layouts/application (56.9ms)
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 1.2ms)
+
+ActionView::Template::Error (undefined local variable or method `cart_payments' for #<#<Class:0x007fdbac8a3830>:0x007fdbacc46cf8>
+Did you mean?  cart_path):
+    1: <% cart_payments.each do |payment| %>
+    2:   <%= payment.user.name %><br>
+    3: <% end %>
+  app/views/carts/_contributions.html.erb:1:in `_app_views_carts__contributions_html_erb___967463715437750228_70290741978140'
+  app/views/carts/show.html.erb:16:in `_app_views_carts_show_html_erb___43154313500615691_70290739009420'
+  app/controllers/carts_controller.rb:34:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (71.7ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (72.7ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (146.4ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:01:23 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.5ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  Rendered carts/_contributions.html.erb (38.0ms)
+  Rendered carts/show.html.erb within layouts/application (41.9ms)
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 5.5ms)
+
+ActionView::Template::Error (undefined local variable or method `cart_payments' for #<#<Class:0x007fdbaa2cd3e0>:0x007fdba8dc8d28>
+Did you mean?  cart_path):
+    1: <% cart_payments.each do |payment| %>
+    2:   <%= payment.user.name %><br>
+    3: <% end %>
+  app/views/carts/_contributions.html.erb:1:in `_app_views_carts__contributions_html_erb___967463715437750228_70290741978140'
+  app/views/carts/show.html.erb:16:in `_app_views_carts_show_html_erb___43154313500615691_70290739009420'
+  app/controllers/carts_controller.rb:34:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (67.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (57.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (130.9ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:01:38 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.3ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  Rendered carts/_contributions.html.erb (37.3ms)
+  Rendered carts/show.html.erb within layouts/application (39.4ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (undefined local variable or method `cart_payments' for #<#<Class:0x007fdbaa2cd3e0>:0x007fdba4ca32f8>
+Did you mean?  cart_path):
+    1: <% cart_payments.each do |payment| %>
+    2:   <%= payment.user.name %><br>
+    3: <% end %>
+  app/views/carts/_contributions.html.erb:1:in `_app_views_carts__contributions_html_erb___967463715437750228_70290741978140'
+  app/views/carts/show.html.erb:16:in `_app_views_carts_show_html_erb___43154313500615691_70290739009420'
+  app/controllers/carts_controller.rb:34:in `block in show'
+  app/controllers/carts_controller.rb:31:in `show'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (77.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (61.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (134.5ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:02:13 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 2.2ms)
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/carts_controller.rb:24:in `show'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (73.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (60.7ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (139.9ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:03:13 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[36mPayment Load (0.2ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_contributions.html.erb (26.0ms)
+  Rendered carts/show.html.erb within layouts/application (29.5ms)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 5.7ms)
+
+ActionView::Template::Error (undefined local variable or method `cart_payments' for #<#<Class:0x007fdbab0e2e08>:0x007fdbab0c2158>
+Did you mean?  @cart_payments):
+    1: <% cart_payments.each do |payment| %>
+    2:   <%= payment.user.name %><br>
+    3: <% end %>
+  app/views/carts/_contributions.html.erb:1:in `_app_views_carts__contributions_html_erb___967463715437750228_70290741978140'
+  app/views/carts/show.html.erb:16:in `_app_views_carts_show_html_erb___43154313500615691_70290739009420'
+  app/controllers/carts_controller.rb:35:in `block in show'
+  app/controllers/carts_controller.rb:32:in `show'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (69.9ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (61.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (140.6ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:03:27 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[36mPayment Load (0.3ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_contributions.html.erb (13.1ms)
+  Rendered carts/show.html.erb within layouts/application (16.3ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.4ms)
+
+ActionView::Template::Error (The single-table inheritance mechanism failed to locate the subclass: 'paid'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Payment.inheritance_column to use another column for that information.):
+    1: <% @cart_payments.each do |payment| %>
+    2:   <%= payment.user.name %><br>
+    3: <% end %>
+  app/views/carts/_contributions.html.erb:1:in `_app_views_carts__contributions_html_erb___967463715437750228_70290662507040'
+  app/views/carts/show.html.erb:16:in `_app_views_carts_show_html_erb___43154313500615691_70290739009420'
+  app/controllers/carts_controller.rb:35:in `block in show'
+  app/controllers/carts_controller.rb:32:in `show'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (60.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (133.0ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:03:38 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.1ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[35mPayment Load (0.6ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_contributions.html.erb (4.9ms)
+  Rendered carts/show.html.erb within layouts/application (7.9ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.7ms)
+
+ActionView::Template::Error (The single-table inheritance mechanism failed to locate the subclass: 'paid'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Payment.inheritance_column to use another column for that information.):
+    1: <% @cart_payments.each do |payment| %>
+    2:   <%= payment.user_id %><br>
+    3: <% end %>
+  app/views/carts/_contributions.html.erb:1:in `_app_views_carts__contributions_html_erb___967463715437750228_70290738943380'
+  app/views/carts/show.html.erb:16:in `_app_views_carts_show_html_erb___43154313500615691_70290739009420'
+  app/controllers/carts_controller.rb:35:in `block in show'
+  app/controllers/carts_controller.rb:32:in `show'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (78.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (59.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (140.4ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:04:22 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[36mPayment Load (0.3ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_contributions.html.erb (4.1ms)
+  Rendered carts/show.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (The single-table inheritance mechanism failed to locate the subclass: 'paid'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Payment.inheritance_column to use another column for that information.):
+    1: <% @cart_payments.each do |payment| %>
+    2:   <%= payment %><br>
+    3: <% end %>
+  app/views/carts/_contributions.html.erb:1:in `_app_views_carts__contributions_html_erb___967463715437750228_70290689429380'
+  app/views/carts/show.html.erb:16:in `_app_views_carts_show_html_erb___43154313500615691_70290739009420'
+  app/controllers/carts_controller.rb:35:in `block in show'
+  app/controllers/carts_controller.rb:32:in `show'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (76.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (59.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (132.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RenameTypePayments (20160612210828)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.4ms)[0m  [1mALTER TABLE "payments" RENAME COLUMN "type" TO "status"[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160612210828"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'cart_roles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'carts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'notification_templates'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'notifications'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'payments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'products'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'roles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'statuses'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/charges" for ::1 at 2016-06-12 14:32:30 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+AbstractController::ActionNotFound (The action 'index' could not be found for ChargesController):
+  actionpack (4.2.6) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  omniauth (1.3.1) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.3.1) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.3.1) lib/omniauth/builder.rb:63:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (4.2ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (444.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (538.9ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:32:38 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.9ms)
+  [1m[35mPayment Load (0.3ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_contributions.html.erb (6.8ms)
+  Rendered carts/show.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 404ms (Views: 308.1ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:32:38 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:32:38 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 14:32:39 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:32:58 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[36mPayment Load (0.4ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_contributions.html.erb (2.3ms)
+  Rendered carts/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 44ms (Views: 36.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 14:32:58 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:33:06 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.4ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[35mPayment Load (0.3ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered carts/_contributions.html.erb (6.5ms)
+  Rendered carts/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 39ms (Views: 33.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:33:06 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:33:06 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:33:06 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 14:33:07 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:33:15 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[35mPayment Load (0.3ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered carts/_contributions.html.erb (2.0ms)
+  Rendered carts/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 44ms (Views: 39.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 14:33:15 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:34:01 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[35mPayment Load (0.2ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered carts/_contributions.html.erb (2.0ms)
+  Rendered carts/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 59ms (Views: 53.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 14:34:01 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:34:15 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[35mPayment Load (0.3ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered carts/_contributions.html.erb (2.2ms)
+  Rendered carts/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 44ms (Views: 39.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 14:34:15 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:34:24 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[35mPayment Load (0.2ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered carts/_contributions.html.erb (2.1ms)
+  Rendered carts/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 43ms (Views: 38.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 14:34:24 -0700
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:38:46 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.2ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[35mPayment Load (0.2ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_contributor.html.erb (46.8ms)
+  Rendered carts/_contributions.html.erb (49.8ms)
+  Rendered carts/show.html.erb within layouts/application (53.9ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 1.2ms)
+
+ActionView::Template::Error (undefined local variable or method `payment' for #<#<Class:0x007fd298d20b28>:0x007fd29625cec8>):
+    1: <%= payment.user.name %> | $<%= payment.amount %>
+  app/views/carts/_contributor.html.erb:1:in `_app_views_carts__contributor_html_erb__3039223469632105616_70271221193280'
+  app/views/carts/_contributions.html.erb:3:in `block in _app_views_carts__contributions_html_erb___1977215312344716202_70271218659180'
+  app/views/carts/_contributions.html.erb:2:in `_app_views_carts__contributions_html_erb___1977215312344716202_70271218659180'
+  app/views/carts/show.html.erb:16:in `_app_views_carts_show_html_erb__3984161465558794550_70271189948620'
+  app/controllers/carts_controller.rb:35:in `block in show'
+  app/controllers/carts_controller.rb:32:in `show'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (82.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (62.9ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (141.1ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:39:39 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id[0m
+  [1m[35mCartRole Load (0.2ms)[0m  SELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[36mPayment Load (0.2ms)[0m  [1mSELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_contributor.html.erb (3.5ms)
+  Rendered carts/_contributions.html.erb (5.8ms)
+  Rendered carts/show.html.erb within layouts/application (8.7ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.2ms)
+
+ActionView::Template::Error (undefined method `user' for nil:NilClass):
+    1: <%= @payment.user.name %> | $<%= @payment.amount %>
+  app/views/carts/_contributor.html.erb:1:in `_app_views_carts__contributor_html_erb__3039223469632105616_70271252387060'
+  app/views/carts/_contributions.html.erb:3:in `block in _app_views_carts__contributions_html_erb___1977215312344716202_70271252417280'
+  app/views/carts/_contributions.html.erb:2:in `_app_views_carts__contributions_html_erb___1977215312344716202_70271252417280'
+  app/views/carts/show.html.erb:16:in `_app_views_carts_show_html_erb__3984161465558794550_70271189948620'
+  app/controllers/carts_controller.rb:35:in `block in show'
+  app/controllers/carts_controller.rb:32:in `show'
+
+
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (71.8ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (60.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/chadthiessen/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (131.8ms)
+
+
+Started GET "/carts/1" for ::1 at 2016-06-12 14:39:49 -0700
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id
+  [1m[36mCartRole Load (0.1ms)[0m  [1mSELECT "cart_roles".* FROM "cart_roles" WHERE "cart_roles"."cart_id" = $1[0m  [["cart_id", 1]]
+  Rendered carts/_payment_form.html.erb (0.1ms)
+  [1m[35mPayment Load (0.2ms)[0m  SELECT "payments".* FROM "payments" WHERE "payments"."cart_id" = $1  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered carts/_contributor.html.erb (0.9ms)
+  Rendered carts/_contributions.html.erb (2.9ms)
+  Rendered carts/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 43ms (Views: 37.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/charges.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/carts.self-33d4747d6eee9dc2e21e060b5d49666af0cf1b25ff188432ac969697a800d28f.js?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/omniauth_sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/payment.self-8fb79f4d849aa52aa14e50157a7133649fe7ed6eeb95feacf8a31dea163071d0.js?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095207e7a5bbb276683.js?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 14:39:49 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-12 14:39:49 -0700

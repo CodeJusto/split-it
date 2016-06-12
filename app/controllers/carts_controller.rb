@@ -27,7 +27,7 @@ class CartsController < ApplicationController
     @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
     @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
     # @current_users.flatten
-
+    @cart_payments = Payment.where(cart_id: @cart.id)
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
         # binding.pry
@@ -54,6 +54,8 @@ class CartsController < ApplicationController
   def destroy
   end
 
+
+
   protected 
 
   def cart_params
@@ -69,4 +71,5 @@ class CartsController < ApplicationController
       redirect_to root_path
     end
   end
+
 end

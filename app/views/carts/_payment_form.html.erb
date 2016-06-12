@@ -1,6 +1,13 @@
 <form action="/charges" method="POST" id="payment-form">
   <span class="payment-errors"></span>
-
+  
+  <div class="form-row">
+    <label>
+      <span>Contribution amount</span>
+      <input type="text" size="20" name="amount" placeholder=<%=@cart.minimum_payment %>>
+    </label>
+  </div>
+  
   <div class="form-row">
     <label>
       <span>Card Number</span>
@@ -23,5 +30,5 @@
       <input type="text" size="4" data-stripe="cvc">
     </label>
   </div>
-
+  <input type="hidden" name="cart" value=<%=@cart.id %>>
   <input type="submit" class="submit" value="Submit Payment">
