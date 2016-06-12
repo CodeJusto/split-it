@@ -6124,3 +6124,11 @@ Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095
 
 
 Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-12 16:06:05 -0700
+
+
+Started GET "/" for ::1 at 2016-06-12 16:11:34 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT "carts".* FROM "carts"[0m
+  Rendered users/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 41ms (Views: 39.3ms | ActiveRecord: 0.5ms)

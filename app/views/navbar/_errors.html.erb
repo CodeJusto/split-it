@@ -1,0 +1,15 @@
+<div class="errors">
+  <% if session[:errors] %>
+    <div id="error_explanation">
+      <h2>Some issues prohibited this user from being saved:</h2>
+   
+      <ul>
+      <% session[:errors].each do |type, error| %>
+        <% error.each do |e| %>
+          <li><%= "#{type} #{e}" %></li>
+        <% end %>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

@@ -1,9 +1,8 @@
 
-$(document).ready(function() {
+$(document).on('page:load', function() {
 
-  $('.newCart').on('click', function(e) {
-    e.preventDefault();
-    console.log("hello!")
-  })
+  $('.registration-title').on('click', function() {
+    $('.registration').toggle();
+  });
 
 }); 
