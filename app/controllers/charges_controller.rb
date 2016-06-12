@@ -7,7 +7,8 @@ class ChargesController < ApplicationController
 
   def create
     # Amount in cents
-    @amount = 500
+    @amount = params[:amount]
+    @cart_id = params[:cart]
     token = params[:stripeToken]
 
     customer = Stripe::Customer.create(
@@ -15,29 +16,20 @@ class ChargesController < ApplicationController
       :source  => params[:stripeToken]
     )
 
-    puts params.inspect
-
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
       :description => 'Rails Stripe customer',
       :currency    => 'usd'    
     )
-
-    puts "Customer ID: #{charge.customer}"
-    puts "Charge ID: #{charge.id}"
-    puts "Charge amount: #{charge.amount}"
-    puts "Charge captured: #{charge.captured}"
     
     @payment = Payment.new(
-      user_id: 1,
-      cart_id: 1,
+      user_id: current_user.id,
+      cart_id: @cart_id,
       stripe_customer_id: charge.customer,
       stripe_charge_id: charge.id,
-      amount: charge.amount,
-      captured: charge.captured 
+      amount: charge.amount
     ) 
-    puts @payment.inspect
     @payment.save
 
     rescue Stripe::CardError => e

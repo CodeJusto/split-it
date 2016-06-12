@@ -1,0 +1,4 @@
+<h2>Who has paid?</h2>
+<% @cart_payments.each do |payment| %>
+  <p><%= render 'contributor', payment: payment %></p>
+<% end %>
