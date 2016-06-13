@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     session[:errors] = nil
     @user = User.new(user_params)
     if @user.save 
+      Notifications.welcome_email(@user).deliver_now
       session[:user_id] = @user.id
       if session[:key]
         key = session[:key]

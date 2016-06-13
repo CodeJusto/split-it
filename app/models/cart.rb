@@ -24,7 +24,7 @@ class Cart < ActiveRecord::Base
         'ResponseGroup' => 'OfferSummary'
       }
     )
-
+    
     response_hash = response.to_h["ItemLookupResponse"]["Items"]["Item"]
     return 0.00 if response_hash.nil?
     items = product_ids.size >= 2 ? response_hash : [response_hash]
