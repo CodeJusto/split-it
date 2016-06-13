@@ -27,8 +27,26 @@ function stripeResponseHandler(status, response) {
 
     // Insert the token ID into the form so it gets submitted to the server:
     $form.append($('<input type="hidden" name="stripeToken">').val(token));
-
     // Submit the form:
-    $form.get(0).submit();
+    var dataSet = $form.serialize();
+      $.ajax({
+      type: "POST",
+      url: $form.attr("action"),
+      data: dataSet,
+      // dataType: "json",
+      complete: function(response){
+        $form.get(0).reset();
+        var payee = response.responseJSON.payee[0].name;
+        var amtpd = response.responseJSON.payment.amount;
+        $('#paymentsList').append('<p>' + payee + ' paid $' + amtpd + '</p>');
+      },
+      error: function(){
+        console.log("Something went wrong!");
+      }
+    });
   }
 };
+
+
+
+

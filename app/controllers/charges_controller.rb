@@ -30,11 +30,28 @@ class ChargesController < ApplicationController
       stripe_charge_id: charge.id,
       amount: charge.amount
     ) 
+
+    @payee = User.where(id: @payment.user_id)
+
     @payment.save
+    if @payment.save
+      if request.xhr?
+      render :json => {
+        :payment => @payment,
+        :payee => @payee
+        }                   
+      else
+        redirect(back)
+      end
+    else
+      redirect(back)
+    end
+
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_charge_path
+
   end
 
   def refund
