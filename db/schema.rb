@@ -53,7 +53,9 @@ ActiveRecord::Schema.define(version: 20160613215456) do
     t.integer  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "captured"
+    t.string   "stripe_customer_id"
+    t.string   "stripe_charge_id"
+    t.string   "status",             default: "paid"
   end
 
   create_table "products", force: :cascade do |t|

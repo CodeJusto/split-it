@@ -7,7 +7,8 @@ class ChargesController < ApplicationController
 
   def create
     # Amount in cents
-    @amount = 500
+    @amount = params[:amount]
+    @cart_id = params[:cart]
     token = params[:stripeToken]
 
     customer = Stripe::Customer.create(
@@ -15,22 +16,58 @@ class ChargesController < ApplicationController
       :source  => params[:stripeToken]
     )
 
-    puts params.inspect
-
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
       :description => 'Rails Stripe customer',
-      :currency    => 'usd',
-      :capture     => false
+      :currency    => 'usd'    
     )
+    
+    @payment = Payment.new(
+      user_id: current_user.id,
+      cart_id: @cart_id,
+      stripe_customer_id: charge.customer,
+      stripe_charge_id: charge.id,
+      amount: charge.amount
+    ) 
 
-    puts @purchase.inspect
+    @payee = User.where(id: @payment.user_id)
+
+    @payment.save
+    if @payment.save
+      if request.xhr?
+      render :json => {
+        :payment => @payment,
+        :payee => @payee
+        }                   
+      else
+        redirect(back)
+      end
+    else
+      redirect(back)
+    end
+
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_charge_path
 
+  end
+
+  def refund
+    refund = Stripe::Refund.create(
+      charge: params[:stripe_charge_id]
+    )
+    matching_payment = Payment.find_by(stripe_charge_id: params[:stripe_charge_id])
+    payment = Payment.new(
+      user_id: matching_payment.user_id,
+      cart_id: matching_payment.cart_id,
+      stripe_customer_id: matching_payment.stripe_customer_id,
+      stripe_charge_id: refund.charge,
+      amount: refund.amount,
+      status: "refunded"
+    )
+    payment.save
   end
 
 end
