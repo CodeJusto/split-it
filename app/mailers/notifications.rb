@@ -4,7 +4,15 @@ class Notifications < ApplicationMailer
   def welcome_email(user)
     @user = user
     @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    mail(to: @user.email, subject: 'Welcome to Split-it! Site')
+  end
+
+  def update_contributor(user, payee, payment)
+    @user = user
+    @payee = payee.first.name
+    @payment = payment
+    @url  = 'http://example.com/login'
+    mail(to: @user.email, subject: 'Someone has contributed to your cart!')
   end
 
 end
