@@ -1,5 +1,5 @@
 
-$(document).on('page:load', function() {
+$(document).ready(function() {
   
   $('.FBInvite').on('click', function(e) {
     console.log("Facebook")
@@ -12,7 +12,7 @@ $(document).on('page:load', function() {
   });
 
 
-  $('.inviteLink').attr("href", (window.location.hostname + ':3000/invite/' + $('.inviteLink').data("key")));
+  //$('.inviteLink').attr("href", (window.location.hostname + ':3000/invite/' + $('.inviteLink').data("key")));
   // console.log("Test")
 
 

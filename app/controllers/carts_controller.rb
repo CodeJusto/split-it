@@ -15,46 +15,65 @@ class CartsController < ApplicationController
       current_user.cart_roles.create(user_id: current_user.id, cart_id: @cart.id, role_id: 1)
       params[:cart_id] = @cart.id
       redirect_to cart_path(@cart)
-    else
-
     end
   end
 
   def show
-    @current_users = []
+    @contributors = []
     @cart = Cart.find(params[:id])
-    # @users = User.joins(cart_roles: :carts)
+    # Connect users, cart_roles, and carts
     @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
     @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
     # @current_users.flatten
     @cart_payments = Payment.where(cart_id: @cart.id)
+    # Sorts through those users to find which users belong to your current cart
+    @contributors = CartRole.where(cart_id: @cart.id).uniq
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
-        # binding.pry
+        @amazon = get_amazon_products(@cart.products)
+        @products = @cart.products
+        # @cart_total = cart_total(@cart.id)
         render 'show' and return
       end
     end
-
+    
     # Notify them they do not have access
     redirect_to root_path
   end
 
- #  get '/invite/:user_id/:cart_name', to: 'carts#invite', as 'carts_invite'
   def invite
     @cart = Cart.find_by(key: params[:key])
     @cart_array = @cart.cart_roles.map do |c|
       c.user_id
     end
-    # binding.pry
   end
 
   def update
   end
 
   def destroy
+    @cart = Cart.find(params[:id])
+    @cart.destroy
+    redirect_to root_path
   end
 
 
+  # def cart_total(id)
+  #   products = Cart.find(id).products
+
+  #   product_ids = products.inject([]) { |arr, product| arr.push(product.external_id)  } 
+
+  #   response = $amazon_request.item_lookup(
+  #     query: {
+  #       'ItemId' => product_ids.join(','),
+  #       'ResponseGroup' => 'OfferSummary'
+  #     }
+  #   )
+
+  #   items = response.to_h["ItemLookupResponse"]["Items"]["Item"]
+  #   return 0.00 if items.nil?
+  #   total = items.inject(0) { |sum, item| sum + item["OfferSummary"]["LowestNewPrice"]["Amount"].to_i * @cart.products.find_by(external_id: item["ASIN"]).quantity } / 100.00
+  # end
 
   protected 
 
@@ -68,8 +87,24 @@ class CartsController < ApplicationController
 
   def require_login
     unless current_user
+      session[:key] = params[:key]
       redirect_to root_path
     end
+  end
+
+  def get_amazon_products(products)
+
+
+    product_ids = products.inject([]) { |arr, product| arr.push(product.external_id)  } 
+
+    response = $amazon_request.item_lookup(
+      query: {
+        'ItemId' => product_ids.join(','),
+        'ResponseGroup' => 'ItemAttributes,Small,Images,OfferSummary'
+      }
+    )
+
+    product_ids.size > 1 ? response.to_h["ItemLookupResponse"]["Items"]["Item"] : [response.to_h["ItemLookupResponse"]["Items"]["Item"]]
   end
 
 end

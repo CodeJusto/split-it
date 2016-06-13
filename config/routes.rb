@@ -6,7 +6,18 @@ Rails.application.routes.draw do
 
   resources :users
 
+  delete '/remove/:id', to: 'users#remove', as: 'remove_user'
+
   resources :carts
+
+  namespace :carts do
+    scope '/:cart_id' do
+      # resource :products, only:[:new, :create]
+      resources :products
+    end
+  end
+
+  # resources :products
 
   get '/invite/:key', to: 'carts#invite', as: 'carts_invite'
 
