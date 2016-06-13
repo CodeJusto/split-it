@@ -16347,3 +16347,16 @@ Started GET "/assets/users.self-557df7f2a0fadf6e63a6abe2f47c00a691c0b809674d3095
 
 
 Started GET "/assets/application.self-ff37150ddc1568b3e47c84cb351e6658c3efed29296498e0fcd458c1691a781b.js?body=1" for ::1 at 2016-06-13 10:14:52 -0700
+
+
+Started POST "/charges" for ::1 at 2016-06-13 10:32:20 -0700
+Processing by ChargesController#create as */*
+  Parameters: {"amount"=>"4444", "cart"=>"2", "stripeToken"=>"tok_18Lyv8FivzcmVo6mMVINxXqz"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "payments" ("user_id", "cart_id", "stripe_customer_id", "stripe_charge_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["cart_id", 2], ["stripe_customer_id", "cus_8dFQvr8EeL9dmM"], ["stripe_charge_id", "ch_18LyvBFivzcmVo6mLvP5ZCn9"], ["amount", 4444], ["created_at", "2016-06-13 17:32:21.278835"], ["updated_at", "2016-06-13 17:32:21.278835"]]
+  [1m[35m (39.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 628ms (Views: 2.8ms | ActiveRecord: 40.9ms)
