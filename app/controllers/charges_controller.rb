@@ -30,7 +30,23 @@ class ChargesController < ApplicationController
       stripe_charge_id: charge.id,
       amount: charge.amount
     ) 
+
+    @payee = User.where(id: @payment.user_id)
+
     @payment.save
+    if @payment.save
+      if request.xhr?
+      render :json => {
+        :payment => @payment,
+        :payee => @payee
+        }                   
+      else
+        redirect(back)
+      end
+    else
+      redirect(back)
+    end
+
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
@@ -39,7 +55,19 @@ class ChargesController < ApplicationController
   end
 
   def refund
-    puts "issuing a refund"
+    refund = Stripe::Refund.create(
+      charge: params[:stripe_charge_id]
+    )
+    matching_payment = Payment.find_by(stripe_charge_id: params[:stripe_charge_id])
+    payment = Payment.new(
+      user_id: matching_payment.user_id,
+      cart_id: matching_payment.cart_id,
+      stripe_customer_id: matching_payment.stripe_customer_id,
+      stripe_charge_id: refund.charge,
+      amount: refund.amount,
+      status: "refunded"
+    )
+    payment.save
   end
 
 end

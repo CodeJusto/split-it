@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get '/invite/:key', to: 'carts#invite', as: 'carts_invite'
 
+  post 'refund', to: 'charges#refund', as: 'refund'
+
   namespace :final_boss do
     resources :users
     resources :carts
@@ -34,4 +36,5 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   root to: 'users#index'
+
 end

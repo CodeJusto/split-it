@@ -1,6 +1,9 @@
 require 'SecureRandom'
 
 class CartsController < ApplicationController
+  
+  include CartsHelper
+
   before_action :require_login
 
   def index
@@ -21,6 +24,7 @@ class CartsController < ApplicationController
   def show
     @contributors = []
     @cart = Cart.find(params[:id])
+
     # Connect users, cart_roles, and carts
     @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
     @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
@@ -28,6 +32,20 @@ class CartsController < ApplicationController
     @cart_payments = Payment.where(cart_id: @cart.id)
     # Sorts through those users to find which users belong to your current cart
     @contributors = CartRole.where(cart_id: @cart.id).uniq
+
+    @goal = 20000
+    # the goal is hard-coded now
+    # @users = User.joins(cart_roles: :carts)
+    @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
+    @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
+    # @current_users.flatten
+    @cart_contributions = Payment.where(cart_id: @cart.id).where(status: "paid")
+    @cart_payments = @cart_contributions.sum(:amount)
+    @cart_refunds = Payment.where(cart_id: @cart.id).where(status: "refunded").sum(:amount)
+    @total_paid = (@cart_payments - @cart_refunds)
+    
+    @progress = cart_progress(@total_paid, @goal)
+
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
         @amazon = get_amazon_products(@cart.products)
