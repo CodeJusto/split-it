@@ -90,8 +90,6 @@ class CartsController < ApplicationController
   end
 
   def get_amazon_products(products)
-
-
     product_ids = products.inject([]) { |arr, product| arr.push(product.external_id)  } 
 
     response = $amazon_request.item_lookup(

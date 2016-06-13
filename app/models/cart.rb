@@ -24,8 +24,8 @@ class Cart < ActiveRecord::Base
       }
     )
 
-    items = product_ids.size > 1 ? response.to_h["ItemLookupResponse"]["Items"]["Item"] : [response.to_h["ItemLookupResponse"]["Items"]["Item"]]
-    return 0.00 if items.nil?
+    return 0.00 if response.to_h["ItemLookupResponse"]["Items"]["Item"].nil?
+    items = product_ids.size >= 2 ? response.to_h["ItemLookupResponse"]["Items"]["Item"] : [response.to_h["ItemLookupResponse"]["Items"]["Item"]]
     total = items.inject(0) { |sum, item| sum + item["OfferSummary"]["LowestNewPrice"]["Amount"].to_i * products.find_by(external_id: item["ASIN"]).quantity } / 100.00
   end
 
