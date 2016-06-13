@@ -15,7 +15,7 @@ class Cart < ActiveRecord::Base
     errors.add(:expiry, "must be in the future") if !expiry.blank? and expiry < Date.today
   end
 
-  def cart_total
+  def total
     
     total = products.sum(:price) > 0 ? products.sum(:price) / 100.00 : 0
     "CDN$ #{total}"
