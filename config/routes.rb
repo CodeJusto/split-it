@@ -10,14 +10,14 @@ Rails.application.routes.draw do
 
   resources :carts
 
-  namespace :cart do
+  namespace :carts do
     scope '/:cart_id' do
       # resource :products, only:[:new, :create]
       resources :products
     end
   end
 
-  resources :products
+  # resources :products
 
   get '/invite/:key', to: 'carts#invite', as: 'carts_invite'
 

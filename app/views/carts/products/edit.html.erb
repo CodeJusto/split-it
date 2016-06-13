@@ -1,6 +1,5 @@
-<h1>New Product</h1>
-
-<%= form_for [:cart, @product] do |f| %>
+<h1>Edit Product</h1>
+<%= form_for(@product, url: carts_product_path, method: :patch) do |f| %>
 <% if @product.errors.any? %>
   <div>
     <%= pluralize(@product.errors.count, "error") %> prevented this movie from being submitted:
@@ -24,7 +23,7 @@
   <%= f.number_field :quantity %>
 </div>
 <div>
-  <%= f.hidden_field(:cart_id, :value => params[:id]) %>
+  <%= f.hidden_field(:cart_id, :value => params[:cart_id]) %>
 </div>
 <div>
   <%= f.submit "Submit" %> 

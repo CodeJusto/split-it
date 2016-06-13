@@ -2,7 +2,12 @@ class UsersController < ApplicationController
   def index
     @cart = Cart.new
     @user = User.new
-    @all = Cart.all # Remove later
+    # @all = Cart.all # Remove later
+
+    @carts = current_user.cart_roles.map { |role| Cart.find(role.cart_id) } if current_user
+    # byebug
+
+    return @carts
   end
 
   def create
