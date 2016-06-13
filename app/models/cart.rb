@@ -16,7 +16,6 @@ class Cart < ActiveRecord::Base
   end
 
   def total
-    
     total = products.sum(:price) > 0 ? products.sum(:price) / 100.00 : 0
     "CDN$ #{total}"
   end
