@@ -35,25 +35,22 @@ class ChargesController < ApplicationController
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_charge_path
-
   end
 
   def refund
-    puts params.inspect
     refund = Stripe::Refund.create(
       charge: params[:stripe_charge_id]
     )
-    puts refund.inspect
-    matching_payment = Payment.where(stripe_charge_id: refund.charge)
-    puts matching_payment.inspect
-    # payment = Payment.new(
-    #   user_id: matching_payment.user_id,
-    #   cart_id: matching_payment.cart_id,
-    #   stripe_customer_id: charge.customer,
-    #   stripe_charge_id: refund.charge,
-    #   amount: refund.amount,
-    #   status: "refunded"
-    # ) 
+    matching_payment = Payment.find_by(stripe_charge_id: params[:stripe_charge_id])
+    payment = Payment.new(
+      user_id: matching_payment.user_id,
+      cart_id: matching_payment.cart_id,
+      stripe_customer_id: matching_payment.stripe_customer_id,
+      stripe_charge_id: refund.charge,
+      amount: refund.amount,
+      status: "refunded"
+    )
+    payment.save
   end
 
 end
