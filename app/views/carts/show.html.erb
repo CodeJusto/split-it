@@ -10,11 +10,14 @@
   <p>No product yet.</p>
 <% else %>
   <% @products.each do |product| %>
-    <li><h2><%= link_to product.display_name, product.url %> <%= @amazon.find{ |i| i["ASIN"] == product.external_id }["OfferSummary"]["LowestNewPrice"]["FormattedPrice"] %> x <%= product.quantity %></h2></li>
+    <li>
+      <h2><%= link_to product.display_name, product.url %> <%= @amazon.find{ |i| i["ASIN"] == product.external_id }["OfferSummary"]["LowestNewPrice"]["FormattedPrice"] %> x <%= product.quantity %></h2>
+      <p><%= link_to 'Edit', edit_product_path(product) %> | <%= link_to 'Remove', cart_product_path(@cart, product), data: {:confirm => 'Are you sure?'}, :method => :delete  %></p>
+    </li>
   <% end %>
 <% end %>
 </ul>
-<%= link_to 'Add product', new_cart_products_path %>
+<%= link_to 'Add product', new_cart_product_path(@cart) %>
 <hr>
 
 <h1>List of contributors</h1>

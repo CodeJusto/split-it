@@ -19,6 +19,8 @@ class Cart::ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.destroy(params[:id])
+    redirect_to cart_path(params[:cart_id])
   end
 
   protected

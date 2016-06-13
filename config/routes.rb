@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   resources :carts
 
   namespace :cart do
-    scope '/:id' do
-      resource :products, only:[:new, :create]
+    scope '/:cart_id' do
+      # resource :products, only:[:new, :create]
+      resources :products
     end
   end
 
