@@ -26,11 +26,12 @@ class CartsController < ApplicationController
     # Sorts through those users to find which users belong to your current cart
     @contributors = CartRole.where(cart_id: @cart.id).uniq
 
+    # Query all the products in the cart from Amazon
+    @amazon = get_amazon_products(@cart.products)
+    @products = @cart.products
+
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
-        @amazon = get_amazon_products(@cart.products)
-        @products = @cart.products
-        # @cart_total = cart_total(@cart.id)
         render 'show' and return
       end
     end
@@ -42,7 +43,7 @@ class CartsController < ApplicationController
   def invite
     @cart = Cart.find_by(key: params[:key])
     @cart_array = @cart.cart_roles.map do |c|
-      c.user_id
+    c.user_id
     end
   end
 
