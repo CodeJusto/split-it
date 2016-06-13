@@ -3,9 +3,10 @@ class Product < ActiveRecord::Base
 
   validates :display_name, presence: true
   validates :url, presence: true
-  validates :cart_id, presence: true
   validates :quantity, presence: true
-  # validate :amazon_url, on: :create
+  validates :price, presence: true
+  validates :description, presence: true
+  validates :cart_id, presence: true
 
   private
 
