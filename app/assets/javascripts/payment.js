@@ -9,6 +9,7 @@ $(function() {
     // Prevent the form from being submitted:
     return false;
   });
+
 });
 function stripeResponseHandler(status, response) {
   // Grab the form:
@@ -36,8 +37,13 @@ function stripeResponseHandler(status, response) {
       complete: function(response){
         $form.get(0).reset();
         var payee = response.responseJSON.payee[0].name;
-        var amtpd = response.responseJSON.payment.amount;
+        var amtpd = response.responseJSON.payment;
+        var newTotal = response.responseJSON.updated_cart_total;
+        var newProgress = response.responseJSON.updated_pctg;
+        console.log(newTotal);
         $('#paymentsList').append('<p>' + payee + ' paid $' + amtpd + '</p>');
+        $('.total-amount').text(newTotal);
+        $('.percent-of-goal').text(newProgress);
       },
       error: function(){
         console.log("Something went wrong!");

@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+  include CartsHelper
 
   skip_before_filter :verify_authenticity_token
 
@@ -30,18 +31,25 @@ class ChargesController < ApplicationController
       stripe_charge_id: charge.id,
       amount: charge.amount
     ) 
-
+    
     @payee = User.where(id: @payment.user_id)
 
     @payment.save
     if @payment.save
+      @cart = Cart.find(@payment.cart_id)
+      @updated_cart_total = calculate_total_payments(get_cart_payments(@cart.id))
+      @goal = @cart.total
+      @updated_pctg = cart_progress(@updated_cart_total, @goal)
+      # @total = @cart.payments.sum(:amount)
       organizer = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 1, 'cart_roles.notifications' => true )  
       Notifications.update_contributor(organizer, @payee, @payment).deliver_now unless organizer.empty?
 
       if request.xhr?
       render :json => {
-        :payment => @payment,
-        :payee => @payee
+        :payment => format_price(@payment.amount),
+        :payee => @payee,
+        :updated_cart_total => format_price(@updated_cart_total),
+        :updated_pctg => @updated_pctg
         }                   
       else
         redirect(back)
