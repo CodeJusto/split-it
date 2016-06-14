@@ -22,3 +22,8 @@ Status.create(text: "Cancelled")
 Status.create(text: "Achieved")
 Status.create(text: "Shipped")
 Status.create(text: "Archived")
+
+NotificationTemplate.create(description: "Welcome")
+NotificationTemplate.create(description: "Contribution")å
+NotificationTemplate.create(description: "Success")
+NotificationTemplate.create(description: "Failure")

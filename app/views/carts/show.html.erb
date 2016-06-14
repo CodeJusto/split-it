@@ -1,20 +1,33 @@
 <h3><%= link_to 'Back', root_path %></h3>
 
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<h1><%= @cart.name %></h1>
 
 <h2><%= format_price(@cart.total) %></h2>
 <hr>
 
 <div class="preferences">
   <h2 class="test">Notifcation Preferences</h2>
-  <%= form_tag cart_preferences_path(@cart), method: :patch do %>
-  <%= label_tag :notifications, "Email me for product milestones!" %>
-  <%= check_box_tag :notifications %>
-  <%= submit_tag "Submit" %>
+ 
+  <% if current_user.email %>
+   <%= form_tag cart_preferences_path(@cart), method: :patch do %>
+    <%= label_tag :notifications, "Email me for product milestones!" %>
+      <% if CartRole.find_by(user_id: current_user.id, cart_id: @cart.id).notifications == true %>
+        <%= check_box_tag :notifications, 1, {checked: true} %>
+      <% else %>
+        <%= check_box_tag :notifications, 2, false %>
+      <% end %>    
+    <%= submit_tag "Submit" %>
+    <% end %>
+  <% else %>
+    <%= form_for current_user do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <%= f.submit %>
+    <% end %> 
   <% end %>
+ 
 </div>
-<h1>List of products</h1>
+<h2>List of products</h2>
 <ul id="product-list">
 <% if @products.size == 0 %>
   <p>No product yet.</p>
@@ -30,21 +43,31 @@
 <%= link_to 'Add product', new_carts_product_path(@cart) %>
 <hr>
 
-<h1>List of contributors</h1>
+<h2>List of contributors</h2>
 <% @contributors.each do |user| %>
-  <span><%= User.find(user.user_id).name %>:
+  <% @user = User.find(user.user_id) %>
+  <span><%= @user.name %>:
   <%= Role.find(user.role_id).role_text %></span>
 
   <% if CartRole.find(user.id).role_id == 2 && CartRole.where(user_id: current_user.id, cart_id: @cart.id, role_id: 1).size > 0 %>
-    <%= link_to "Remove User", remove_user_path(User.find(user.user_id)), method: :delete, data: {confirm: "Remove #{User.find(user.user_id).name} from this cart?"} %>
+    <%= link_to "Remove User", carts_remove_user_path(@cart, @user), method: :delete, data: {confirm: "Remove #{@user.name} from this cart?"} %>
   <% end %>
   <br>
 <% end %>
 <br>
 <button data-key= <%= @cart.key %> class="FBInvite">Invite through Facebook</button>
 
-<a data-key=<%= @cart.key %> class="inviteLink">Invite Link</a>
+<hr>
+<p> Invite your friends through email! Separate multiple emails with commas</p>
+<%= form_tag carts_invite_user_path(@cart) do %>
+  <%= label_tag "Enter email:" %>
+  <input name="emails[1]"/> <br>
+  <%= label_tag "Enter email:" %>
+  <input name="emails[2]"/> <br>
+  <%= submit_tag "Submit" %>
+<% end %>
 
-<a href="/invite/<%= @cart.key %>">Invite Link</a>
+<hr>
+
 <%= render 'payment_form' %>
 <%= render 'contributions' %>

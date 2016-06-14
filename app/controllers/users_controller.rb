@@ -1,11 +1,10 @@
+require 'SecureRandom'
 class UsersController < ApplicationController
   def index
     @cart = Cart.new
     @user = User.new
-    # @all = Cart.all # Remove later
 
     @carts = current_user.cart_roles.map { |role| Cart.find(role.cart_id) } if current_user
-    # byebug
 
     return @carts
   end
@@ -15,6 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save 
       Notifications.welcome_email(@user).deliver_now
+      Notification.create(cart_id: @cart.id, notification_template_id: 1)
       session[:user_id] = @user.id
       if session[:key]
         key = session[:key]
@@ -32,12 +32,22 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.password = SecureRandom.uuid
+    @user.update_attributes(user_params)
+    binding.pry
+    if @user.save
+      redirect_to root_path 
+    end
   end
 
   def destroy
   end
 
+  protected
+
   def user_params
     params.require(:user).permit(:name, :email, :password)
   end
+
 end
