@@ -11,7 +11,7 @@
   <% if current_user.email %>
    <%= form_tag cart_preferences_path(@cart), method: :patch do %>
     <%= label_tag :notifications, "Email me for product milestones!" %>
-      <% if CartRole.find_by(user_id: current_user.id, cart_id: @cart.id).notifications == true %>
+      <% if user_notifications(current_user) %>
         <%= check_box_tag :notifications, 1, {checked: true} %>
       <% else %>
         <%= check_box_tag :notifications, 2, false %>
@@ -45,12 +45,12 @@
 
 <h2>List of contributors</h2>
 <% @contributors.each do |user| %>
-  <% @user = User.find(user.user_id) %>
-  <span><%= @user.name %>:
-  <%= Role.find(user.role_id).role_text %></span>
-
-  <% if CartRole.find(user.id).role_id == 2 && CartRole.where(user_id: current_user.id, cart_id: @cart.id, role_id: 1).size > 0 %>
-    <%= link_to "Remove User", carts_remove_user_path(@cart, @user), method: :delete, data: {confirm: "Remove #{@user.name} from this cart?"} %>
+  <span><%= user.name %>:
+  <% current_role = user_role(user) %>
+  <%= current_role.role_text %></span>
+  
+  <% if current_role.id == 2 %>
+    <%= link_to "Remove User", carts_remove_user_path(@cart, user), method: :delete, data: {confirm: "Remove #{user.name} from this cart?"} %>
   <% end %>
   <br>
 <% end %>

@@ -27,10 +27,8 @@ class CartsController < ApplicationController
   def show
     @contributors = []
     @cart = Cart.find(params[:id])
-    # Connect users, cart_roles, and carts
-    @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
-    @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
-    # @current_users.flatten
+    session[:cart_id] = @cart.id
+    # @users = @cart.users
 
     @cart_payments = get_cart_payments(@cart.id)
     ## cart_payments returns an array of all payments made - including
@@ -40,16 +38,14 @@ class CartsController < ApplicationController
     @display_minimum_payment = ((@cart.minimum_payment / 100).to_f)
 
     # Sorts through those users to find which users belong to your current cart
-    @contributors = CartRole.where(cart_id: @cart.id).uniq
+    @contributors = @cart.users
+    # CartRole.where(cart_id: @cart.id).uniq
     # Query all the products in the cart
     @products = @cart.products
     
     # @goal = 20000
     # the goal is hard-coded now
     # @users = User.joins(cart_roles: :carts)
-    @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
-    @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
-    # @current_users.flatten
     @cart_payments = get_cart_payments(@cart.id)
     @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
     @total_paid = @cart_payments.sum(:amount)
@@ -82,10 +78,12 @@ class CartsController < ApplicationController
   end
 
   def preferences 
+    @cart = Cart.find(session[:cart_id])
+    session[:cart_id] = nil
     @cart_role = CartRole.find_by(user_id: current_user.id, cart_id: params[:cart_id])
     @cart_role.notifications = !!(params[:notifications])
     @cart_role.save
-    redirect_to root_path
+    redirect_to cart_path(@cart)
   end
 
   def destroy
