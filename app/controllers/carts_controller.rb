@@ -30,14 +30,12 @@ class CartsController < ApplicationController
     # Connect users, cart_roles, and carts
     @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
     @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
-<<<<<<< HEAD
     # @current_users.flatten
 
     @cart_payments = get_cart_payments(@cart.id)
-=======
+    
     @display_minimum_payment = ((@cart.minimum_payment / 100).to_f)
-    @cart_payments = Payment.where(cart_id: @cart.id)
->>>>>>> master
+
     # Sorts through those users to find which users belong to your current cart
     @contributors = CartRole.where(cart_id: @cart.id).uniq
 
