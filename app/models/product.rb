@@ -24,7 +24,7 @@ class Product < ActiveRecord::Base
   end
 
   def amazon_api
-    match = /\/(dp|gp\/product)\/(.+)\//.match(url)
+    match = /\/(dp|gp\/product)\/(\w+)\/?/.match(url)
     if amazon_url && match.size >=3
       external_id = match[2].to_s
     else
