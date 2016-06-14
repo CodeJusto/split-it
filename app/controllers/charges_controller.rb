@@ -37,11 +37,11 @@ class ChargesController < ApplicationController
     if @payment.save
 
       # SEND EMAIL TO LOSERS
-      email_list = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id)
-      email_list.each do |user| 
-        # binding.pry
-        Notifications.update_contributor(user, @payee, @payment).deliver_now
-      end
+      organizer = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id => 1')  
+      Notifications.update_contributor(organizer, @payee, @payment).deliver_now
+    
+      
+    
       if request.xhr?
       render :json => {
         :payment => @payment,

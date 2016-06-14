@@ -104,6 +104,8 @@ class CartsController < ApplicationController
 
   private
 
+  
+  
   def require_login
     unless current_user
       session[:key] = params[:key]
