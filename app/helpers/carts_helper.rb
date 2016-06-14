@@ -25,8 +25,4 @@ module CartsHelper
     values.inject(0){ |sum,x| sum + x }
   end
 
-  def convert_to_cents(num)
-   (num.to_f * 100).to_i
-  end
-
 end

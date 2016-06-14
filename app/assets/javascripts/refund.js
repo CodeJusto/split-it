@@ -14,6 +14,10 @@ $(function() {
         data: { id: data },
       }).done(function(response){
         console.log(response);
+        // look at response and grab the price from it
+        // attach listener on the 'total display price'
+        // var new_price = response price + total display price
+        // .text(new_price) to attach new calculation to DOM
         removePayment(paymentId);
         alert('Payment has been refunded');
       })

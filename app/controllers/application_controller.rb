@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     number_to_currency(price.to_i / 100.00, unit: "CDN$", format: "%u %n")
   end
 
+  def convert_to_cents(num)
+    (num.to_f * 100).to_i
+  end
+
   private
 
   def current_user

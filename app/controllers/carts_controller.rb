@@ -45,7 +45,6 @@ class CartsController < ApplicationController
     @amazon = get_amazon_products(@cart.products)
     @products = @cart.products
     @goal = @cart.total
-    @progress = ((@total_payments / @cart.total) * 100).ceil
     # the goal is hard-coded now
     # @users = User.joins(cart_roles: :carts)
     @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
@@ -53,9 +52,7 @@ class CartsController < ApplicationController
     # @current_users.flatten
     @cart_payments = get_cart_payments(@cart.id)
     @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
-    @total_paid = @cart_payments.sum(:amount)
-    
-    # @progress = cart_progress(@total_paid, @goal)
+    @progress = cart_progress(@total_payments, @goal)
 
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id

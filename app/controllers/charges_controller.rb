@@ -7,7 +7,7 @@ class ChargesController < ApplicationController
 
   def create
     # Amount in cents
-    @amount = params[:amount]
+    @amount = convert_to_cents(params[:amount])
     @cart_id = params[:cart]
     token = params[:stripeToken]
 
