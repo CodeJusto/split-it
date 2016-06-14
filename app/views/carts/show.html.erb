@@ -1,18 +1,23 @@
 <h3><%= link_to 'Back', root_path %></h3>
 
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<h1><%= @cart.name %></h1>
 
 <h2><%= @cart.total %></h2>
 <hr>
 
 <div class="preferences">
   <h2 class="test">Notifcation Preferences</h2>
-  <%= form_tag cart_preferences_path(@cart), method: :patch do %>
-  <%= label_tag :notifications, "Email me for product milestones!" %>
-  <%= check_box_tag :notifications %>
-  <%= submit_tag "Submit" %>
-  <% end %>
+ 
+
+    <%= form_tag cart_preferences_path(@cart), method: :patch do %>
+    <%= label_tag :notifications, "Email me for product milestones!" %>
+      <% if CartRole.find_by(user_id: current_user.id, cart_id: @cart.id).notifications == true %>
+        <%= check_box_tag :notifications, 1, {checked: true} %>
+      <% else %>
+        <%= check_box_tag :notifications, 2, false %>
+      <% end %>    
+    <%= submit_tag "Submit" %>
+    <% end %>
 </div>
 <h1>List of products</h1>
 <ul id="product-list">
