@@ -33,7 +33,6 @@ function stripeResponseHandler(status, response) {
       type: "POST",
       url: $form.attr("action"),
       data: dataSet,
-      // dataType: "json",
       complete: function(response){
         $form.get(0).reset();
         var payee = response.responseJSON.payee[0].name;

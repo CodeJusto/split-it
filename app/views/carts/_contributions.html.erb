@@ -1,10 +1,10 @@
 <div id="paymentsList">
 <h2>Who has paid?</h2>
-
 <%= render 'progress' %>
-
 <% @cart_payments.each do |payment| %>
-  <p><%= render 'contributor', payment: payment %></p>
-  <p><%= render 'refund_form', payment: payment %></p>
+<ul class="contribution-details" data-payment-id="<%= payment.stripe_charge_id %>">
+  <li><%= render 'contributor', payment: payment %></li>
+  <li><%= render 'refund_form', payment: payment %></li>
+</ul>
 <% end %>
 </div>

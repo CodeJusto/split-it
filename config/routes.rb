@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   delete '/remove/:id', to: 'users#remove', as: 'remove_user'
 
-  resources :carts
+  resources :carts do 
+    patch '/preferences', to: 'carts#preferences', as: 'preferences'
+  end
+
 
   namespace :carts do
     scope '/:cart_id' do

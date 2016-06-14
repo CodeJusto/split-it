@@ -35,6 +35,9 @@ class ChargesController < ApplicationController
 
     @payment.save
     if @payment.save
+      organizer = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 1, 'cart_roles.notifications' => true )  
+      Notifications.update_contributor(organizer, @payee, @payment).deliver_now unless organizer.empty?
+
       if request.xhr?
       render :json => {
         :payment => @payment,
@@ -53,6 +56,5 @@ class ChargesController < ApplicationController
       redirect_to new_charge_path
 
   end
-
 
 end
