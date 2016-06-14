@@ -6,8 +6,14 @@
 <h2><%= @cart.total %></h2>
 <hr>
 
-<h2 class="test">If I don't disappear jquery is broken</h2>
-
+<div class="preferences">
+  <h2 class="test">Notifcation Preferences</h2>
+  <%= form_tag cart_preferences_path(@cart), method: :patch do %>
+  <%= label_tag :notifications, "Email me for product milestones!" %>
+  <%= check_box_tag :notifications %>
+  <%= submit_tag "Submit" %>
+  <% end %>
+</div>
 <h1>List of products</h1>
 <ul id="product-list">
 <% if @products.size == 0 %>
