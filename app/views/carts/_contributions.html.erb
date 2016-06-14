@@ -3,8 +3,8 @@
 
 <%= render 'progress' %>
 
-<% @cart_contributions.each do |contribution| %>
-  <p><%= render 'contributor', contribution: contribution %></p>
-  <p><%= render 'refund_form', contribution: contribution %></p>
+<% @cart_payments.each do |payment| %>
+  <p><%= render 'contributor', payment: payment %></p>
+  <p><%= render 'refund_form', payment: payment %></p>
 <% end %>
 </div>

@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :cart_roles
   has_many :carts, through: :cart_roles
   has_many :payments
+  has_many :refunds, through: :payments
+
 
   validates :name, presence: true
   # validates :email, presence: true, length: { minimum: 5 }

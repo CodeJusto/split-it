@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612210828) do
+ActiveRecord::Schema.define(version: 20160614160910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160612210828) do
     t.integer "user_id"
     t.integer "cart_id"
     t.integer "role_id"
+    t.boolean "notifications"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -55,7 +56,6 @@ ActiveRecord::Schema.define(version: 20160612210828) do
     t.datetime "updated_at"
     t.string   "stripe_customer_id"
     t.string   "stripe_charge_id"
-    t.string   "status",             default: "paid"
   end
 
   create_table "products", force: :cascade do |t|
@@ -66,6 +66,21 @@ ActiveRecord::Schema.define(version: 20160612210828) do
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "price"
+    t.string   "image"
+    t.string   "description"
+    t.datetime "price_checked_at"
+  end
+
+  create_table "refunds", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "cart_id"
+    t.integer  "amount"
+    t.string   "stripe_customer_id"
+    t.string   "stripe_charge_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "payment_id"
   end
 
   create_table "roles", force: :cascade do |t|
