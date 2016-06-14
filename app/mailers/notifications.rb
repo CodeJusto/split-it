@@ -8,7 +8,7 @@ class Notifications < ApplicationMailer
   end
 
   def update_contributor(user, payee, payment)
-    @user = user
+    @user = user.first
     @payee = payee.first.name
     @payment = payment
     @url  = 'http://example.com/login'
