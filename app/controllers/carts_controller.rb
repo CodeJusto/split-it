@@ -41,12 +41,11 @@ class CartsController < ApplicationController
 
     # Sorts through those users to find which users belong to your current cart
     @contributors = CartRole.where(cart_id: @cart.id).uniq
-
     # Query all the products in the cart from Amazon
     @amazon = get_amazon_products(@cart.products)
     @products = @cart.products
-    
-    @goal = 20000
+    @goal = @cart.total
+    @progress = ((@total_payments / @cart.total) * 100).ceil
     # the goal is hard-coded now
     # @users = User.joins(cart_roles: :carts)
     @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
