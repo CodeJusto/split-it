@@ -1,5 +1,7 @@
-<form action="/refund" method="POST" id="refundForm">
-  <input type="hidden" class="stripe-charge" name="stripe_charge_id" value=<%=contribution.stripe_charge_id %>>
-  <input type="hidden" name="user_id" value=<%=contribution.user_id %>>
+
+<form action="/refunds" method="POST" id="refund-form">
+  <input type="hidden" name="stripe_charge_id" value=<%=payment.stripe_charge_id %>>
+  <input type="hidden" name="user_id" value=<%=payment.user_id %>>
+
   <input type="submit" class="refund-button" value="Refund Payment">
 </form>

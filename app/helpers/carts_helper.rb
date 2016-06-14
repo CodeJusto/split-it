@@ -15,6 +15,11 @@ module CartsHelper
   #   end
   # end
 
+  def get_cart_payments(id)
+    payments = Payment.where(cart_id: id)
+    payments.select { | payment | payment.refund == nil }
+  end
+
   def convert_to_cents(num)
    (num.to_f * 100).to_i
   end

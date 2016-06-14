@@ -3,14 +3,14 @@ $(function() {
   $('.refund-button').on('click', function(e){
     e.preventDefault();
     // e.stopPropagation();
-    var $payment = $('.contribution-details');
+    var $payment = $(this).parents('.contribution-details');
     var paymentId = $payment.data('payment-id');
     var data = paymentId;
 
     if (confirm('Are you sure you want to refund this payment?')){
       $.ajax({
         type: "POST",
-        url: '/refund',
+        url: '/refunds',
         data: { id: data },
       }).done(function(response){
         console.log(response);
