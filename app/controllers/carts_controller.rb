@@ -11,6 +11,9 @@ class CartsController < ApplicationController
 
   def create
     @cart = Cart.new(cart_params)
+    ## stores the minimum payment in cents so users can input a regular
+    ## dollar amount
+    @cart.minimum_payment = convert_to_cents(cart_params[:minimum_payment])
     @cart.status_id = 1
     @cart.key = SecureRandom.uuid
     if @cart.save
@@ -24,12 +27,18 @@ class CartsController < ApplicationController
   def show
     @contributors = []
     @cart = Cart.find(params[:id])
-
     # Connect users, cart_roles, and carts
     @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
     @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
     # @current_users.flatten
-    @cart_payments = Payment.where(cart_id: @cart.id)
+
+    @cart_payments = get_cart_payments(@cart.id)
+    ## cart_payments returns an array of all payments made - including
+    ## username, id, amount, date
+    @total_payments = calculate_total_payments(@cart_payments)
+
+    @display_minimum_payment = ((@cart.minimum_payment / 100).to_f)
+
     # Sorts through those users to find which users belong to your current cart
     @contributors = CartRole.where(cart_id: @cart.id).uniq
 
@@ -43,12 +52,11 @@ class CartsController < ApplicationController
     @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
     @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
     # @current_users.flatten
-    @cart_contributions = Payment.where(cart_id: @cart.id).where(status: "paid")
-    @cart_payments = @cart_contributions.sum(:amount)
-    @cart_refunds = Payment.where(cart_id: @cart.id).where(status: "refunded").sum(:amount)
-    @total_paid = (@cart_payments - @cart_refunds)
+    @cart_payments = get_cart_payments(@cart.id)
+    @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
+    @total_paid = @cart_payments.sum(:amount)
     
-    @progress = cart_progress(@total_paid, @goal)
+    # @progress = cart_progress(@total_paid, @goal)
 
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
@@ -123,7 +131,6 @@ class CartsController < ApplicationController
 
   def get_amazon_products(products)
     product_ids = products.inject([]) { |arr, product| arr.push(product.external_id)  } 
-
     response = $amazon_request.item_lookup(
       query: {
         'ItemId' => product_ids.join(','),

@@ -1,10 +1,4 @@
 $(function() {
-  $('html').on('click', '.test', function () {
-    $(this).hide();
-  });
-  // $('.test').on('click', function() {
-  //   $(this).hide();
-  // });
   var $form = $('#payment-form');
   $form.submit(function(event) {
     event.preventDefault();
@@ -39,7 +33,6 @@ function stripeResponseHandler(status, response) {
       type: "POST",
       url: $form.attr("action"),
       data: dataSet,
-      // dataType: "json",
       complete: function(response){
         $form.get(0).reset();
         var payee = response.responseJSON.payee[0].name;

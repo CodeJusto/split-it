@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :charges
 
+
   resources :users
 
   delete '/remove/:id', to: 'users#remove', as: 'remove_user'
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
 
   get '/invite/:key', to: 'carts#invite', as: 'carts_invite'
 
-  post 'refund', to: 'charges#refund', as: 'refund'
+  post 'refunds', to: 'refunds#create', as: 'refunds'
 
   namespace :final_boss do
     resources :users
