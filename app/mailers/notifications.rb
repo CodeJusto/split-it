@@ -15,10 +15,15 @@ class Notifications < ApplicationMailer
   end
 
   def delete_contributor(user, cart)
-    binding.pry
     @user = user
     @cart = cart
     mail(to: @user.email, subject: 'You have been removed from a cart')
+  end
+
+  def invite_contributor(inviter, cart, email)
+    @inviter = inviter
+    @cart = cart
+    mail(to: email, subject: 'You have been invited to a cart')
   end
 
 end

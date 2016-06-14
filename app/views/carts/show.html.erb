@@ -57,6 +57,18 @@
 <br>
 <button data-key= <%= @cart.key %> class="FBInvite">Invite through Facebook</button>
 
+<hr>
+<p> Invite your friends through email! Separate multiple emails with commas</p>
+<%= form_tag carts_invite_user_path(@cart) do %>
+  <%= label_tag "Enter email:" %>
+  <input name="emails[1]"/> <br>
+  <%= label_tag "Enter email:" %>
+  <input name="emails[2]"/> <br>
+  <%= submit_tag "Submit" %>
+<% end %>
+ 
+<hr>
+
 <a href="/invite/<%= @cart.key %>">Invite Link</a>
 <%= render 'payment_form' %>
 <%= render 'contributions' %>

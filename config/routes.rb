@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       # resource :products, only:[:new, :create]
       resources :products
       delete '/remove/:id', to: 'users#remove', as: 'remove_user'
+      post '/invite', to: 'users#invite', as: 'invite_user'
     end
 
   end
