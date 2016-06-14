@@ -1,13 +1,12 @@
 class ApplicationController < ActionController::Base
-  
+  include ActionView::Helpers::NumberHelper
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
  
   protect_from_forgery with: :exception
 
   def format_price(price)
-    dollar = price.to_i > 0 ? price / 100.00 : 0
-    "CDN$ #{dollar}"
+    number_to_currency(price.to_i / 100.00, unit: "CDN$", format: "%u %n")
   end
 
   private
