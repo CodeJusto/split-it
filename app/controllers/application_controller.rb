@@ -15,13 +15,13 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def user_role(user)
+  def user_role(user, cart)
     # Returns the role of the user for the current cart
-    user.roles.find_by('cart_roles.cart_id' => @cart.id)
+    user.roles.find_by('cart_roles.cart_id' => cart.id)
   end
 
-  def user_notifications(user)
-    user.cart_roles.find_by('cart_roles.cart_id' => @cart.id).notifications
+  def user_notifications(user, cart)
+    user.cart_roles.find_by('cart_roles.cart_id' => cart.id).notifications
   end
   
   helper_method :current_user, :format_price, :user_role, :user_notifications

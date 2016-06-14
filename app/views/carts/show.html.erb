@@ -11,7 +11,7 @@
   <% if current_user.email %>
    <%= form_tag cart_preferences_path(@cart), method: :patch do %>
     <%= label_tag :notifications, "Email me for product milestones!" %>
-      <% if user_notifications(current_user) %>
+      <% if user_notifications(current_user, @cart) %>
         <%= check_box_tag :notifications, 1, {checked: true} %>
       <% else %>
         <%= check_box_tag :notifications, 2, false %>
@@ -46,7 +46,7 @@
 <h2>List of contributors</h2>
 <% @contributors.each do |user| %>
   <span><%= user.name %>:
-  <% current_role = user_role(user) %>
+  <% current_role = user_role(user, @cart) %>
   <%= current_role.role_text %></span>
   
   <% if current_role.id == 2 %>
