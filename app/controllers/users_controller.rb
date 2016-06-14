@@ -2,10 +2,8 @@ class UsersController < ApplicationController
   def index
     @cart = Cart.new
     @user = User.new
-    # @all = Cart.all # Remove later
 
     @carts = current_user.cart_roles.map { |role| Cart.find(role.cart_id) } if current_user
-    # byebug
 
     return @carts
   end
@@ -15,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save 
       Notifications.welcome_email(@user).deliver_now
+      Notification.create(cart_id: @cart.id, notification_template_id: 1)
       session[:user_id] = @user.id
       if session[:key]
         key = session[:key]

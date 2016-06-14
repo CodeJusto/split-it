@@ -37,6 +37,7 @@ class ChargesController < ApplicationController
     if @payment.save
       organizer = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 1, 'cart_roles.notifications' => true )  
       Notifications.update_contributor(organizer, @payee, @payment).deliver_now unless organizer.empty?
+      Notification.create(cart_id: @cart_id, notification_template_id: 2)
 
       if request.xhr?
       render :json => {
