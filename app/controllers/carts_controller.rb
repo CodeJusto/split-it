@@ -68,6 +68,14 @@ class CartsController < ApplicationController
   end
 
   def update
+
+  end
+
+  def preferences 
+    @cart_role = CartRole.find_by(user_id: current_user.id, cart_id: params[:cart_id])
+    @cart_role.notifications = !!(params[:notifications])
+    @cart_role.save
+    redirect_to root_path
   end
 
   def destroy
@@ -104,6 +112,8 @@ class CartsController < ApplicationController
 
   private
 
+  
+  
   def require_login
     unless current_user
       session[:key] = params[:key]
