@@ -1,3 +1,4 @@
+require 'SecureRandom'
 class UsersController < ApplicationController
   def index
     @cart = Cart.new
@@ -31,6 +32,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.password = SecureRandom.uuid
+    @user.update_attributes(user_params)
+    binding.pry
+    if @user.save
+      redirect_to root_path 
+    end
   end
 
   def destroy

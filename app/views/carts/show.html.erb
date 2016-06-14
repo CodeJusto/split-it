@@ -8,8 +8,8 @@
 <div class="preferences">
   <h2 class="test">Notifcation Preferences</h2>
  
-
-    <%= form_tag cart_preferences_path(@cart), method: :patch do %>
+  <% if current_user.email %>
+   <%= form_tag cart_preferences_path(@cart), method: :patch do %>
     <%= label_tag :notifications, "Email me for product milestones!" %>
       <% if CartRole.find_by(user_id: current_user.id, cart_id: @cart.id).notifications == true %>
         <%= check_box_tag :notifications, 1, {checked: true} %>
@@ -18,6 +18,14 @@
       <% end %>    
     <%= submit_tag "Submit" %>
     <% end %>
+  <% else %>
+    <%= form_for current_user do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <%= f.submit %>
+    <% end %> 
+  <% end %>
+ 
 </div>
 <h1>List of products</h1>
 <ul id="product-list">
