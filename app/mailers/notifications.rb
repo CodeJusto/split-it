@@ -11,8 +11,14 @@ class Notifications < ApplicationMailer
     @user = user.first
     @payee = payee.first.name
     @payment = payment
-    @url  = 'http://example.com/login'
     mail(to: @user.email, subject: 'Someone has contributed to your cart!')
+  end
+
+  def delete_contributor(user, cart)
+    binding.pry
+    @user = user
+    @cart = cart
+    mail(to: @user.email, subject: 'You have been removed from a cart')
   end
 
 end

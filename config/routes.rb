@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  delete '/remove/:id', to: 'users#remove', as: 'remove_user'
+
 
   resources :carts do 
     patch '/preferences', to: 'carts#preferences', as: 'preferences'
@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     scope '/:cart_id' do
       # resource :products, only:[:new, :create]
       resources :products
+      delete '/remove/:id', to: 'users#remove', as: 'remove_user'
     end
+
   end
 
   # resources :products
