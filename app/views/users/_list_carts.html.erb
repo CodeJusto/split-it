@@ -1,5 +1,5 @@
 <!-- Only list carts that this user belongs to -->
-<p><%= cart.name %> - <%= cart.cart_total %></p>
+<p><%= cart.name %> - <%= cart.total %></p>
 <%= link_to "View cart", cart_path(cart) %>
 <% if current_user.cart_roles.where(role_id: 2, user_id: current_user.id).size > 0 %>
   <%= link_to "Remove cart", cart_path(cart), method: :delete, data: {confirm: 'Are you sure you want to remove yourself from this cart?', title: "Remove #{cart.name}?"} %>

@@ -5,11 +5,10 @@ class Carts::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-
-    @product.external_id = /\/(dp|gp\/product)\/(.+)\//.match(@product.url)[2].to_s
-
     if @product.save
       redirect_to cart_path(params[:cart_id]), notice: "#{@product.display_name} was added successfully!"
+    elsif @product.errors[:external_id]
+      render :new_full
     else
       render :new
     end
@@ -38,7 +37,7 @@ class Carts::ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(
-      :display_name, :url, :quantity, :cart_id
+      :display_name, :url, :quantity, :cart_id, :price, :price_checked_at, :description, :image
     )
   end
 
