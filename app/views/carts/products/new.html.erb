@@ -1,3 +1,5 @@
+<h3><%= link_to 'Back', cart_path(params[:cart_id]) %></h3>
+
 <h1>New Product</h1>
 
 <%= form_for [:carts, @product] do |f| %>

@@ -11,8 +11,6 @@ class Cart < ActiveRecord::Base
 
   before_save :convert_minimum_payment_to_cents
 
-  # helper ApplicationHelper
-
   def expiry_date_must_be_in_the_future 
     errors.add(:expiry, "must be in the future") if !expiry.blank? and expiry < Date.today
   end
@@ -26,6 +24,5 @@ class Cart < ActiveRecord::Base
   def convert_minimum_payment_to_cents
     (minimum_payment * 100).to_i
   end
-
 
 end
