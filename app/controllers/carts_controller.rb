@@ -41,12 +41,10 @@ class CartsController < ApplicationController
 
     # Sorts through those users to find which users belong to your current cart
     @contributors = CartRole.where(cart_id: @cart.id).uniq
-
-    # Query all the products in the cart from Amazon
-    @amazon = get_amazon_products(@cart.products)
+    # Query all the products in the cart
     @products = @cart.products
     
-    @goal = 20000
+    # @goal = 20000
     # the goal is hard-coded now
     # @users = User.joins(cart_roles: :carts)
     @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
@@ -57,6 +55,8 @@ class CartsController < ApplicationController
     @total_paid = @cart_payments.sum(:amount)
     
     # @progress = cart_progress(@total_paid, @goal)
+    @progress = @total_paid # Error here, not getting the total_paid 
+    # @progress = @cart.total == 0 ? 0 : @total_paid / @cart.total * 100.00
 
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
@@ -92,24 +92,6 @@ class CartsController < ApplicationController
     redirect_to root_path
   end
 
-
-  # def cart_total(id)
-  #   products = Cart.find(id).products
-
-  #   product_ids = products.inject([]) { |arr, product| arr.push(product.external_id)  } 
-
-  #   response = $amazon_request.item_lookup(
-  #     query: {
-  #       'ItemId' => product_ids.join(','),
-  #       'ResponseGroup' => 'OfferSummary'
-  #     }
-  #   )
-
-  #   items = response.to_h["ItemLookupResponse"]["Items"]["Item"]
-  #   return 0.00 if items.nil?
-  #   total = items.inject(0) { |sum, item| sum + item["OfferSummary"]["LowestNewPrice"]["Amount"].to_i * @cart.products.find_by(external_id: item["ASIN"]).quantity } / 100.00
-  # end
-
   protected 
 
   def cart_params
@@ -128,17 +110,4 @@ class CartsController < ApplicationController
       redirect_to root_path
     end
   end
-
-  def get_amazon_products(products)
-    product_ids = products.inject([]) { |arr, product| arr.push(product.external_id)  } 
-    response = $amazon_request.item_lookup(
-      query: {
-        'ItemId' => product_ids.join(','),
-        'ResponseGroup' => 'ItemAttributes,Small,Images,OfferSummary'
-      }
-    )
-
-    product_ids.size > 1 ? response.to_h["ItemLookupResponse"]["Items"]["Item"] : [response.to_h["ItemLookupResponse"]["Items"]["Item"]]
-  end
-
 end

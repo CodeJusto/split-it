@@ -1,5 +1,5 @@
 class CartRole < ActiveRecord::Base
-  belongs_to :users
-  belongs_to :carts
-  belongs_to :roles
+  belongs_to :user
+  belongs_to :cart
+  belongs_to :role
 end

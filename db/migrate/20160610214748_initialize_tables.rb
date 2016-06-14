@@ -10,10 +10,10 @@ class InitializeTables < ActiveRecord::Migration
     create_table :payments do |t|
       t.references :user
       t.references :cart
+      t.string :status
       t.integer :amount
       t.datetime :created_at
       t.datetime :updated_at
-      t.boolean :captured
     end
 
     create_table :carts do |t|
