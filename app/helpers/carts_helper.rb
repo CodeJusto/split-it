@@ -20,6 +20,11 @@ module CartsHelper
     payments.select { | payment | payment.refund == nil }
   end
 
+  def calculate_total_payments(array)
+    values = array.map(&:amount)
+    values.inject(0){ |sum,x| sum + x }
+  end
+
   def convert_to_cents(num)
    (num.to_f * 100).to_i
   end

@@ -33,7 +33,10 @@ class CartsController < ApplicationController
     # @current_users.flatten
 
     @cart_payments = get_cart_payments(@cart.id)
-    
+    ## cart_payments returns an array of all payments made - including
+    ## username, id, amount, date
+    @total_payments = calculate_total_payments(@cart_payments)
+
     @display_minimum_payment = ((@cart.minimum_payment / 100).to_f)
 
     # Sorts through those users to find which users belong to your current cart
@@ -51,7 +54,7 @@ class CartsController < ApplicationController
     # @current_users.flatten
     @cart_payments = get_cart_payments(@cart.id)
     @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
-    # @total_paid = (@cart_payments - @cart_refunds)
+    @total_paid = @cart_payments.sum(:amount)
     
     # @progress = cart_progress(@total_paid, @goal)
 
