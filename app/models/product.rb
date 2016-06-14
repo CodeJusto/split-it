@@ -4,12 +4,12 @@ class Product < ActiveRecord::Base
   validates :display_name, presence: true
   validates :url, presence: true
   validates :quantity, presence: true
-  validates :price, presence: true
-  validates :description, presence: true
+  validates :price, presence: true, unless: :form_check?
+  validates :description, presence: true, unless: :form_check?
   validates :cart_id, presence: true
 
 
-  before_validation :get_amazon_data, if: :form_check? && :amazon_api
+  before_validation :get_amazon_data, if: :form_check? && :amazon_url && :amazon_api
   before_validation :clear_error, unless: :form_check?
 
   private
@@ -17,7 +17,6 @@ class Product < ActiveRecord::Base
   def amazon_url
     match = /www\.?amazon.ca/.match(url)
     if match.nil?
-      errors.add(:url, "is not a valid Amazon URL")
       return false
     else
       return true
@@ -28,11 +27,12 @@ class Product < ActiveRecord::Base
     match = /\/(dp|gp\/product)\/(.+)\//.match(url)
     if amazon_url && match.size >=3
       external_id = match[2].to_s
-      @response = get_amazon_response(external_id)
     else
+      errors.add(:url, "is not a valid Amazon URL")
       return false
     end
 
+      @response = get_amazon_response(external_id)
 
     if @response.nil?
       errors.add(:external_id, " ID is not an accessible Amazon ASIN")
