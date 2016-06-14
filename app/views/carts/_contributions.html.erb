@@ -4,7 +4,7 @@
 <%= render 'progress' %>
 
 <% @cart_contributions.each do |contribution| %>
-<ul>
+<ul class="contribution-details" data-payment-id="<%= contribution.stripe_charge_id %>">
   <li><%= render 'contributor', contribution: contribution %></li>
   <li><%= render 'refund_form', contribution: contribution %></li>
 </ul>

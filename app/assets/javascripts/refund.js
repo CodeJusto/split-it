@@ -1,12 +1,28 @@
 $(function() {
-  var $form = $('#refundForm');
-  $form.submit(function(event) {
-    event.preventDefault();
-    // Disable the submit button to prevent repeated clicks:
-    $form.find('.submit').prop('disabled', true);
-    // Request a token from Stripe:
-    Stripe.card.createToken($form, stripeResponseHandler);
-    // Prevent the form from being submitted:
-    return false;
+
+  $('.refund-button').on('click', function(e){
+    e.preventDefault();
+    // e.stopPropagation();
+    var $payment = $('.contribution-details');
+    var paymentId = $payment.data('payment-id');
+    var data = paymentId;
+
+    if (confirm('Are you sure you want to refund this payment?')){
+      $.ajax({
+        type: "POST",
+        url: '/refund',
+        data: { id: data },
+      }).done(function(response){
+        console.log(response);
+        removePayment(paymentId);
+        alert('Payment has been refunded');
+      })
+    }
   });
 });
+
+var removePayment = function(paymentId){
+    $('.contribution-details[data-payment-id=' + paymentId + ']').fadeOut(function(){
+        $(this).remove();        
+    });
+}

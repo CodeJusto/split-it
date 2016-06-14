@@ -58,15 +58,16 @@ class ChargesController < ApplicationController
   end
 
   def refund
+    charge = params[:id]
     refund = Stripe::Refund.create(
-      charge: params[:stripe_charge_id]
-    )
-    matching_payment = Payment.find_by(stripe_charge_id: params[:stripe_charge_id])
+      charge: charge
+    ) 
+    matching_payment = Payment.find_by(stripe_charge_id: charge)
     payment = Payment.new(
       user_id: matching_payment.user_id,
       cart_id: matching_payment.cart_id,
       stripe_customer_id: matching_payment.stripe_customer_id,
-      stripe_charge_id: refund.charge,
+      stripe_charge_id: params[:id],
       amount: refund.amount,
       status: "refunded"
     )
