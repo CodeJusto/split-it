@@ -1,5 +1,7 @@
 <h1>New Product</h1>
 
+<h3>Amazon sucks, type in your product.</h3>
+
 <%= form_for [:carts, @product] do |f| %>
 <% if @product.errors.any? %>
   <div>
@@ -18,6 +20,14 @@
 <div>
   <%= f.label :url %><br>
   <%= f.url_field :url %>
+</div>
+<div>
+  <%= f.label :description %><br>
+  <%= f.text_field :description %>
+</div>
+<div>
+  <%= f.label :price %><br>
+  <%= f.number_field :price %>
 </div>
 <div>
   <%= f.label :quantity %><br>

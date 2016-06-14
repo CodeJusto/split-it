@@ -3,7 +3,7 @@
 <h1>Carts#show</h1>
 <p>Find me in app/views/carts/show.html.erb</p>
 
-<h2>CDN$ <%= @cart.cart_total %></h2>
+<h2><%= @cart.total %></h2>
 <hr>
 
 <div class="preferences">
@@ -21,7 +21,7 @@
 <% else %>
   <% @products.each do |product| %>
     <li>
-      <h2><%= link_to product.display_name, product.url %> <%= @amazon.find{ |i| i["ASIN"] == product.external_id }["OfferSummary"]["LowestNewPrice"]["FormattedPrice"] %> x <%= product.quantity %></h2>
+      <h2><%= link_to product.display_name, product.url %> <%= product.price %> cents x <%= product.quantity %></h2>
       <p><%= link_to 'Edit', edit_carts_product_path(@cart, product) %> | <%= link_to 'Remove', carts_product_path(@cart, product), data: {:confirm => 'Are you sure?'}, :method => :delete  %></p>
     </li>
   <% end %>
