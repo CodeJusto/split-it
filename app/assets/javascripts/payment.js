@@ -1,10 +1,4 @@
 $(function() {
-  $('html').on('click', '.test', function () {
-    $(this).hide();
-  });
-  // $('.test').on('click', function() {
-  //   $(this).hide();
-  // });
   var $form = $('#payment-form');
   $form.submit(function(event) {
     event.preventDefault();

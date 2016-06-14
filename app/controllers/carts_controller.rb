@@ -11,6 +11,9 @@ class CartsController < ApplicationController
 
   def create
     @cart = Cart.new(cart_params)
+    ## stores the minimum payment in cents so users can input a regular
+    ## dollar amount
+    @cart.minimum_payment = convert_to_cents(cart_params[:minimum_payment])
     @cart.status_id = 1
     @cart.key = SecureRandom.uuid
     if @cart.save
@@ -24,11 +27,10 @@ class CartsController < ApplicationController
   def show
     @contributors = []
     @cart = Cart.find(params[:id])
-
     # Connect users, cart_roles, and carts
     @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
     @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
-    # @current_users.flatten
+    @display_minimum_payment = ((@cart.minimum_payment / 100).to_f)
     @cart_payments = Payment.where(cart_id: @cart.id)
     # Sorts through those users to find which users belong to your current cart
     @contributors = CartRole.where(cart_id: @cart.id).uniq
@@ -113,7 +115,6 @@ class CartsController < ApplicationController
 
   def get_amazon_products(products)
     product_ids = products.inject([]) { |arr, product| arr.push(product.external_id)  } 
-
     response = $amazon_request.item_lookup(
       query: {
         'ItemId' => product_ids.join(','),

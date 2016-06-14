@@ -4,7 +4,9 @@
 <%= render 'progress' %>
 
 <% @cart_contributions.each do |contribution| %>
-  <p><%= render 'contributor', contribution: contribution %></p>
-  <p><%= render 'refund_form', contribution: contribution %></p>
+<ul>
+  <li><%= render 'contributor', contribution: contribution %></li>
+  <li><%= render 'refund_form', contribution: contribution %></li>
+</ul>
 <% end %>
 </div>

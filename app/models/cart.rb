@@ -5,10 +5,11 @@ class Cart < ActiveRecord::Base
   has_many :payments
   has_many :products
   has_many :notifications
-  before_validation :convert_minimum_payment_to_cents
   validates :name, presence: true
-  # validates :minimum_payment, :numericality { only_integer: true }
+  validates :minimum_payment, :numericality => true 
   validate :expiry_date_must_be_in_the_future
+  
+  # before_validation :convert_minimum_payment_to_cents
 
 
   def expiry_date_must_be_in_the_future 
