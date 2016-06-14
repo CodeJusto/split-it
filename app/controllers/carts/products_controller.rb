@@ -7,7 +7,7 @@ class Carts::ProductsController < ApplicationController
     @product = Product.new(product_params)
     if @product.save
       redirect_to cart_path(params[:cart_id]), notice: "#{@product.display_name} was added successfully!"
-    elsif @product.errors[:external_id]
+    elsif @product.errors[:external_id].size > 0 || @product.errors[:description].size > 0 || @product.errors[:price].size > 0
       render :new_full
     else
       render :new

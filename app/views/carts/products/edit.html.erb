@@ -1,3 +1,5 @@
+<h3><%= link_to 'Back', cart_path(params[:cart_id]) %></h3>
+
 <h1>Edit Product</h1>
 <%= form_for(@product, url: carts_product_path, method: :patch) do |f| %>
 <% if @product.errors.any? %>

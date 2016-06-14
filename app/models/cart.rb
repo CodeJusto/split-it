@@ -17,8 +17,7 @@ class Cart < ActiveRecord::Base
   end
 
   def total
-    total = products.sum(:price) > 0 ? products.sum(:price) / 100.00 : 0
-    "CDN$ #{total}"
+    products.sum("price * quantity")
   end
 
   private
@@ -26,6 +25,5 @@ class Cart < ActiveRecord::Base
   def convert_minimum_payment_to_cents
     (minimum_payment * 100).to_i
   end
-
 
 end
