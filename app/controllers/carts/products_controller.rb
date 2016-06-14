@@ -5,25 +5,12 @@ class Carts::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-
-
-    if !get_amazon_product(@product).nil?
-      amazon = get_amazon_product(@product)
-      @product.image = amazon['ImageSets']['ImageSet'][0]['LargeImage']['URL']
-      @product.price = amazon["OfferSummary"]["LowestNewPrice"]["Amount"]
-      @product.description = amazon["ItemAttributes"]["Feature"].join(";")
-      @product.price_checked_at = DateTime.now
-      if @product.save
+    if @product.save
       redirect_to cart_path(params[:cart_id]), notice: "#{@product.display_name} was added successfully!"
-      else
-        render :new
-      end
+    elsif @product.errors[:external_id]
+      render :new_full
     else
-      if @product.save
-        redirect_to cart_path(params[:cart_id]), notice: "#{@product.display_name} was added successfully!"
-      else
-        render :new_full
-      end
+      render :new
     end
   end
 
@@ -52,18 +39,6 @@ class Carts::ProductsController < ApplicationController
     params.require(:product).permit(
       :display_name, :url, :quantity, :cart_id, :price, :price_checked_at, :description, :image
     )
-  end
-
-  def get_amazon_product(product)
-    product.external_id = /\/(dp|gp\/product)\/(.+)\//.match(product.url)[2].to_s
-
-    response = $amazon_request.item_lookup(
-      query: {
-        'ItemId' => product.external_id,
-        'ResponseGroup' => 'ItemAttributes,Small,Images,OfferSummary'
-      }
-    )
-    response.to_h["ItemLookupResponse"]["Items"]["Item"]
   end
 
 end
