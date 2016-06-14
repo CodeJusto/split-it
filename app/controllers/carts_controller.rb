@@ -4,7 +4,7 @@ class CartsController < ApplicationController
   
   include CartsHelper
 
-  before_action :require_login
+  skip_before_action :require_login, only: [:invite]
 
   def index
   end
@@ -61,10 +61,12 @@ class CartsController < ApplicationController
   end
 
   def invite
+    @user = User.new
     @cart = Cart.find_by(key: params[:key])
     @cart_array = @cart.cart_roles.map do |c|
-    c.user_id
+      c.user_id
     end
+    @email = params[:email]
   end
 
   def update
@@ -117,6 +119,7 @@ class CartsController < ApplicationController
   def require_login
     unless current_user
       session[:key] = params[:key]
+      #Display error message
       redirect_to root_path
     end
   end

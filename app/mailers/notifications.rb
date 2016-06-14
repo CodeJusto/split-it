@@ -23,7 +23,8 @@ class Notifications < ApplicationMailer
   def invite_contributor(inviter, cart, email)
     @inviter = inviter
     @cart = cart
-    mail(to: email, subject: 'You have been invited to a cart')
+    @email = email
+    mail(to: @email, subject: 'You have been invited to a cart')
   end
 
 end

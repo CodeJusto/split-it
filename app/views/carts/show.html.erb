@@ -27,7 +27,7 @@
   <% end %>
  
 </div>
-<h1>List of products</h1>
+<h2>List of products</h2>
 <ul id="product-list">
 <% if @products.size == 0 %>
   <p>No product yet.</p>
@@ -43,7 +43,7 @@
 <%= link_to 'Add product', new_carts_product_path(@cart) %>
 <hr>
 
-<h1>List of contributors</h1>
+<h2>List of contributors</h2>
 <% @contributors.each do |user| %>
   <% @user = User.find(user.user_id) %>
   <span><%= @user.name %>:
@@ -66,9 +66,8 @@
   <input name="emails[2]"/> <br>
   <%= submit_tag "Submit" %>
 <% end %>
- 
+
 <hr>
 
-<a href="/invite/<%= @cart.key %>">Invite Link</a>
 <%= render 'payment_form' %>
 <%= render 'contributions' %>

@@ -24,6 +24,6 @@ Status.create(text: "Shipped")
 Status.create(text: "Archived")
 
 NotificationTemplate.create(description: "Welcome")
-NotificationTemplate.create(description: "Contribution")
+NotificationTemplate.create(description: "Contribution")å
 NotificationTemplate.create(description: "Success")
 NotificationTemplate.create(description: "Failure")
