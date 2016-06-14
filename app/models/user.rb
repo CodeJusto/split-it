@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :cart_roles
   has_many :carts, through: :cart_roles
+  has_many :roles, through: :cart_roles
   has_many :payments
   has_many :refunds, through: :payments
 
