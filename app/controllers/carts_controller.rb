@@ -27,15 +27,19 @@ class CartsController < ApplicationController
   def show
     @contributors = []
     @cart = Cart.find(params[:id])
+
+    # if cart has product, update status to 'Active'
+    # @cart.update(status_id: 2) if @cart.products.size > 0
+    @cart.check_status
+
     session[:cart_id] = @cart.id
-    # @users = @cart.users
 
     @cart_payments = get_cart_payments(@cart.id)
     ## cart_payments returns an array of all payments made - including
     ## username, id, amount, date
-    @total_payments = calculate_total_payments(@cart_payments)
-
     @display_minimum_payment = ((@cart.minimum_payment / 100).to_f)
+    @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
+
 
     # Sorts through those users to find which users belong to your current cart
     @contributors = CartRole.where(cart_id: @cart.id).uniq
@@ -44,13 +48,12 @@ class CartsController < ApplicationController
     @goal = @cart.total
 
     @contributors = @cart.users
-    # CartRole.where(cart_id: @cart.id).uniq
     # Query all the products in the cart
     @products = @cart.products
 
-    @cart_payments = get_cart_payments(@cart.id)
-    @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
-    @progress = cart_progress(@total_payments, @goal)
+    @progress = @cart.progress
+    @total_payments = @cart.total_payment
+
 
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
@@ -95,7 +98,10 @@ class CartsController < ApplicationController
 
   def destroy
     @cart = Cart.find(session[:cart_id])
-    @cart.destroy
+    # @cart.destroy
+    # instead of destroying the cart, we 'archive' it
+    @cart.update(status_id: 6)
+
     # Refactor this!
     contributor_email = find_role(2, "email")
     unless contributor_email.empty?
