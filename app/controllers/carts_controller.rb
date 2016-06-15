@@ -94,8 +94,27 @@ class CartsController < ApplicationController
   end  
 
   def destroy
-    @cart = Cart.find(params[:id])
+    @cart = Cart.find(session[:cart_id])
     @cart.destroy
+    # Refactor this!
+    contributor_email = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart.id, 'cart_roles.role_id' => 2, 'cart_roles.email_notifications' => true )  
+    unless contributor_email.empty?
+      contributor_email.each do |c| 
+        Notifications.cart_deleted(c, @cart).deliver_now unless contributor_email.empty?
+      end
+    Notification.create(cart_id: @cart_id, notification_template_id: 2)
+    end
+    binding.pry
+    contributor_text = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart.id, 'cart_roles.role_id' => 2, 'cart_roles.text_notifications' => true )  
+    unless contributor_text.empty?
+      contributor_text.each do |text| 
+        $twilio.account.sms.messages.create(
+          :from => ENV['COMPANY_PHONE'],
+          :to => "+1#{text.number}",
+          :body => "The organizer for #{@cart.name} has deleted your cart. All payments will be refunded."
+        )
+      end
+    end
     redirect_to root_path
   end
 

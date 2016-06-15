@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   def index
     @cart = Cart.new
     @user = User.new
-
-    @carts = current_user.cart_roles.map { |role| Cart.find(role.cart_id) } if current_user
+    @carts = current_user.carts if current_user
 
     return @carts
   end
