@@ -27,6 +27,10 @@ class CartsController < ApplicationController
   def show
     @contributors = []
     @cart = Cart.find(params[:id])
+
+    # if cart has product, update status to 'Active'
+    @cart.update(status_id: 2) if @cart.products.size > 0
+
     session[:cart_id] = @cart.id
     # @users = @cart.users
 
@@ -95,7 +99,10 @@ class CartsController < ApplicationController
 
   def destroy
     @cart = Cart.find(session[:cart_id])
-    @cart.destroy
+    # @cart.destroy
+    # instead of destroying the cart, we 'archive' it
+    @cart.update(status_id: 6)
+
     # Refactor this!
     contributor_email = find_role(2, "email")
     unless contributor_email.empty?
