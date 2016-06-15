@@ -28,14 +28,15 @@ module CartsHelper
 
   def update_user_address(user_params)
     # binding.pry
-    current_user.update(street_address: user_params["street_address"], 
-                        street_address2: user_params["street_address2"],
-                        country: user_params["country"],
-                        city: user_params["city"],
-                        province: user_params["province"],
-                        zip_code: user_params["zip_code"],
+    current_user.update(street_address: user_params["cart"]["street_address"], 
+                        street_address2: user_params["cart"]["street_address2"],
+                        country: user_params["cart"]["country"],
+                        city: user_params["cart"]["city"],
+                        province: user_params["cart"]["province"],
+                        zip_code: user_params["cart"]["zip_code"],
                         )
     current_user.save!
+    binding.pry
   end
 
 end
