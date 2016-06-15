@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save 
       Notifications.welcome_email(@user).deliver_now
-      # Notification.create(cart_id: @cart.id, notification_template_id: 1)
       session[:user_id] = @user.id
       if session[:key]
         key = session[:key]

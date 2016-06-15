@@ -42,9 +42,8 @@ class ChargesController < ApplicationController
       @updated_pctg = cart_progress(@updated_cart_total, @goal)
       # @total = @cart.payments.sum(:amount)
 
-      # Is there a way to refactor this into a function or something?
-      organizer_email = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 1, 'cart_roles.email_notifications' => true )  
-      contributor_email = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 2, 'cart_roles.email_notifications' => true )  
+      organizer_email = find_role(1, 'email')
+      contributor_email = find_role(2, 'email')
       Notifications.update_contributor(organizer_email, @payee, @payment).deliver_now unless organizer_email.empty?
       
       contributor_email.each do |contributor|
@@ -52,8 +51,8 @@ class ChargesController < ApplicationController
       end
       Notification.create(cart_id: @cart_id, notification_template_id: 2)
 
-      organizer_text = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 1, 'cart_roles.text_notifications' => true )  
-      contributor_text = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 2, 'cart_roles.text_notifications' => true )  
+      organizer_text = find_role(1, 'text')
+      contributor_text = find_role(2, 'text')
       
       unless organizer_text.empty?
         organizer_text.each do |text| 
