@@ -32,7 +32,7 @@ class Product < ActiveRecord::Base
       return false
     end
 
-      @response = get_amazon_response(external_id)
+    @response = get_amazon_response(external_id)
 
     if @response.nil?
       errors.add(:external_id, " ID is not an accessible Amazon ASIN")

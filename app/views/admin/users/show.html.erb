@@ -1,0 +1,22 @@
+<h2><%= link_to 'Back', admin_users_path %></h2>
+
+<h1><%= @user.name %></h1>
+<h3><%= @user.email %></h3>
+<hr>
+<h2>Carts</h2>
+<% if @user.carts.size > 0 %>
+  <% @user.carts.each do |cart| %>
+    <li><%= link_to cart.name, cart_path(cart) %></li>
+  <% end %>
+<% else %>
+  <li>No cart</li>
+<% end %>
+<hr>
+<h2>Payments</h2>
+<% if @user.payments.size > 0 %>
+  <% @user.payments.each do |payment| %>
+    <li><%= "Cart: #{payment.cart.name} Amount: #{format_price(payment.amount)}" %></li>
+  <% end %>
+<% else %>
+  <li>No payment</li>
+<% end %>

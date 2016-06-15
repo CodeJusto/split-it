@@ -50,7 +50,6 @@ class CartsController < ApplicationController
 
     @cart_payments = get_cart_payments(@cart.id)
     @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
-
     @progress = cart_progress(@total_payments, @goal)
 
     @cart.cart_roles.each do |c|
@@ -100,8 +99,6 @@ class CartsController < ApplicationController
   end
 
   private
-
-  
   
   def require_login
     unless current_user
