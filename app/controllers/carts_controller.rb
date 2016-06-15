@@ -29,7 +29,8 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
 
     # if cart has product, update status to 'Active'
-    @cart.update(status_id: 2) if @cart.products.size > 0
+    # @cart.update(status_id: 2) if @cart.products.size > 0
+    @cart.check_status
 
     session[:cart_id] = @cart.id
 
@@ -38,7 +39,7 @@ class CartsController < ApplicationController
     ## username, id, amount, date
     @display_minimum_payment = ((@cart.minimum_payment / 100).to_f)
     @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
-    
+
 
     # Sorts through those users to find which users belong to your current cart
     @contributors = CartRole.where(cart_id: @cart.id).uniq

@@ -13,7 +13,7 @@ class Cart < ActiveRecord::Base
   validates :minimum_payment, :numericality => true 
   validate :expiry_date_must_be_in_the_future
   
-
+  # after_save :check_status
 
   def expiry_date_must_be_in_the_future 
     errors.add(:expiry, "must be in the future") if !expiry.blank? and expiry < Date.today
@@ -24,8 +24,9 @@ class Cart < ActiveRecord::Base
   end
 
   def total_payment
-    total = payments.joins(:refund).where("refunds.payment_id = NULL")
-    total.size == 0 ? 0 : payments
+    # total = Payment.joins("LEFT JOIN refunds ON refunds.payment_id = payments.id WHERE refunds.payment_id IS NULL AND payments.cart_id = ?", id)
+    total = Payment.includes(:refund).where(refunds: { payment_id: nil }).where("payments.cart_id = ?", id).sum(:amount)
+    total == 0 ? 0 : total
   end
 
   def progress
@@ -33,7 +34,11 @@ class Cart < ActiveRecord::Base
   end
 
   def check_status
-    
+    if status.id == 1 && products.size > 0
+      update_attribute(:status_id, 2)
+    elsif status.id == 2 && progress == 100
+      update_attribute(:status_id, 4)
+    end
   end
 
 
