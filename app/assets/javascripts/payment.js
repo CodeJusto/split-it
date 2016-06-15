@@ -1,4 +1,5 @@
 $(function() {
+
   var $form = $('#payment-form');
   $form.submit(function(event) {
     event.preventDefault();
@@ -9,6 +10,10 @@ $(function() {
     // Prevent the form from being submitted:
     return false;
   });
+
+  function outputUpdate(vol) {
+  document.querySelector('#payRange').value = vol;
+  }
 
 });
 function stripeResponseHandler(status, response) {

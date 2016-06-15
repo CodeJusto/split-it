@@ -7,24 +7,29 @@
 <hr>
 
 <div class="preferences">
-  <h2 class="test">Notifcation Preferences</h2>
+<h2 class="test">Notifcation Preferences</h2>
  <%= render 'notification_preferences' %>
+ <% if user_role(current_user, @cart).id == 1 %>
+ <h2>Set minimum price</h2>
+ <%= form_for @cart, url: cart_path(@cart), method: :patch, :html => {:id => "setMinPrice"} do |f| %>
+ <%= f.label "Set min price" %>
+ <%= f.number_field :custom_minimum_payment, max: @cart.total, min: 0 %>
+ <%= f.submit "Update min price"%>
+<% end %>
+<% end %>
 </div>
 <h2>List of products</h2>
 <%= render 'products' %>
 <hr>
 <h2>List of contributors</h2>
-<% @contributors.each do |user| %>
-  <%= render 'contributions', user: user %>
-<% end %>
+  <%= render 'contributions' %>
 <br>
 <hr>
 <%= render 'invitations' %>
 <hr>
-
 <% if user_role(current_user, @cart).id == 1 %>
   <h1><%= link_to "Delete this cart", cart_path(@cart), method: :delete, data: {confirm: "Are you sure you want to permanently #{@cart.name}? There is NO way to recover this cart. All payments will be refunded.", title: "WARNING!"} %></h1>
 <% end %>
 <hr>
 <%= render 'payment_form' %>
-<%= render 'contributions' %>
+

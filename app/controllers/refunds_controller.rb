@@ -33,4 +33,28 @@ class RefundsController < ApplicationController
     end
   end
 
+  def refund_expired_carts
+    @expired_carts = Cart.where(:expiry < Date.now)
+    @expired_cart_payments = @expired_carts.payments.pluck(:stripe_charge_id)
+    
+    @expired_cart_payments.each do |charge|
+      stripe_refund = Stripe::Refund.create(
+      charge: charge
+    )
+      @matching_payment = Payment.find_by(stripe_charge_id: charge)
+      refund = Refund.new(
+      user_id: @matching_payment.user_id,
+      cart_id: @matching_payment.cart_id,
+      payment_id: @matching_payment.id,
+      stripe_customer_id: @matching_payment.stripe_customer_id,
+      stripe_charge_id: charge,
+      amount: stripe_refund.amount
+    )
+      refund.save
+    end
+    @expired_carts.delete_all 
+  end
+
+  
+
 end

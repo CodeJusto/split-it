@@ -8,9 +8,10 @@ class ChargesController < ApplicationController
   end
 
   def create
-    # Amount in cents
+    
     @amount = convert_to_cents(params[:amount])
     @cart_id = params[:cart]
+    @cart = Cart.where(id: @cart_id)
     token = params[:stripeToken]
 
     customer = Stripe::Customer.create(
@@ -82,7 +83,8 @@ class ChargesController < ApplicationController
         :payment => format_price(@payment.amount),
         :payee => @payee,
         :updated_cart_total => format_price(@updated_cart_total),
-        :updated_pctg => @updated_pctg
+        :updated_pctg => @updated_pctg,
+        :stripe_charge_id => charge.id
         }                   
       else
         redirect(back)

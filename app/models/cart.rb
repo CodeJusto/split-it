@@ -9,10 +9,11 @@ class Cart < ActiveRecord::Base
 
   has_many :refunds, through: :payments
 
-  validates :name, presence: true 
+
+  validates :name, presence: true
+  # validates :minimum_payment, :numericality => true 
   validate :expiry_date_must_be_in_the_future
   
-  # after_save :check_status
 
   def expiry_date_must_be_in_the_future 
     errors.add(:expiry, "must be in the future") if !expiry.blank? and expiry < Date.today
@@ -38,6 +39,12 @@ class Cart < ActiveRecord::Base
     elsif status.id == 2 && progress == 100
       update_attribute(:status_id, 4)
     end
+  end
+
+
+  def refund_expired_carts
+    @expired_carts = Cart.where(:expiry < Date.now)
+
   end
 
 

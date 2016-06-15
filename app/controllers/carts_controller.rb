@@ -15,8 +15,11 @@ class CartsController < ApplicationController
 
   def create
     @cart = Cart.new(cart_params)
+<<<<<<< HEAD
     ## stores the minimum payment in cents so users can input a regular
     ## dollar amount
+=======
+>>>>>>> 6922f593b81fa9ffdac938c74a433e1cd3dfe870
     @cart.status_id = 1
     @cart.key = SecureRandom.uuid
     if @cart.save!
@@ -42,9 +45,8 @@ class CartsController < ApplicationController
     @cart_payments = get_cart_payments(@cart.id)
     ## cart_payments returns an array of all payments made - including
     ## username, id, amount, date
-    # @display_minimum_payment = ((@cart.minimum_payment / 100).to_f)
-    @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
 
+    @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
 
     # Sorts through those users to find which users belong to your current cart
     @contributors = CartRole.where(cart_id: @cart.id).uniq
@@ -55,10 +57,18 @@ class CartsController < ApplicationController
     @contributors = @cart.users
     # Query all the products in the cart
     @products = @cart.products
+    @remaining_balance = (@goal - @total_payments)
 
+    if @cart.custom_minimum_payment.nil?
+      @minimum_payment = (@remaining_balance / @contributors.length)
+    else
+      @minimum_payment = @cart.custom_minimum_payment
+    end
+
+    @cart_payments = get_cart_payments(@cart.id)
+    @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
     @progress = @cart.progress
-    @total_payments = @cart.total_payment
-
+    @cart_payments = @cart.total_payment
 
     @cart.cart_roles.each do |c|
       if current_user.id == c.user_id
@@ -80,7 +90,9 @@ class CartsController < ApplicationController
   end
 
   def update
-
+    @cart = Cart.find(session[:cart_id])
+    @cart.update(custom_minimum_payment: convert_to_cents(update_cart_params[:custom_minimum_payment]))
+    @cart.save
   end
 
   def email_preferences 
@@ -133,12 +145,22 @@ class CartsController < ApplicationController
 
   def cart_params
     params.require(:cart).permit(
+<<<<<<< HEAD
       :name, :expiry, :street_address, :street_address2, :country, :city, :province, :zip_code
+=======
+      :name, :expiry
+    )
+  end
+
+  def update_cart_params
+    params.require(:cart).permit(
+      :custom_minimum_payment
+>>>>>>> 6922f593b81fa9ffdac938c74a433e1cd3dfe870
     )
   end
 
   private
-  
+
   def require_login
     unless current_user
       session[:key] = params[:key]
