@@ -25,7 +25,11 @@ class Cart < ActiveRecord::Base
     products.sum("price * quantity")
   end
 
-  def minimum_payment
+
+  def refund_expired_carts
+    @expired_carts = Cart.where(:expiry < Date.now)
+
   end
+
 
 end

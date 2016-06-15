@@ -39,6 +39,7 @@ gem 'vacuum', '~> 1.4'
 gem 'omniauth-facebook'
 
 gem 'pry'
+gem 'whenever', :require => false
 
 # Use Unicorn as the app server
 # gem 'unicorn'
