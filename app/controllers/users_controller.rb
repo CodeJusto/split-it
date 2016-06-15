@@ -32,12 +32,14 @@ class UsersController < ApplicationController
   end
 
   def update
+    @cart = Cart.find(params[:cart_id])
     @user = User.find(params[:id])
     @user.password = SecureRandom.uuid
     @user.update_attributes(user_params)
-    binding.pry
     if @user.save
-      redirect_to root_path 
+      @cart = Cart.find(session[:cart_id])
+      session[:cart_id] = nil
+      redirect_to cart_path(@cart) 
     end
   end
 
@@ -47,7 +49,7 @@ class UsersController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :number)
   end
 
 end

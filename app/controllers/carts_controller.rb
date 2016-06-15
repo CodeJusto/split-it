@@ -77,14 +77,23 @@ class CartsController < ApplicationController
 
   end
 
-  def preferences 
+  def email_preferences 
     @cart = Cart.find(session[:cart_id])
     session[:cart_id] = nil
     @cart_role = CartRole.find_by(user_id: current_user.id, cart_id: params[:cart_id])
-    @cart_role.notifications = !!(params[:notifications])
+    @cart_role.email_notifications = !!(params[:email_notifications])
     @cart_role.save
     redirect_to cart_path(@cart)
   end
+
+  def text_preferences 
+    @cart = Cart.find(session[:cart_id])
+    session[:cart_id] = nil
+    @cart_role = CartRole.find_by(user_id: current_user.id, cart_id: params[:cart_id])
+    @cart_role.text_notifications = !!(params[:text_notifications]) 
+    @cart_role.save
+    redirect_to cart_path(@cart)
+  end  
 
   def destroy
     @cart = Cart.find(params[:id])

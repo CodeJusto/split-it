@@ -40,6 +40,8 @@ gem 'omniauth-facebook'
 
 gem 'pry'
 
+gem 'twilio-ruby'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
