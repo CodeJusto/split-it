@@ -52,9 +52,17 @@ class Product < ActiveRecord::Base
   end
 
   def get_amazon_data
-    self.image = @response['ImageSets']['ImageSet'][0]['LargeImage']['URL']
+    if @response['ImageSets']['ImageSet'].is_a?(Array)
+      self.image = @response['ImageSets']['ImageSet'][0]['LargeImage']['URL']
+    else
+      self.image = @response['ImageSets']['ImageSet']['LargeImage']['URL']
+    end
     self.price = @response["OfferSummary"]["LowestNewPrice"]["Amount"]
-    self.description = @response["ItemAttributes"]["Feature"].join(";")
+    if @response["ItemAttributes"]["Feature"].is_a?(Array)
+      self.description = @response["ItemAttributes"]["Feature"].join(";")
+    else
+      self.description = @response["ItemAttributes"]["Feature"]
+    end
     self.price_checked_at = DateTime.now
   end
 

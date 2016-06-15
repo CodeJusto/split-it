@@ -4,15 +4,11 @@ Rails.application.routes.draw do
 
   resources :charges
 
-
   resources :users
-
-
 
   resources :carts do 
     patch '/preferences', to: 'carts#preferences', as: 'preferences'
   end
-
 
   namespace :carts do
     scope '/:cart_id' do
