@@ -1,10 +1,17 @@
 <div id="paymentsList">
-<h2>Who has paid?</h2>
-<%= render 'progress' %>
-<% @cart_payments.each do |payment| %>
-<ul class="contribution-details" data-payment-id="<%= payment.stripe_charge_id %>">
-  <li><%= render 'contributor', payment: payment %></li>
-  <li><%= render 'refund_form', payment: payment %></li>
-</ul>
-<% end %>
+  <h2>Who has paid?</h2>
+  <%= render 'progress' %>
+  <% @cart_payments.each do |payment| %>
+
+  <ul class="contribution-details" data-payment-id="<%= payment.stripe_charge_id %>">
+    <li><%= payment.user.name %> paid <%= format_price(payment.amount) %></li>
+    <li>
+      <form action="/refunds" method="POST" id="refund-form">
+        <input type="hidden" name="stripe_charge_id" value=<%=payment.stripe_charge_id %>>
+        <input type="hidden" name="user_id" value=<%=payment.user_id %>>
+        <input type="submit" class="refund-button" value="Refund Payment">
+      </form>
+    </li>
+  </ul>
+  <% end %>
 </div>

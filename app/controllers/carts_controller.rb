@@ -11,8 +11,6 @@ class CartsController < ApplicationController
 
   def create
     @cart = Cart.new(cart_params)
-    ## stores the minimum payment in cents so users can input a regular
-    ## dollar amount
     @cart.status_id = 1
     @cart.key = SecureRandom.uuid
     if @cart.save
@@ -50,7 +48,14 @@ class CartsController < ApplicationController
     # Query all the products in the cart
     @products = @cart.products
     @remaining_balance = (@goal - @total_payments)
-    @minimum_payment = (@remaining_balance / @contributors.length)
+
+    if @cart.custom_minimum_payment.nil?
+      @minimum_payment = (@remaining_balance / @contributors.length)
+    else
+      @minimum_payment = @cart.custom_minimum_payment
+    end
+
+    @cart_payments = get_cart_payments(@cart.id)
     @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
     @progress = @cart.progress
     @cart_payments = @cart.total_payment
@@ -75,7 +80,9 @@ class CartsController < ApplicationController
   end
 
   def update
-
+    @cart = Cart.find(session[:cart_id])
+    @cart.update(custom_minimum_payment: convert_to_cents(update_cart_params[:custom_minimum_payment]))
+    @cart.save
   end
 
   def email_preferences 
@@ -129,6 +136,12 @@ class CartsController < ApplicationController
   def cart_params
     params.require(:cart).permit(
       :name, :expiry
+    )
+  end
+
+  def update_cart_params
+    params.require(:cart).permit(
+      :custom_minimum_payment
     )
   end
 
