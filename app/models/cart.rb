@@ -13,7 +13,9 @@ class Cart < ActiveRecord::Base
   validates :minimum_payment, :numericality => true 
   validate :expiry_date_must_be_in_the_future
   
-
+  def goal_met?
+    (payments.sum(:amount) == total)
+  end
 
   def expiry_date_must_be_in_the_future 
     errors.add(:expiry, "must be in the future") if !expiry.blank? and expiry < Date.today
@@ -21,6 +23,12 @@ class Cart < ActiveRecord::Base
 
   def total
     products.sum("price * quantity")
+  end
+
+
+  def refund_expired_carts
+    @expired_carts = Cart.where(:expiry < Date.now)
+
   end
 
 

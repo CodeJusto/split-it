@@ -13,7 +13,6 @@ class CartsController < ApplicationController
     @cart = Cart.new(cart_params)
     ## stores the minimum payment in cents so users can input a regular
     ## dollar amount
-    @cart.minimum_payment = convert_to_cents(cart_params[:minimum_payment])
     @cart.status_id = 1
     @cart.key = SecureRandom.uuid
     if @cart.save
@@ -34,9 +33,6 @@ class CartsController < ApplicationController
     ## cart_payments returns an array of all payments made - including
     ## username, id, amount, date
     @total_payments = calculate_total_payments(@cart_payments)
-
-    @display_minimum_payment = ((@cart.minimum_payment / 100).to_f)
-
     # Sorts through those users to find which users belong to your current cart
     @contributors = CartRole.where(cart_id: @cart.id).uniq
     # Query all the products in the cart from Amazon
@@ -47,7 +43,8 @@ class CartsController < ApplicationController
     # CartRole.where(cart_id: @cart.id).uniq
     # Query all the products in the cart
     @products = @cart.products
-
+    @remaining_balance = (@goal - @total_payments)
+    @minimum_payment = (@remaining_balance / @contributors.length)
     @cart_payments = get_cart_payments(@cart.id)
     @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
     @progress = cart_progress(@total_payments, @goal)
@@ -122,12 +119,12 @@ class CartsController < ApplicationController
 
   def cart_params
     params.require(:cart).permit(
-      :name, :expiry, :minimum_payment
+      :name, :expiry
     )
   end
 
   private
-  
+
   def require_login
     unless current_user
       session[:key] = params[:key]
