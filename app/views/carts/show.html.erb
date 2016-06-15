@@ -7,88 +7,18 @@
 
 <div class="preferences">
   <h2 class="test">Notifcation Preferences</h2>
- 
-  <% if current_user.email %>
-   <%= form_tag cart_email_preferences_path(@cart), method: :patch do %>
-    <%= label_tag :email_notifications, "Email me for product milestones!" %>
-
-      <% if user_notifications(current_user, @cart).email_notifications %>
-        <%= check_box_tag :email_notifications, 1, {checked: true} %>
-      <% else %>
-        <%= check_box_tag :email_notifications, 2, false %>
-      <% end %>    
-    <%= submit_tag "Submit" %>
-    <% end %>
-  <% else %>
-    <%= form_for current_user do |f| %>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-      <%= f.submit %>
-    <% end %> 
-  <% end %>
- 
-
- <% if current_user.number %>
-   <%= form_tag cart_text_preferences_path(@cart), method: :patch do %>
-    <%= label_tag :text_notifications, "Text me for product milestones!" %>
-
-      <% if user_notifications(current_user, @cart).text_notifications %>
-        <%= check_box_tag :text_notifications, 1, {checked: true} %>
-      <% else %>
-        <%= check_box_tag :text_notifications, 2, false %>
-      <% end %>
-    <%= submit_tag "Submit" %>
-    <% end %>
-  <% else %>
-    <%= form_for current_user do |f| %>
-      <%= f.label :number %>
-      <%= f.text_field :number %>
-      <%= f.submit %>
-    <% end %> 
-  <% end %>
-
-
+ <%= render 'notification_preferences' %>
 </div>
 <h2>List of products</h2>
-<ul id="product-list">
-<% if @products.size == 0 %>
-  <p>No product yet.</p>
-<% else %>
-  <% @products.each do |product| %>
-    <li>
-      <h2><%= link_to product.display_name, product.url %> <%= format_price(product.price) %> x <%= product.quantity %></h2>
-      <p><%= link_to 'Edit', edit_carts_product_path(@cart, product) %> | <%= link_to 'Remove', carts_product_path(@cart, product), data: {:confirm => 'Are you sure?'}, :method => :delete  %></p>
-    </li>
-  <% end %>
-<% end %>
-</ul>
-<%= link_to 'Add product', new_carts_product_path(@cart) %>
+<%= render 'products' %>
 <hr>
-
 <h2>List of contributors</h2>
 <% @contributors.each do |user| %>
-  <span><%= user.name %>:
-  <% current_role = user_role(user, @cart) %>
-  <%= current_role.role_text %></span>
-  
-  <% if current_role.id == 2 && user_role(current_user, @cart).id == 1%>
-    <%= link_to "Remove User", carts_remove_user_path(@cart, user), method: :delete, data: {confirm: "Remove #{user.name} from this cart?"} %>
-  <% end %>
-  <br>
+  <%= render 'contributions', user: user %>
 <% end %>
 <br>
-<button data-key= <%= @cart.key %> class="FBInvite">Invite through Facebook</button>
-
 <hr>
-<p> Invite your friends through email! Separate multiple emails with commas</p>
-<%= form_tag carts_invite_user_path(@cart) do %>
-  <%= label_tag "Enter email:" %>
-  <input name="emails[1]"/> <br>
-  <%= label_tag "Enter email:" %>
-  <input name="emails[2]"/> <br>
-  <%= submit_tag "Submit" %>
-<% end %>
-
+<%= render 'invitations' %>
 <hr>
 
 <% if user_role(current_user, @cart).id == 1 %>

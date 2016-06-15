@@ -1,0 +1,38 @@
+  <% if current_user.email %>
+   <%= form_tag cart_email_preferences_path(@cart), method: :patch do %>
+    <%= label_tag :email_notifications, "Email me for product milestones!" %>
+
+      <% if user_notifications(current_user, @cart).email_notifications %>
+        <%= check_box_tag :email_notifications, 1, {checked: true} %>
+      <% else %>
+        <%= check_box_tag :email_notifications, 2, false %>
+      <% end %>    
+    <%= submit_tag "Submit" %>
+    <% end %>
+  <% else %>
+    <%= form_for current_user do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <%= f.submit %>
+    <% end %> 
+  <% end %>
+ 
+
+ <% if current_user.number %>
+   <%= form_tag cart_text_preferences_path(@cart), method: :patch do %>
+    <%= label_tag :text_notifications, "Text me for product milestones!" %>
+
+      <% if user_notifications(current_user, @cart).text_notifications %>
+        <%= check_box_tag :text_notifications, 1, {checked: true} %>
+      <% else %>
+        <%= check_box_tag :text_notifications, 2, false %>
+      <% end %>
+    <%= submit_tag "Submit" %>
+    <% end %>
+  <% else %>
+    <%= form_for current_user do |f| %>
+      <%= f.label :number %>
+      <%= f.text_field :number %>
+      <%= f.submit %>
+    <% end %> 
+  <% end %>

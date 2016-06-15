@@ -1,0 +1,7 @@
+  <% current_role = user_role(user, @cart) %>
+  <span><%= user.name %>: <%= current_role.role_text %></span>
+  
+  <% if current_role.id == 2 && user_role(current_user, @cart).id == 1%>
+    <%= link_to "Remove User", carts_remove_user_path(@cart, user), method: :delete, data: {confirm: "Remove #{user.name} from this cart?"} %>
+  <% end %>
+  <br>

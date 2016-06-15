@@ -1,0 +1,6 @@
+<button data-key= <%= @cart.key %> class="FBInvite">Invite through Facebook</button>
+
+<p> Invite your friends through email! Separate multiple emails with commas</p>
+<%= form_tag carts_invite_user_path(@cart) do %>
+  <%= render 'email_invites' %>
+<% end %>

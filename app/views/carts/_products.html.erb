@@ -1,0 +1,11 @@
+
+<ul id="product-list">
+<% if @products.size == 0 %>
+  <p>No product yet.</p>
+<% else %>
+  <% @products.each do |product| %>
+    <%= render 'show_products', product: product %>
+  <% end %>
+<% end %>
+</ul>
+<%= link_to 'Add product', new_carts_product_path(@cart) %>
