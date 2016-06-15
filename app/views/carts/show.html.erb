@@ -1,6 +1,7 @@
 <h3><%= link_to 'Back', root_path %></h3>
 
 <h1><%= @cart.name %></h1>
+<p><em>Status: <%= @cart.status.text %></em></p>
 
 <h2><%= format_price(@cart.total) %></h2>
 <hr>

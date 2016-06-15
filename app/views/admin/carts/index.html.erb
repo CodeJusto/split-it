@@ -1,7 +1,9 @@
 <h1>Admin Cart Management</h1>
 <hr>
 <% @carts.each do |cart| %>
-  <p><%= cart.name %> - <%= User.find(cart.cart_roles.find_by(role_id: 1).user_id).name %> | 
+  <p>
+    <%= cart.status.text %> | 
+    <%= cart.name %> - <%= User.find(cart.cart_roles.find_by(role_id: 1).user_id).name %> | 
     <%= link_to "view", cart_path(cart) %> | 
     <%= link_to "edit", edit_cart_path(cart) %> | 
     <%= link_to "delete", cart_path(cart), method: :delete, data: {confirm: "You sure?", test: "1"} %>
