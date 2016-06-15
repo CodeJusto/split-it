@@ -27,4 +27,17 @@ class Notifications < ApplicationMailer
     mail(to: @email, subject: 'You have been invited to a cart')
   end
 
+  def cart_deleted(contributor, cart)
+    @contributor = contributor
+    @cart = cart
+    mail(to: @contributor.email, subject: 'Your cart has been deleted')
+  end
+
+  def send_invoice(contributor, payment, cart)
+    @contributor = contributor
+    @cart = cart
+    @payment = payment
+    mail(to: @contributor.email, subject: "You have made a contribution to #{ @cart.name }")
+  end
+
 end

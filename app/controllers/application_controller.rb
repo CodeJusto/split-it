@@ -34,8 +34,12 @@ class ApplicationController < ActionController::Base
   def user_notifications(user, cart)
     user.cart_roles.find_by('cart_roles.cart_id' => cart.id)
   end
+
+  def find_role(role_id, medium)
+    User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => role_id, "cart_roles.#{medium}_notifications" => true )  
+  end
   
-  helper_method :current_user, :format_price, :user_role, :user_notifications
+  helper_method :current_user, :format_price, :user_role, :user_notifications, :find_role
 end
 
 

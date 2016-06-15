@@ -71,7 +71,7 @@
   <% current_role = user_role(user, @cart) %>
   <%= current_role.role_text %></span>
   
-  <% if current_role.id == 2 %>
+  <% if current_role.id == 2 && user_role(current_user, @cart).id == 1%>
     <%= link_to "Remove User", carts_remove_user_path(@cart, user), method: :delete, data: {confirm: "Remove #{user.name} from this cart?"} %>
   <% end %>
   <br>
@@ -91,5 +91,9 @@
 
 <hr>
 
+<% if user_role(current_user, @cart).id == 1 %>
+  <h1><%= link_to "Delete this cart", cart_path(@cart), method: :delete, data: {confirm: "Are you sure you want to permanently #{@cart.name}? There is NO way to recover this cart. All payments will be refunded.", title: "WARNING!"} %></h1>
+<% end %>
+<hr>
 <%= render 'payment_form' %>
 <%= render 'contributions' %>

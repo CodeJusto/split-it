@@ -42,12 +42,18 @@ class ChargesController < ApplicationController
       @updated_pctg = cart_progress(@updated_cart_total, @goal)
       # @total = @cart.payments.sum(:amount)
 
-      organizer_email = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 1, 'cart_roles.email_notifications' => true )  
+      organizer_email = find_role(1, 'email')
+      contributor_email = find_role(2, 'email')
       Notifications.update_contributor(organizer_email, @payee, @payment).deliver_now unless organizer_email.empty?
+      
+      contributor_email.each do |contributor|
+        Notifications.send_invoice(contributor, @payment, @cart).deliver_now
+      end
       Notification.create(cart_id: @cart_id, notification_template_id: 2)
 
-      organizer_text = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 1, 'cart_roles.text_notifications' => true )  
-      binding.pry
+      organizer_text = find_role(1, 'text')
+      contributor_text = find_role(2, 'text')
+      
       unless organizer_text.empty?
         organizer_text.each do |text| 
           $twilio.account.sms.messages.create(
@@ -57,6 +63,17 @@ class ChargesController < ApplicationController
           )
         end
       end
+
+      unless contributor_text.empty?
+        contributor_text.each do |text| 
+          $twilio.account.sms.messages.create(
+            :from => ENV['COMPANY_PHONE'],
+            :to => "+1#{text.number}",
+            :body => "You have has contributed #{@payment.amount} for a cart!"
+          )
+        end
+      end
+
 
 
       if request.xhr?
