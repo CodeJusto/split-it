@@ -13,13 +13,12 @@ $(function() {
         url: '/refunds',
         data: { id: data },
       }).done(function(response){
-        console.log(response);
-        // look at response and grab the price from it
-        // attach listener on the 'total display price'
-        // var new_price = response price + total display price
-        // .text(new_price) to attach new calculation to DOM
+        var newTotal = response.updated_cart_total;
+        var newProgress = response.updated_pctg;
         removePayment(paymentId);
         alert('Payment has been refunded');
+        $('.total-amount').text(newTotal);
+        $('.percent-of-goal').text(newProgress);
       })
     }
   });
