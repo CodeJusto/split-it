@@ -5,11 +5,18 @@ class ApplicationController < ActionController::Base
  
   protect_from_forgery with: :exception
 
+  protected
+
   def format_price(price)
     number_to_currency(price.to_i / 100.00, unit: "CDN$", format: "%u %n")
   end
 
-  private
+  def require_admin
+    if !(current_user && current_user.final_boss?)
+      flash[:alert] = "You are not an admin."
+      redirect_to root_path
+    end
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

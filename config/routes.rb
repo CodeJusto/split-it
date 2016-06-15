@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   post 'refunds', to: 'refunds#create', as: 'refunds'
 
-  namespace :final_boss do
+  namespace :admin do
     resources :users
     resources :carts
     resources :charges
