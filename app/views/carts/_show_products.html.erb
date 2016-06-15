@@ -1,0 +1,4 @@
+<li>
+  <h2><%= link_to product.display_name, product.url %> <%= format_price(product.price) %> x <%= product.quantity %></h2>
+  <p><%= link_to 'Edit', edit_carts_product_path(@cart, product) %> | <%= link_to 'Remove', carts_product_path(@cart, product), data: {:confirm => 'Are you sure?'}, :method => :delete  %></p>
+</li>
