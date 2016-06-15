@@ -51,7 +51,8 @@ class ChargesController < ApplicationController
         :payment => format_price(@payment.amount),
         :payee => @payee,
         :updated_cart_total => format_price(@updated_cart_total),
-        :updated_pctg => @updated_pctg
+        :updated_pctg => @updated_pctg,
+        :stripe_charge_id => charge.id
         }                   
       else
         redirect(back)

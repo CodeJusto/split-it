@@ -11,6 +11,10 @@ $(function() {
     return false;
   });
 
+  function outputUpdate(vol) {
+  document.querySelector('#payRange').value = vol;
+  }
+
 });
 function stripeResponseHandler(status, response) {
   // Grab the form:
