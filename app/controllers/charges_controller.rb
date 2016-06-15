@@ -47,6 +47,7 @@ class ChargesController < ApplicationController
       Notification.create(cart_id: @cart_id, notification_template_id: 2)
 
       organizer_text = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 1, 'cart_roles.text_notifications' => true )  
+      binding.pry
       unless organizer_text.empty?
         organizer_text.each do |text| 
           $twilio.account.sms.messages.create(
