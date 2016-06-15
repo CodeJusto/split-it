@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160615161459) do
+=======
+ActiveRecord::Schema.define(version: 20160615211135) do
+>>>>>>> feature/modified_cart_form
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +38,12 @@ ActiveRecord::Schema.define(version: 20160615161459) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "key"
+    t.string   "country"
+    t.string   "street_address"
+    t.string   "street_address2"
+    t.string   "city"
+    t.string   "province"
+    t.string   "zip_code"
   end
 
   create_table "notification_templates", force: :cascade do |t|
@@ -102,6 +112,12 @@ ActiveRecord::Schema.define(version: 20160615161459) do
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.string   "number"
+    t.string   "country"
+    t.string   "street_address"
+    t.string   "street_address2"
+    t.string   "city"
+    t.string   "province"
+    t.string   "zip_code"
   end
 
 end

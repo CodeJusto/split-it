@@ -9,16 +9,21 @@ class CartsController < ApplicationController
   def index
   end
 
+  def new
+    @cart = Cart.new
+  end
+
   def create
     @cart = Cart.new(cart_params)
     ## stores the minimum payment in cents so users can input a regular
     ## dollar amount
-    @cart.minimum_payment = convert_to_cents(cart_params[:minimum_payment])
     @cart.status_id = 1
     @cart.key = SecureRandom.uuid
-    if @cart.save
-      current_user.save
+    if @cart.save!
+      
+      update_user_address(params)
       current_user.cart_roles.create(user_id: current_user.id, cart_id: @cart.id, role_id: 1)
+      current_user.save
       params[:cart_id] = @cart.id
       redirect_to cart_path(@cart)
     end
@@ -37,7 +42,7 @@ class CartsController < ApplicationController
     @cart_payments = get_cart_payments(@cart.id)
     ## cart_payments returns an array of all payments made - including
     ## username, id, amount, date
-    @display_minimum_payment = ((@cart.minimum_payment / 100).to_f)
+    # @display_minimum_payment = ((@cart.minimum_payment / 100).to_f)
     @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
 
 
@@ -128,7 +133,7 @@ class CartsController < ApplicationController
 
   def cart_params
     params.require(:cart).permit(
-      :name, :expiry, :minimum_payment
+      :name, :expiry, :street_address, :street_address2, :country, :city, :province, :zip_code
     )
   end
 

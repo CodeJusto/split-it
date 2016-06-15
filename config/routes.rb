@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :users
 
+  
+
   resources :carts do 
     patch '/email_preferences', to: 'carts#email_preferences', as: 'email_preferences'
     patch '/text_preferences', to: 'carts#text_preferences', as: 'text_preferences'
