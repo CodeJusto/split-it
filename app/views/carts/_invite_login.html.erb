@@ -1,9 +1,10 @@
 <h3>Login</h3>
 <%= form_tag sessions_path do %>
   <%= label_tag "Email" %>
-  <%= text_field_tag :email :attr, placeholder: @email %> 
+  <%= text_field_tag :email, nil, { placeholder: email } %> 
   <%= label_tag "Password" %>
   <%= password_field_tag :password %>
   <%= submit_tag "Submit" %>
 <% end %> 
+<br>
 <%= link_to "Want to use Facebook?", "/auth/facebook", id: "sign_in" %>

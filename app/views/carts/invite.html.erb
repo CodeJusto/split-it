@@ -1,9 +1,14 @@
 <h1><%= @cart.name %></h1>
-<% if @cart_array.include?(current_user.id) %>
-  <p>You already have access to this cart!<p>
-  <%= link_to "Return to your cart", cart_path(@cart) %>
+<% if current_user %>
+  <% if @cart_array.include?(current_user.id) %>
+    <p>You already have access to this cart<p>
+    <%= link_to "Return to your cart", cart_path(@cart) %>
+  <% else %>
+    <p>You have been added to the team!</p>
+    <p>Your email: <%= @email %></p>
+    <%= link_to "See the cart now!", cart_path(@cart) %>
+    <% current_user.cart_roles.create(user_id: current_user.id, cart_id: @cart.id, role_id: 2) %>
+  <% end %>
 <% else %>
-  <p>You have been added to the team!</p>
-  <%= link_to "Join the team!", cart_path(@cart) %>
-  <%= current_user.cart_roles.create(user_id: current_user.id, cart_id: @cart.id, role_id: 2) %>
+  <p>Login or register above to join this cart</p> 
 <% end %>

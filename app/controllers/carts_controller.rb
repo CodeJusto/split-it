@@ -4,7 +4,7 @@ class CartsController < ApplicationController
   
   include CartsHelper
 
-  before_action :require_login
+  skip_before_action :require_login, only: [:invite]
 
   def index
   end
@@ -27,10 +27,8 @@ class CartsController < ApplicationController
   def show
     @contributors = []
     @cart = Cart.find(params[:id])
-    # Connect users, cart_roles, and carts
-    @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
-    @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
-    # @current_users.flatten
+    session[:cart_id] = @cart.id
+    # @users = @cart.users
 
     @cart_payments = get_cart_payments(@cart.id)
     ## cart_payments returns an array of all payments made - including
@@ -45,13 +43,15 @@ class CartsController < ApplicationController
     @amazon = get_amazon_products(@cart.products)
     @products = @cart.products
     @goal = @cart.total
-    # the goal is hard-coded now
-    # @users = User.joins(cart_roles: :carts)
-    @users = User.joins("INNER JOIN cart_roles ON cart_roles.user_id = users.id INNER JOIN carts ON carts.id = cart_roles.cart_id")
-    @current_users = @users.select { |u| u if @cart.cart_roles.map {|r| r.user_id == u.id}.include? true }.map {|i| i}
-    # @current_users.flatten
+
+    @contributors = @cart.users
+    # CartRole.where(cart_id: @cart.id).uniq
+    # Query all the products in the cart
+    @products = @cart.products
+
     @cart_payments = get_cart_payments(@cart.id)
     @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
+
     @progress = cart_progress(@total_payments, @goal)
 
     @cart.cart_roles.each do |c|
@@ -65,10 +65,12 @@ class CartsController < ApplicationController
   end
 
   def invite
+    @user = User.new
     @cart = Cart.find_by(key: params[:key])
     @cart_array = @cart.cart_roles.map do |c|
-    c.user_id
+      c.user_id
     end
+    @email = params[:email]
   end
 
   def update
@@ -76,10 +78,12 @@ class CartsController < ApplicationController
   end
 
   def preferences 
+    @cart = Cart.find(session[:cart_id])
+    session[:cart_id] = nil
     @cart_role = CartRole.find_by(user_id: current_user.id, cart_id: params[:cart_id])
     @cart_role.notifications = !!(params[:notifications])
     @cart_role.save
-    redirect_to root_path
+    redirect_to cart_path(@cart)
   end
 
   def destroy
@@ -87,24 +91,6 @@ class CartsController < ApplicationController
     @cart.destroy
     redirect_to root_path
   end
-
-
-  # def cart_total(id)
-  #   products = Cart.find(id).products
-
-  #   product_ids = products.inject([]) { |arr, product| arr.push(product.external_id)  } 
-
-  #   response = $amazon_request.item_lookup(
-  #     query: {
-  #       'ItemId' => product_ids.join(','),
-  #       'ResponseGroup' => 'OfferSummary'
-  #     }
-  #   )
-
-  #   items = response.to_h["ItemLookupResponse"]["Items"]["Item"]
-  #   return 0.00 if items.nil?
-  #   total = items.inject(0) { |sum, item| sum + item["OfferSummary"]["LowestNewPrice"]["Amount"].to_i * @cart.products.find_by(external_id: item["ASIN"]).quantity } / 100.00
-  # end
 
   protected 
 
@@ -121,20 +107,8 @@ class CartsController < ApplicationController
   def require_login
     unless current_user
       session[:key] = params[:key]
+      #Display error message
       redirect_to root_path
     end
   end
-
-  def get_amazon_products(products)
-    product_ids = products.inject([]) { |arr, product| arr.push(product.external_id)  } 
-    response = $amazon_request.item_lookup(
-      query: {
-        'ItemId' => product_ids.join(','),
-        'ResponseGroup' => 'ItemAttributes,Small,Images,OfferSummary'
-      }
-    )
-
-    product_ids.size > 1 ? response.to_h["ItemLookupResponse"]["Items"]["Item"] : [response.to_h["ItemLookupResponse"]["Items"]["Item"]]
-  end
-
 end
