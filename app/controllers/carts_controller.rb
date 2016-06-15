@@ -40,7 +40,6 @@ class CartsController < ApplicationController
     # Sorts through those users to find which users belong to your current cart
     @contributors = CartRole.where(cart_id: @cart.id).uniq
     # Query all the products in the cart from Amazon
-    @amazon = get_amazon_products(@cart.products)
     @products = @cart.products
     @goal = @cart.total
 
