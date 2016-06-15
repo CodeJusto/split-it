@@ -7,9 +7,10 @@ class ChargesController < ApplicationController
   end
 
   def create
-    # Amount in cents
+    
     @amount = convert_to_cents(params[:amount])
     @cart_id = params[:cart]
+    @cart = Cart.where(id: @cart_id)
     token = params[:stripeToken]
 
     customer = Stripe::Customer.create(

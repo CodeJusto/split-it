@@ -1,4 +1,7 @@
 $(function() {
+  
+
+
   var $form = $('#payment-form');
   $form.submit(function(event) {
     event.preventDefault();

@@ -3,8 +3,8 @@
   
   <div class="form-row">
     <label>
-      <span>Contribution amount</span>
-      <input id="#payAmount" type="text" size="20" name="amount" placeholder=<%= @display_minimum_payment %>>
+      <span>Minimum Payment: <%= format_price(@minimum_payment) %></span>
+      <input id="#payAmount" type="number" step="0.01" min=<%= (@minimum_payment.to_f / 100).round(2) %> size="20" name="amount">
     </label>
   </div>
   

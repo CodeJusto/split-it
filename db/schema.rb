@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614160306) do
+ActiveRecord::Schema.define(version: 20160615033433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20160614160306) do
   create_table "carts", force: :cascade do |t|
     t.integer  "status_id"
     t.datetime "expiry"
-    t.integer  "minimum_payment"
     t.string   "name"
     t.integer  "total_paid"
     t.integer  "target_amount"
@@ -75,12 +74,12 @@ ActiveRecord::Schema.define(version: 20160614160306) do
   create_table "refunds", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "cart_id"
-    t.integer  "payment_id"
     t.integer  "amount"
     t.string   "stripe_customer_id"
     t.string   "stripe_charge_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "payment_id"
   end
 
   create_table "roles", force: :cascade do |t|
