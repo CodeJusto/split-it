@@ -26,4 +26,16 @@ module CartsHelper
     values.inject(0){ |sum,x| sum + x }
   end
 
+  def update_user_address(user_params)
+    # binding.pry
+    current_user.update(street_address: user_params["street_address"], 
+                        street_address2: user_params["street_address2"],
+                        country: user_params["country"],
+                        city: user_params["city"],
+                        province: user_params["province"],
+                        zip_code: user_params["zip_code"],
+                        )
+    current_user.save!
+  end
+
 end

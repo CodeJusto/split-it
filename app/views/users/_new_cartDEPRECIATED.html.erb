@@ -1,4 +1,5 @@
-  <%= form_for @cart, url: carts_path(@cart) do |f| %>
+<div class="cart_form_container">
+  <%= form_for @cart, url: carts_path(@cart), html: {class: "cart_form"} do |f| %>
   <%= f.label "Name" %>
   <%= f.text_field :name %> 
   <br>
@@ -8,5 +9,6 @@
   <%= f.label "Due Date" %>
   <%= f.date_field :expiry %>
   <br>
-  <%= f.submit "Submit" %>
+  <%= f.submit "Next" %>
   <% end %>
+</div>

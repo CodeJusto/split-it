@@ -9,8 +9,7 @@ class Cart < ActiveRecord::Base
 
   has_many :refunds, through: :payments
 
-  validates :name, presence: true
-  validates :minimum_payment, :numericality => true 
+  validates :name, presence: true 
   validate :expiry_date_must_be_in_the_future
   
 

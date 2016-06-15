@@ -1,8 +1,8 @@
 <h1>Split it!</h1>
 
 <% if current_user %>
-<h3>Create a new gift</h3>
-  <%= render 'new_cart' %>
+<h2><%= link_to "Create a new cart", new_cart_path %></h2>
+
 
   <% if @carts.size > 0 %>
     <% @carts.each do |cart|  %>

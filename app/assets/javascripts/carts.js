@@ -12,6 +12,23 @@ $(document).ready(function() {
   });
 
 
+
+
+  $('.cart_form').on('click', function(e) {
+    debugger
+    e.preventDefault();
+  $.ajax({
+    url: '/create',
+      method: 'POST',
+    success: function(data) {
+      console.log(data);
+    }
+  });
+
+  });
+
+    
+
   //$('.inviteLink').attr("href", (window.location.hostname + ':3000/invite/' + $('.inviteLink').data("key")));
   // console.log("Test")
 
