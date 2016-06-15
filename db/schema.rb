@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614160306) do
+ActiveRecord::Schema.define(version: 20160614235738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(version: 20160614160306) do
     t.integer "user_id"
     t.integer "cart_id"
     t.integer "role_id"
-    t.boolean "notifications"
+    t.boolean "email_notifications"
+    t.boolean "text_notifications"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -100,6 +101,7 @@ ActiveRecord::Schema.define(version: 20160614160306) do
     t.string   "uid"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string   "number"
   end
 
 end

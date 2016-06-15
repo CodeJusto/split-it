@@ -4,3 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+# task "cart:sms" do 
+#   Notification.test_sms
+# end

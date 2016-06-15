@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_notifications(user, cart)
-    user.cart_roles.find_by('cart_roles.cart_id' => cart.id).notifications
+    user.cart_roles.find_by('cart_roles.cart_id' => cart.id)
   end
   
   helper_method :current_user, :format_price, :user_role, :user_notifications
