@@ -40,12 +40,13 @@ class ChargesController < ApplicationController
       Notification.create(cart_id: @cart_id, notification_template_id: 2)
 
       organizer_text = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 1, 'cart_roles.text_notifications' => true )  
-      $twilio.account.sms.messages.create(
-        :from => ENV['COMPANY_PHONE'],
-        :to => "+17782286061",
-        :body => "#{@payee[0].name} has contributed #{@payment.amount} for a cart!"
-      )
-
+      organizer_text.each do |text| 
+        $twilio.account.sms.messages.create(
+          :from => ENV['COMPANY_PHONE'],
+          :to => "+1#{text.number}",
+          :body => "#{@payee[0].name} has contributed #{@payment.amount} for a cart!"
+        )
+      end
 
 
       if request.xhr?

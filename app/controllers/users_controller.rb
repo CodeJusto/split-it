@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save 
       Notifications.welcome_email(@user).deliver_now
-      Notification.create(cart_id: @cart.id, notification_template_id: 1)
+      # Notification.create(cart_id: @cart.id, notification_template_id: 1)
       session[:user_id] = @user.id
       if session[:key]
         key = session[:key]
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @cart = Cart.find(params[:cart_id])
+    @cart = Cart.find(session[:cart_id])
     @user = User.find(params[:id])
     @user.password = SecureRandom.uuid
     @user.update_attributes(user_params)

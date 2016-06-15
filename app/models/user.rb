@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   # validates :email, presence: true, length: { minimum: 5 }
   validates :password, presence: true, length: { minimum: 8 }
-  validates :number, length: { minimum: 10 }, numericality: { only_integer: true }
 
   has_secure_password
 
