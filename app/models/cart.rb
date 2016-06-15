@@ -23,5 +23,18 @@ class Cart < ActiveRecord::Base
     products.sum("price * quantity")
   end
 
+  def total_payment
+    total = payments.joins(:refund).where("refunds.payment_id = NULL")
+    total.size == 0 ? 0 : payments
+  end
+
+  def progress
+    total == 0 ? 0 : ((total_payment.to_f / total.to_f) * 100).ceil
+  end
+
+  def check_status
+    
+  end
+
 
 end

@@ -2,10 +2,10 @@ module CartsHelper
 
   #defines the percentage of the goal that the cart
   #is currently at
-  def cart_progress(total_paid, goal)
-    return 0 if goal == 0
-    ((total_paid.to_f / goal.to_f) * 100).ceil
-  end
+  # def cart_progress(total_paid, goal)
+  #   return 0 if goal == 0
+  #   ((total_paid.to_f / goal.to_f) * 100).ceil
+  # end
 
   # def check_minimum_payment(goal, minimum_payment)
   #   new_total = goal + minumum_payment 
@@ -21,9 +21,9 @@ module CartsHelper
     payments.select { | payment | payment.refund == nil }
   end
 
-  def calculate_total_payments(array)
-    values = array.map(&:amount)
-    values.inject(0){ |sum,x| sum + x }
-  end
+  # def calculate_total_payments(array)
+  #   values = array.map(&:amount)
+  #   values.inject(0){ |sum,x| sum + x }
+  # end
 
 end
