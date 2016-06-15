@@ -74,7 +74,7 @@ class CartsController < ApplicationController
 
   def update
     @cart = Cart.find(session[:cart_id])
-    @cart.update(custom_minimum_payment: update_cart_params[:custom_minimum_payment])
+    @cart.update(custom_minimum_payment: convert_to_cents(update_cart_params[:custom_minimum_payment]))
     @cart.save
   end
 
