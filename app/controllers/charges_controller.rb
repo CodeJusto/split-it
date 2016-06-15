@@ -35,9 +35,18 @@ class ChargesController < ApplicationController
 
     @payment.save
     if @payment.save
-      organizer = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 1, 'cart_roles.notifications' => true )  
-      Notifications.update_contributor(organizer, @payee, @payment).deliver_now unless organizer.empty?
+      organizer_email = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 1, 'cart_roles.email_notifications' => true )  
+      Notifications.update_contributor(organizer_email, @payee, @payment).deliver_now unless organizer_email.empty?
       Notification.create(cart_id: @cart_id, notification_template_id: 2)
+
+      organizer_text = User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => 1, 'cart_roles.text_notifications' => true )  
+      $twilio.account.sms.messages.create(
+        :from => ENV['COMPANY_PHONE'],
+        :to => "+17782286061",
+        :body => "#{@payee[0].name} has contributed #{@payment.amount} for a cart!"
+      )
+
+
 
       if request.xhr?
       render :json => {
