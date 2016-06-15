@@ -55,7 +55,7 @@ class CartsController < ApplicationController
     @total_paid = @cart_payments.sum(:amount)
     
     # @progress = cart_progress(@total_paid, @goal)
-    @progress = @total_paid # Error here, not getting the total_paid 
+    # @progress = @total_paid # Error here, not getting the total_paid 
     # @progress = @cart.total == 0 ? 0 : @total_paid / @cart.total * 100.00
 
     @cart.cart_roles.each do |c|

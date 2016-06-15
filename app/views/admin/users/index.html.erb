@@ -1,6 +1,5 @@
 <h1>Admin User Management</h1>
 <div><%= link_to "New user", new_admin_user_path %></div>
-</ul>
 <hr>
 <% @users.each do |user| %>
   <p><%= user.name %> - <%= user.email %> | 

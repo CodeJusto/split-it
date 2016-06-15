@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
-    resources :carts
+    resources :carts, only:[:index]
     resources :charges
   end
 
