@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     @cart = Cart.new
     @user = User.new
     @carts = current_user.carts if current_user
-
     return @carts
   end
 
@@ -42,6 +41,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  # for test only, will be deleted after
+  def login_test
+    session[:user_id] = User.first.id
+    redirect_to carts_path
   end
 
   protected

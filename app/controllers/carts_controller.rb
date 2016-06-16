@@ -7,6 +7,9 @@ class CartsController < ApplicationController
   skip_before_action :require_login, only: [:invite]
 
   def index
+    @carts = current_user.carts if current_user
+    @user = User.new
+    @cart = Cart.new
   end
 
   def create

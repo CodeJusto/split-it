@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :charges
 
+  resource :users do
+    get '/login', to: 'users#login_test' # delete this before deployment
+  end
+
   resources :users
 
   resources :carts do 
