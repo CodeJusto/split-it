@@ -1,0 +1,3 @@
+<% @cart.users.each do |user| %>
+  <strong><%= user.name %></strong>: <%= user.roles.find_by('cart_roles.cart_id' => @cart.id).role_text %> <br>
+<% end %>

@@ -48,10 +48,11 @@ class ChargesController < ApplicationController
       contributor_email = find_role(2, 'email')
       Notifications.update_contributor(organizer_email, @payee, @payment).deliver_now unless organizer_email.empty?
       
-      contributor_email.each do |contributor|
-        Notifications.send_invoice(contributor, @payment, @cart).deliver_now
+      unless contributor_email.empty?
+        contributor_email.each do |contributor|
+          Notifications.send_invoice(contributor, @payment, @cart).deliver_now
+        end
       end
-      Notification.create(cart_id: @cart_id, notification_template_id: 2)
 
       organizer_text = find_role(1, 'text')
       contributor_text = find_role(2, 'text')
@@ -76,7 +77,7 @@ class ChargesController < ApplicationController
         end
       end
 
-
+      Notification.create(cart_id: @cart_id, notification_template_id: 2)
 
       if request.xhr?
       render :json => {
