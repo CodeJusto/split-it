@@ -27,7 +27,6 @@ module CartsHelper
                         zip_code: user_params["cart"]["zip_code"],
                         )
     current_user.save!
-    binding.pry
   end
 
 end

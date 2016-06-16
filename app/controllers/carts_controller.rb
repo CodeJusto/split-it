@@ -6,26 +6,14 @@ class CartsController < ApplicationController
 
   skip_before_action :require_login, only: [:invite]
 
-  def index
-  end
+  # def index
+  # end
 
-  def new
-    @cart = Cart.new
-  end
+  # def new
+  #   @cart = Cart.new
+  # end
 
-  def create
-    @cart = Cart.new(cart_params)
-    @cart.status_id = 1
-    @cart.key = SecureRandom.uuid
-    if @cart.save!
-      
-      update_user_address(params)
-      current_user.cart_roles.create(user_id: current_user.id, cart_id: @cart.id, role_id: 1)
-      current_user.save
-      params[:cart_id] = @cart.id
-      redirect_to cart_path(@cart)
-    end
-  end
+  
 
   def show
     @contributors = []
