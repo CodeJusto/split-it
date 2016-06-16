@@ -15,6 +15,10 @@ class Cart < ActiveRecord::Base
   
   # after_save :check_status
 
+  def organizer
+    User.joins(:cart_roles).find_by(cart_roles: {cart_id: id})
+  end
+
   def expiry_date_must_be_in_the_future 
     errors.add(:expiry, "must be in the future") if !expiry.blank? and expiry < Date.today
   end

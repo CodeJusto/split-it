@@ -56,6 +56,7 @@ group :development, :test do
   gem 'byebug'
   gem "letter_opener"
   gem 'pry'
+  gem 'guard', '~> 2.14'
 end
 
 group :development do

@@ -34,4 +34,25 @@ window.fbAsyncInit = function() {
 
 $(document).ready(function(){
   $('.modal-trigger').leanModal();
+
+  $(".button-collapse").sideNav({
+      menuWidth: 300, // Default is 240
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
+
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 5 // Creates a dropdown of 15 years to control year
+  });
+
+  // $(".cart-card").hover(function(){
+  //   $(this).toggleClass("z-depth-1");
+  // }, function(){
+  //   $(this).toggleClass("z-depth-1");
+  // });
+
+
+  setTimeout(function(){ Materialize.showStaggeredList('.cart-list'); }, 1200);
 });

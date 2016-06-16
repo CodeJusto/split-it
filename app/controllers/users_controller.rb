@@ -4,7 +4,8 @@ class UsersController < ApplicationController
     @cart = Cart.new
     @user = User.new
     @carts = current_user.carts if current_user
-    return @carts
+    # return @carts
+    render :index
   end
 
   def create

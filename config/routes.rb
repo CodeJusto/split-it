@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   resources :charges
 
+  resources :users
+
   resource :users do
     get '/login', to: 'users#login_test' # delete this before deployment
   end
-
-  resources :users
 
   resources :carts do 
     patch '/email_preferences', to: 'carts#email_preferences', as: 'email_preferences'
@@ -43,6 +43,6 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  root to: 'users#index'
+  root to: 'carts#index'
 
 end

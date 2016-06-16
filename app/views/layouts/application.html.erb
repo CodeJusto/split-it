@@ -11,11 +11,10 @@
   
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <!-- render 'navbar/full_navbar' -->
+<body class="<%= controller_name %>">
+  <%= render 'layouts/navbar' if controller_name == 'carts' %>
   <main>
     <%= yield %>
   </main>
-
 </body>
 </html>
