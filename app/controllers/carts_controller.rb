@@ -12,6 +12,10 @@ class CartsController < ApplicationController
     @cart = Cart.new
   end
 
+  def new
+    @cart = Cart.new
+  end
+
   def create
     @cart = Cart.new(cart_params)
     ## stores the minimum payment in cents so users can input a regular
@@ -45,7 +49,7 @@ class CartsController < ApplicationController
 
 
     # Sorts through those users to find which users belong to your current cart
-    @contributors = CartRole.where(cart_id: @cart.id).uniq
+    @contributors = CartRole.where(cart_id: @cart.id).where.not(role_id: 1).uniq
     # Query all the products in the cart from Amazon
     @products = @cart.products
     @goal = @cart.total

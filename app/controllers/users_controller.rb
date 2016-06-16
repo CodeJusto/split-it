@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
   # for test only, will be deleted after
   def login_test
-    session[:user_id] = User.first.id
+    session[:user_id] = params[:user_id]
     redirect_to carts_path
   end
 

@@ -11,7 +11,7 @@
   <div class="cart-content col s8">
     <h3 class="card-title"><%= cart.name %></h3>
     <p>by <%= cart.organizer.name %></p>
-    <p><%= format_price(cart.total) %> <%= "#{cart.progress}\% funded" %></p>
+    <p><%= format_price(cart.total) %> - <%= "#{cart.progress}\% funded" %></p>
     <div class="progress">
       <div class="determinate" style="<%= "width: #{cart.progress}%" %>"></div>
     </div>

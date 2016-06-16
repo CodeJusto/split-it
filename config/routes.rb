@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resource :users do
+  resources :users do
     get '/login', to: 'users#login_test' # delete this before deployment
   end
 

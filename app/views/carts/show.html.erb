@@ -1,30 +1,51 @@
 <h3><%= link_to 'Back', root_path %></h3>
+<div class="container">
+  <div class="row">
+    <div class="col s12 m8">
+      <h2><%= @cart.name %></h2>
+      <p>Status: <%= @cart.status.text %></p>
 
-<h1><%= @cart.name %></h1>
-<p><em>Status: <%= @cart.status.text %></em></p>
+      <div class="preferences">
+        <%= render 'invitations' %>
+        
+      </div>
+    </div>
+    <div class="col s12 m4">
+      <div><h4><%= format_price(@cart.total) %></h4></div>
+      <div class="progress">
+        <div class="determinate" style="<%= "width: #{@cart.progress}%" %>"></div>
+      </div>
+    </div>
+  </div>
 
-<h2><%= format_price(@cart.total) %></h2>
-<hr>
+  <!--  -->
+  <div class="row">
+    <div class="col s12 m8">
+      <%= render 'products' %>
+    </div>
 
-<div class="preferences">
-  <h2 class="test">Notifcation Preferences</h2>
- <%= render 'notification_preferences' %>
+    <div class="col s12 m4">
+      
+    </div>
+  </div>
 </div>
-<h2>List of products</h2>
-<%= render 'products' %>
-<hr>
+
+
 <h2>List of contributors</h2>
 <% @contributors.each do |user| %>
   <%= render 'contributions', user: user %>
 <% end %>
 <br>
 <hr>
-<%= render 'invitations' %>
+
 <hr>
 
 <% if user_role(current_user, @cart).id == 1 %>
-  <h1><%= link_to "Delete this cart", cart_path(@cart), method: :delete, data: {confirm: "Are you sure you want to permanently #{@cart.name}? There is NO way to recover this cart. All payments will be refunded.", title: "WARNING!"} %></h1>
+  <h1><%= link_to "Delete this cart", cart_path(@cart), method: :deleteaa, data: {confirm: "Are you sure you want to permanently #{@cart.name}? There is NO way to recover this cart. All payments will be refunded.", title: "WARNING!"} %></h1>
 <% end %>
+
+<h2 class="test">Notifcation Preferences</h2>
+        <%= render 'notification_preferences' %>
 <hr>
 <%= render 'payment_form' %>
 <%= render 'contributions' %>
