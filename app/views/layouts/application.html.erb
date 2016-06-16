@@ -4,15 +4,18 @@
 
   <title>SplitIt</title>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript">Stripe.setPublishableKey('pk_test_fUkk8bcH5pCRu0YdNcwWPKXg');</script>
+  <script type="text/javascript">Stripe.setPublishableKey('pk_test_fUkk8bcH5pCRu0YdNcwWPKXg');</script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application'%>
   
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'navbar/full_navbar' %>
-<%= yield %>
+  <!-- render 'navbar/full_navbar' -->
+  <main>
+    <%= yield %>
+  </main>
 
 </body>
 </html>

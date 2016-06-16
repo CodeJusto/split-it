@@ -33,14 +33,17 @@ gem 'faker'
 # stripe
 gem 'stripe'
 
+# amazon
 gem 'vacuum', '~> 1.4'
 
 # Facebook outh login
 gem 'omniauth-facebook'
 
-gem 'pry'
-
+# twilio
 gem 'twilio-ruby'
+
+# materialize
+gem 'materialize-sass'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -52,6 +55,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem "letter_opener"
+  gem 'pry'
 end
 
 group :development do

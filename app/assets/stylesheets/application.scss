@@ -1,0 +1,115 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "override";
+@import "materialize";
+
+@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+
+.registration { 
+     display: none;
+}
+
+html,
+body {
+  color: $dark-grey;
+}
+
+section#hero {
+  background: url(http://blendermedia.com/wp-content/themes/blender2015/img/home-banner2.jpg);
+  background-size: cover;
+  height: 769px;
+  color: $light-grey;
+  position: relative;
+
+  .logo {
+    margin: 0 3%;
+    h3 {
+      margin-top: 0;
+      line-height: 2;
+    }
+  }
+
+  .sign-in-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 26px 3% 0;
+  }
+
+  .cta {
+    position: absolute;
+    max-width: 45%;
+    left: 0;
+    top: 40%;
+    margin: 0 3%;
+
+    h1 {
+      margin-top: 0;
+    }
+
+    h5 {
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .modal {
+      color: $dark-grey;
+      // max-height: 100%;
+
+      .modal-header {
+        padding: 24px;
+        text-align: center;
+        border-bottom: 1px solid $mid-grey;
+        position: relative;
+
+        .modal-close {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          @include translate(0, -50%);
+        }
+
+        h4 {
+          margin: 0;
+        }
+      }
+
+      .modal-content {
+        border-bottom: 1px solid $mid-grey;
+
+        .btn-facebook {
+          @extend .blue, .darken-4;
+        }
+      }
+
+      .modal-footer {
+        // color: $dark-grey;
+      }
+    } 
+
+}
+

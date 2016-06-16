@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require materialize-sprockets
 
 
 window.fbAsyncInit = function() {
@@ -31,3 +32,6 @@ window.fbAsyncInit = function() {
    fjs.parentNode.insertBefore(js, fjs);
  }(document, 'script', 'facebook-jssdk'));
 
+$(document).ready(function(){
+  $('.modal-trigger').leanModal();
+});
