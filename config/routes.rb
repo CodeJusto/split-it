@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     patch '/text_preferences', to: 'carts#text_preferences', as: 'text_preferences'
   end
 
+  namespace :api do
+    resources :charges, only: [:create]
+  end
+
   namespace :carts do
     scope '/:cart_id' do
       # resource :products, only:[:new, :create]

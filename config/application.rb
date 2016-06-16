@@ -22,5 +22,16 @@ module SplitIt
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # We only need this in development, because webpack needs to run on a separate port.
+    # In production the react application is served from the public folder (same domain/port)
+    if Rails.env.development?
+        config.middleware.insert_before 0, "Rack::Cors" do
+          allow do
+            origins '*'
+            resource '*', :headers => :any, :methods => [:get, :post, :options]
+          end
+        end
+    end
   end
 end
