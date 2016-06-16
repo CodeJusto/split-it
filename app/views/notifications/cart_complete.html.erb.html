@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @cart.name %> has successfully reached its goal of <%= format_price(@cart.total) %>.</h1>
+    <p>
+      The gift will automatically be shipped to <%= @organizer.name %> shortly.<br>
+    </p>
+  </body>
+</html>

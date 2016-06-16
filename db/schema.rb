@@ -10,6 +10,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
+
 ActiveRecord::Schema.define(version: 20160615211135) do
 
   # These are extensions that must be enabled in order to support this database
@@ -24,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160615211135) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.integer  "status_id",       default: 1
+    t.integer  "status_id",              default: 1
     t.datetime "expiry"
     t.string   "name"
     t.integer  "total_paid"
@@ -32,16 +33,13 @@ ActiveRecord::Schema.define(version: 20160615211135) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "key"
-<<<<<<< HEAD
     t.string   "country"
     t.string   "street_address"
     t.string   "street_address2"
     t.string   "city"
     t.string   "province"
     t.string   "zip_code"
-=======
     t.integer  "custom_minimum_payment"
->>>>>>> 6922f593b81fa9ffdac938c74a433e1cd3dfe870
   end
 
   create_table "notification_templates", force: :cascade do |t|
@@ -84,12 +82,12 @@ ActiveRecord::Schema.define(version: 20160615211135) do
   create_table "refunds", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "cart_id"
+    t.integer  "payment_id"
     t.integer  "amount"
     t.string   "stripe_customer_id"
     t.string   "stripe_charge_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "payment_id"
   end
 
   create_table "roles", force: :cascade do |t|

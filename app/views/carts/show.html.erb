@@ -22,14 +22,16 @@
 <%= render 'products' %>
 <hr>
 <h2>List of contributors</h2>
-  <%= render 'contributions' %>
+<%= render 'participants' %>
 <br>
 <hr>
+<h2>Invite your friends</h2>
 <%= render 'invitations' %>
-<hr>
 <% if user_role(current_user, @cart).id == 1 %>
-  <h1><%= link_to "Delete this cart", cart_path(@cart), method: :delete, data: {confirm: "Are you sure you want to permanently #{@cart.name}? There is NO way to recover this cart. All payments will be refunded.", title: "WARNING!"} %></h1>
+  <h2><%= link_to "Delete this cart", cart_path(@cart), method: :delete, data: {confirm: "Are you sure you want to permanently #{@cart.name}? There is NO way to recover this cart. All payments will be refunded.", title: "WARNING!"} %></h2>
 <% end %>
 <hr>
+<h2>Make a payment</h2>
 <%= render 'payment_form' %>
-
+<hr>
+<%= render 'contributions' %>

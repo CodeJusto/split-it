@@ -40,4 +40,18 @@ class Notifications < ApplicationMailer
     mail(to: @contributor.email, subject: "You have made a contribution to #{ @cart.name }")
   end
 
+  def cart_complete(organizer, contributor, cart)
+    @organizer = organizer
+    @cart = cart
+    @contributor = contributor
+    mail(to: @contributor.email, subject: "#{@cart.name} has successfully reached its goal!")
+  end
+
+  def cart_failure(organizer, contributor, cart)
+    @organizer = organizer
+    @cart = cart
+    @contributor = contributor
+    mail(to: @contributor.email, subject: "Sorry #{@contributor.name}, #{@cart.name} couldnt meet its goal in time.")
+  end
+
 end
