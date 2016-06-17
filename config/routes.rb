@@ -17,7 +17,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :charges, only: [:create]
-    resources :carts, only: [:index, :create]
+    resources :carts, only: [:index, :create, :invite, :show, :destroy]
+    resources :users, only: [:create]
   end
 
   namespace :carts do

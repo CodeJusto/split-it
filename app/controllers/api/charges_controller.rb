@@ -1,5 +1,8 @@
 class Api::ChargesController < Api::BaseController
 
+
+  ## from FRONT END - ajax will call '/api_charges'
+  ## during development, ajax will call 'http://localhost:4000/api_charges'
   def create
     @amount = convert_to_cents(params[:amount])
     @cart_id = params[:cart]
