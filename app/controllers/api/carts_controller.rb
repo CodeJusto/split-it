@@ -74,7 +74,7 @@ class Api::CartsController < Api::BaseController
     @products = @cart.products
     @goal = @cart.total
 
-    @contributors = @cart.users
+    @contributors = @cart.users.where('cart_roles.cart_id' => @cart.id, 'cart_roles.role_id' => 2)
     # Query all the products in the cart
     @products = @cart.products
     @remaining_balance = (@goal - @cart.total_payment)
@@ -85,23 +85,29 @@ class Api::CartsController < Api::BaseController
       @minimum_payment = @cart.custom_minimum_payment
     end
 
-    @cart_payments = get_cart_payments(@cart.id)
+    @cart_payees = get_cart_payments(@cart.id)
     @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
     @progress = @cart.progress
     @cart_payments = @cart.total_payment
-
-    @cart.cart_roles.each do |c|
-      if current_user.id == c.user_id
-        render 'show' and return
-      end
+    @users_and_roles = @contributors.map do |contributor|
+      contributor.roles.find_by('cart_roles.cart_id'=> @cart.id)
     end
+
+    # @cart.cart_roles.each do |c|
+    #   if current_user.id == c.user_id
+    #     render 'show' and return
+    #   end
+    # end
     
     render :json => {
-      cart: @cart.as_json(methods: [:progress, :total, :total_payment], include: [:products, :status, :users, :roles]),
-      cart_payments: @cart_payments,
+      cart: @cart.as_json(methods: [:progress, :total, :total_payment], include: [:products, :status, :cart_roles, :roles]),
+      contributors: @contributors,
+      roles: @user_roles,
+      paid_users: @cart_payees,
       cart_refunds: @cart_refunds,
       custom_minimum_payment: @minimum_payment,
-      remaining_balance: @remaining_balance
+      remaining_balance: @remaining_balance,
+      organizer: @cart.organizer
     }
   end
 

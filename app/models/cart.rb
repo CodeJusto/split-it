@@ -38,6 +38,10 @@ class Cart < ActiveRecord::Base
     User.joins(:cart_roles).where('cart_roles.cart_id' => @cart_id, 'cart_roles.role_id' => role_id, "cart_roles.#{medium}_notifications" => true )  
   end
 
+  def organizer
+    users.where('cart_roles.cart_id' => id, 'cart_roles.role_id' => 1)
+  end
+
   def check_status
     @cart = self
     organizer_email = find_role(1, "email")
