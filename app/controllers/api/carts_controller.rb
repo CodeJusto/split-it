@@ -61,11 +61,10 @@ class Api::CartsController < Api::BaseController
     @cart.check_status
 
     session[:cart_id] = @cart.id
-
     @cart_payments = get_cart_payments(@cart.id)
     ## cart_payments returns an array of all payments made - including
     ## username, id, amount, date
-
+    @paying_contributors = Payment.where(cart_id: @cart.id).joins(:user)
     @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
 
     # Sorts through those users to find which users belong to your current cart
@@ -77,8 +76,13 @@ class Api::CartsController < Api::BaseController
     @contributors = @cart.users.where('cart_roles.cart_id' => @cart.id, 'cart_roles.role_id' => 2)
     # Query all the products in the cart
     @products = @cart.products
-    @remaining_balance = (@goal - @cart.total_payment)
-
+    
+    if (@goal - @cart.total_payment) < 0
+      @remaining_balance = 0
+    else
+      @remaining_balance = (@goal - @cart.total_payment)
+    end
+    
     if @cart.custom_minimum_payment.nil?
       @minimum_payment = (@remaining_balance / @contributors.length)
     else
@@ -100,14 +104,11 @@ class Api::CartsController < Api::BaseController
     # end
     
     render :json => {
-      cart: @cart.as_json(methods: [:progress, :total, :total_payment], include: [:products, :status, :cart_roles, :roles]),
+      cart: @cart.as_json(methods: [:progress, :total, :total_payment], include: [:products, :status, :users, :payments => { include: :user }]),
+      organizer: @cart.organizer,
       contributors: @contributors,
-      roles: @user_roles,
-      paid_users: @cart_payees,
-      cart_refunds: @cart_refunds,
       custom_minimum_payment: @minimum_payment,
       remaining_balance: @remaining_balance,
-      organizer: @cart.organizer
     }
   end
 
