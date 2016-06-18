@@ -41,7 +41,7 @@ class CartsController < ApplicationController
 
     session[:cart_id] = @cart.id
 
-    @cart_payments = get_cart_payments(@cart.id)
+    @cart_payments = @cart.payments
     ## cart_payments returns an array of all payments made - including
     ## username, id, amount, date
     @display_minimum_payment = ((@cart.minimum_payment / 100).to_f)

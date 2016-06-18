@@ -1,24 +1,34 @@
+<div id="products">
+  <% if @products.size == 0 %>
+    <div class="cart-options">
+      <p>This cart doesn't have a product yet.</p>
+      <a href="<%= new_carts_product_path(@cart) %>" class="btn-rect btn-primary waves-effect waves-light  modal-trigger">Add Product</a>
+    </div>
+  <% else %>
+    <ul id="product-list" class="collection">
 
-<ul id="product-list" class="collection">
-<% if @products.size == 0 %>
-  <p>No product yet.</p>
-<% else %>
-  <% @products.each do |product| %>
-    <li class="collection-item avatar">
-      <% if product.image.nil? %>
-        <i class="material-icons circle green">insert_chart</i>
-      <% else %>
-        <img src="<%= product.image %>" alt="" class="circle">
-      <% end %>
-      <%= link_to product.display_name, product.url %>
-      <p>
-      <%= format_price(product.price) %> x <%= product.quantity %>
-      </p>
-      <p><%= link_to 'Edit', edit_carts_product_path(@cart, product) %> | <%= link_to 'Remove', carts_product_path(@cart, product), data: {:confirm => 'Are you sure?'}, :method => :delete  %></p>
+    <% @products.each do |product| %>
+      <li class="collection-item avatar product-item">
+        <% if product.image.nil? %>
+          <a target="_blank" href="<%= product.url %>">
+            <i class="material-icons circle green">insert_chart</i>
+          </a>
+        <% else %>
+          <a target="_blank" href="<%= product.url %>">
+            <img src="<%= product.image %>" alt="" class="circle">
+          </a>
+        <% end %>
+        <h5><%= product.display_name %></h5>
+        <p><%= format_price(product.price) %> x <%= product.quantity %></p>
+        <p><!-- product.description --></p>
 
-      <a href="<%= product.url %>" target="_blank" class="secondary-content"><i class="material-icons">open_in_new</i></a>
-    </li>
+        <% if @cart.organizer.id == current_user.id %> 
+        <p class="product-ops"><%= link_to 'Edit', edit_carts_product_path(@cart, product) %> | <%= link_to 'Remove', carts_product_path(@cart, product), data: {:confirm => 'Are you sure?'}, :method => :delete  %></p>
+        <% end %>
+        <a href="<%= product.url %>" target="_blank" class="secondary-content"><i class="material-icons">open_in_new</i></a>
+      </li>
+    <% end %>
+    </ul>
+    <a href="<%= new_carts_product_path(@cart) %>"><i class="material-icons">add_circle</i> Add product</a>
   <% end %>
-<% end %>
-</ul>
-<%= link_to 'Add product', new_carts_product_path(@cart) %>
+</div>

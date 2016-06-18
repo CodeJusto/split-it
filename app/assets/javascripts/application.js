@@ -47,6 +47,12 @@ $(document).ready(function(){
     selectYears: 5 // Creates a dropdown of 15 years to control year
   });
 
+  $('#contribution>ul.tabs').tabs();
+
+  $('.collapsible').collapsible({
+    accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+  });
+
   // $(".cart-card").hover(function(){
   //   $(this).toggleClass("z-depth-1");
   // }, function(){

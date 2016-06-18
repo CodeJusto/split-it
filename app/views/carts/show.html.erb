@@ -1,51 +1,194 @@
-<h3><%= link_to 'Back', root_path %></h3>
 <div class="container">
-  <div class="row">
+  <!-- top section -->
+  <div class="row" id="cart-top">
     <div class="col s12 m8">
-      <h2><%= @cart.name %></h2>
-      <p>Status: <%= @cart.status.text %></p>
+      <div class="cart-header">
+        <h2><%= @cart.name %></h2>
+        <div class="chip"><%= @cart.status.text %></div>
+      </div>
+      
+      <div class="cart-meta">
+        <div class="cart-submeta">
+          <h4><%= @contributors.size %></h4>
+          <span>contributers</span>
+        </div>
 
-      <div class="preferences">
-        <%= render 'invitations' %>
-        
+        <div class="cart-submeta">
+          <h4>5</h4>
+          <span>days to go</span>
+        </div>
+
+        <div class="cart-submeta">
+          <h4><%= format_price(@cart.total_payment) %></h4>
+          <span>collected</span>
+        </div>
+
+        <div class="progress">
+          <div class="determinate" style="<%= "width: #{@cart.progress}%" %>"></div>
+        </div>
+        <div><span><%= "#{@cart.progress}\% of #{format_price(@cart.total)} goal" %></span></div>
       </div>
     </div>
     <div class="col s12 m4">
-      <div><h4><%= format_price(@cart.total) %></h4></div>
-      <div class="progress">
-        <div class="determinate" style="<%= "width: #{@cart.progress}%" %>"></div>
+      <div class="cart-options">
+        <a href="#payment-modal" class="btn-rect btn-primary waves-effect waves-light  modal-trigger">Contribute Now</a>
+
+            <a class="btn-rect btn-secondary" data-confirm="Are you sure?" data-title="WARNING!" rel="nofollow" data-method="delete" href="<%= cart_path(@cart) %>">
+              Cancel
+            </a>
       </div>
+
+
+      <ul id="cart-options">
+        <li>
+          <a href="#invite-modal" class=" modal-trigger">
+            <i class="material-icons">group_add</i>
+            Share
+          </a>
+        </li>
+        <li>
+          <a href="#notification-modal" class=" modal-trigger">
+            <i class="material-icons">notifications</i>
+            Notifications
+          </a>
+        </li>
+        <% if @cart.organizer.id == current_user.id %>
+        <li>
+          
+        </li>
+        <% end %>
+      </ul>
+
+      
+
+      <!-- <div><h4><%= format_price(@cart.total) %></h4></div> -->
+      
     </div>
   </div>
 
-  <!--  -->
-  <div class="row">
+  <!-- bottom section -->
+  <div class="row"  id="cart-bottom">
     <div class="col s12 m8">
+      <ul class="tabs">
+        <li class="tab col s3"><a class="active" href="#products">Products</a></li>
+        <li class="tab col s3"><a href="#payments">Payments</a></li>
+      </ul>
+      <!-- list of product -->
       <%= render 'products' %>
+      <!-- list of payment -->
+      <div id="payments" class="col s12">
+        <% if @cart_payments.size > 0 %>
+          <% @cart_payments.each do |payment| %>
+            <div class="payment-entry row">
+              <div class="col s2 avatar">
+                <img src="http://placehold.it/150?text=%20" class="circle">
+              </div>
+              <div class="col s10 payment-detail">
+                <div class="payee"><%= payment.user.name %></div>
+                <span title=""><%= format_price(payment.amount) %></span>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="cart-options">
+            <p>No one's contributed yet.</p>
+            <a href="#payment-modal" class="btn-rect btn-primary waves-effect waves-light  modal-trigger">Contribute Now</a>
+          </div>
+        <% end %>
+
+      </div>
     </div>
 
-    <div class="col s12 m4">
+    <div class="col s12 m4 center-align" id="contribution">
+      <div><span class="tab-label">Contributors</span></div>
       
+      <div id="contributors" class="col s12">
+        <% if @contributors.size > 0 %>
+          <% @contributors.each do |user| %>
+            <div class="chip">
+              <img src="http://placehold.it/150?text=%20">
+              <span><%= user.name %></span>
+            </div>
+          <% end %>
+          <a href="#invite-modal" class="modal-trigger">Invites more friends</a>
+        <% else %>
+          <a href="#invite-modal" class="modal-trigger">Invites your friends</a>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- invite modal -->
+<div id="invite-modal" class="modal">
+  <div class="modal-header center-align">
+    <h4>Invite Your Friends</h4>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">clear</i></a>
+  </div>
+  <div class="modal-content center-align">
+    <button class="btn btn-facebook waves-effect waves-light FBInvite" type="submit" name="action" data-key= <%= @cart.key %> >
+      <i class="material-icons left">send</i> Share with your Facebook friends
+    </button>
+  </div>
+  <div class="modal-content">
+    <div class="center-align">
+      OR
+    </div>
+    <div class="row">
+      <!-- <form class="col s12"> -->
+      <%= form_tag carts_invite_user_path(@cart), class: "col s12" do %>
+        <!-- email field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="text" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <!-- submit -->
+        <div class="row">
+          <div class="col s12 right-align">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Send
+            </button>
+          </div>
+        </div>
+      <!-- </form> -->
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<h2>List of contributors</h2>
-<% @contributors.each do |user| %>
-  <%= render 'contributions', user: user %>
-<% end %>
+<!-- notification modal -->
+<div id="notification-modal" class="modal">
+  <div class="modal-header center-align">
+    <h4>Notification Settings</h4>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">clear</i></a>
+  </div>
+  
+  <div class="modal-content">
+    <div class="row">
+      <!-- <form class="col s12"> -->
+      <%= form_tag carts_invite_user_path(@cart), class: "col s12" do %>
+        <!-- email field -->
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="text" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <!-- submit -->
+        <div class="row">
+          <div class="col s12 right-align">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Save
+            </button>
+          </div>
+        </div>
+      <!-- </form> -->
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <br>
-<hr>
-
-<hr>
-
-<% if user_role(current_user, @cart).id == 1 %>
-  <h1><%= link_to "Delete this cart", cart_path(@cart), method: :deleteaa, data: {confirm: "Are you sure you want to permanently #{@cart.name}? There is NO way to recover this cart. All payments will be refunded.", title: "WARNING!"} %></h1>
-<% end %>
-
-<h2 class="test">Notifcation Preferences</h2>
-        <%= render 'notification_preferences' %>
-<hr>
-<%= render 'payment_form' %>
-<%= render 'contributions' %>
+<br>
+<br>
+<br>
