@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
      user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      cookies[:user_name] = user.name
       if session[:key]
         key = session[:key]
         session[:key] = nil
@@ -22,6 +23,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:key] = nil
+    cookies[:user_name] = nil
     redirect_to root_url
   end
 end

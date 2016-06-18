@@ -3,6 +3,7 @@ class OmniauthSessionsController < ApplicationController
     session[:errors] = nil
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
+    cookies[:user_name] = user.name
     if session[:key]
         key = session[:key]
         session[:key] = nil

@@ -36,7 +36,10 @@ class CartsController < ApplicationController
     redirect_to cart_path(@cart)
   end  
 
- 
+  def cookie
+    @user = User.new
+  end
+
 
   protected 
 
@@ -51,6 +54,7 @@ class CartsController < ApplicationController
       :custom_minimum_payment
     )
   end
+
 
   private
 

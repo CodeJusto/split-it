@@ -7,11 +7,14 @@ Rails.application.routes.draw do
   resources :users
 
   
+# test index for cookie testing
+get '/cookie', to: 'carts#cookie', as: 'cookie'
 
   resources :carts do 
     patch '/email_preferences', to: 'carts#email_preferences', as: 'email_preferences'
     patch '/text_preferences', to: 'carts#text_preferences', as: 'text_preferences'
   end
+
 
 
 
@@ -49,6 +52,6 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  root to: 'users#index'
+  root to: 'carts#cookie'
 
 end
