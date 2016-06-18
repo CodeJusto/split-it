@@ -32,10 +32,11 @@
     <div class="col s12 m4">
       <div class="cart-options">
         <a href="#payment-modal" class="btn-rect btn-primary waves-effect waves-light  modal-trigger">Contribute Now</a>
-
-            <a class="btn-rect btn-secondary" data-confirm="Are you sure?" data-title="WARNING!" rel="nofollow" data-method="delete" href="<%= cart_path(@cart) %>">
-              Cancel
-            </a>
+        <% if @cart.organizer.id == current_user.id %>
+          <a class="btn-rect btn-secondary" data-confirm="Are you sure?" data-title="WARNING!" rel="nofollow" data-method="delete" href="<%= cart_path(@cart) %>">
+            Cancel
+          </a>
+        <% end %>
       </div>
 
 
@@ -52,11 +53,9 @@
             Notifications
           </a>
         </li>
-        <% if @cart.organizer.id == current_user.id %>
         <li>
           
         </li>
-        <% end %>
       </ul>
 
       

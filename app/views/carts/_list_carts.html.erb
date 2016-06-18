@@ -1,21 +1,29 @@
 <!-- Only list carts that this user belongs to -->
-<div class="cart-card row">
-  <div class="cart-image col s4">
-    <div class="chip cart-status"><%= cart.status.text %></div>
-    <% if cart.products.first.nil? || cart.products.first.image.nil? %>
-      <img src="http://placehold.it/500/ffffff/eeeeee">
-    <% else %>
-      <img src="<%= cart.products.first.image %>" >
-    <% end %>
-  </div>
-  <div class="cart-content col s8">
-    <h3 class="card-title"><%= cart.name %></h3>
-    <p>by <%= cart.organizer.name %></p>
-    <p><%= format_price(cart.total) %> - <%= "#{cart.progress}\% funded" %></p>
-    <div class="progress">
-      <div class="determinate" style="<%= "width: #{cart.progress}%" %>"></div>
+
+  <div class="cart-card row">
+    <div class="cart-image col s12 m3">
+      <!-- <div class="chip cart-status"> cart.status.text </div> -->
+      <% if cart.products.first.nil? || cart.products.first.image.nil? %>
+        <a href="<%= cart_path(cart) %>">
+          <img src="http://placehold.it/500/ffffff/eeeeee">
+        </a>
+      <% else %>
+        <a href="<%= cart_path(cart) %>">
+          <img src="<%= cart.products.first.image %>" >
+        </a>
+      <% end %>
     </div>
-    <div class="right-align">
-    <%= link_to "View cart", cart_path(cart) %>
-  </div>
+    <div class="cart-content col s12 m9">
+      <h3 class="cart-name"><%= cart.name %></h3>
+      <div class="cart-organizer">by <%= cart.organizer.name %></div>
+      <div class="cart-total"><%= format_price(cart.total) %></div>
+      <!-- <div class="cart-payment"> "#{cart.progress}\% collected" </div> -->
+      <div class="progress">
+        <div class="determinate" style="<%= "width: #{cart.progress}%" %>"></div>
+      </div>
+      <div class="cart-due">5 days left</div>
+      <div class="view-btn right">
+        <%= link_to "View cart", cart_path(cart) %>
+      </div>
+    </div>
   </div>

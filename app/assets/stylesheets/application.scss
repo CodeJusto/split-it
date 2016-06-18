@@ -216,9 +216,15 @@ section#hero {
     opacity: 0;
   }
 
+  li>a {
+    color: $dark-grey;
+  }
+
   .cart-card {
     padding: 0;
     margin-bottom: 3.5em;
+    border: 1px solid #dfdcda;
+    border-radius: 6px;
 
     .col {
       padding: 0;
@@ -226,10 +232,12 @@ section#hero {
 
     .cart-image {
       position: relative;
+      padding: 1.5rem;
 
       img {
         width: 100%;
         display: block;
+        border-radius: 6px;
       }
 
       .cart-status {
@@ -240,12 +248,40 @@ section#hero {
     }
 
     .cart-content {
-      padding: 0 0 0 1.5em;
+      padding: 1.5em;
 
-      h3 {
-        margin-top: 0;
+      h3.cart-name {
+        margin: 0;
+        margin-bottom: 0.2rem;
+      }
+
+      .cart-organizer {
+        margin-bottom: 3.5rem;
+        color: #ccc;
+      }
+
+      .cart-due,
+      .view-btn {
+        display: inline-block;
+      }
+
+      .cart-due {
+        color: #ccc;
+      }
+
+      .cart-total {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .progress {
+        margin-bottom: 0.5rem;
       }
     }
+  }
+
+  .cart-card:hover {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -280,6 +316,10 @@ section#hero {
     display: inline-block;
     vertical-align: bottom;
     width: 30%;
+
+    span {
+      color: #ccc;
+    }
   }
 
   .progress {
@@ -302,7 +342,7 @@ section#hero {
 
 #cart-options {
   margin-top: 2rem;
-  // text-align: center;
+  text-align: center;
 
   li {
     margin-bottom: 1rem;
