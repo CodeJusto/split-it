@@ -13,11 +13,6 @@ class CartsController < ApplicationController
   #   @cart = Cart.new
   # end
 
-  
-
-
-
-
   def email_preferences 
     @cart = Cart.find(session[:cart_id])
     session[:cart_id] = nil

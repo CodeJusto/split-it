@@ -40,6 +40,9 @@ get '/cookie', to: 'carts#cookie', as: 'cookie'
 
   post 'refunds', to: 'refunds#create', as: 'refunds'
 
+  post '/api/charges', to: 'charges#create'
+  post '/api/carts/:id/products', to: 'carts/products#create'
+
   namespace :admin do
     resources :users
     resources :carts, only:[:index]

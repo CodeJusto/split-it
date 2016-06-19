@@ -1,12 +1,13 @@
 class Api::ChargesController < Api::BaseController
 
+  skip_before_filter :verify_authenticity_token
 
   ## from FRONT END - ajax will call '/api_charges'
   ## during development, ajax will call 'http://localhost:4000/api_charges'
   def create
     @amount = convert_to_cents(params[:amount])
-    @cart_id = params[:cart]
-    @cart = Cart.where(id: @cart_id)
+    @cart_id = params[:cart_id]
+    @cart = Cart.where(id: params[:cart_id])
     token = params[:stripeToken]
 
     customer = Stripe::Customer.create(
@@ -22,8 +23,8 @@ class Api::ChargesController < Api::BaseController
     )
     
     @payment = Payment.new(
-      user_id: current_user.id,
-      cart_id: @cart_id,
+      user_id: params[:user_id],
+      cart_id: params[:cart_id],
       stripe_customer_id: charge.customer,
       stripe_charge_id: charge.id,
       amount: charge.amount
@@ -32,11 +33,11 @@ class Api::ChargesController < Api::BaseController
     @payee = User.where(id: @payment.user_id)
 
     if @payment.save
-      @cart = Cart.find(@payment.cart_id)
-      @updated_cart_total = calculate_total_payments(get_cart_payments(@cart.id))
-      @goal = @cart.total
-      @updated_pctg = cart_progress(@updated_cart_total, @goal)
-      # @total = @cart.payments.sum(:amount)
+      # @cart = Cart.find(@payment.cart_id)
+      # @updated_cart_total = calculate_total_payments(get_cart_payments(@cart.id))
+      # @goal = @cart.total
+      # @updated_pctg = cart_progress(@updated_cart_total, @goal)
+      # # @total = @cart.payments.sum(:amount)
 
       organizer_email = find_role(1, 'email')
       contributor_email = find_role(2, 'email')
@@ -73,7 +74,6 @@ class Api::ChargesController < Api::BaseController
 
       Notification.create(cart_id: @cart_id, notification_template_id: 2)
 
-      #... json here
       render :json => {
         :payment => format_price(@payment.amount),
         :payee => @payee,
@@ -82,11 +82,11 @@ class Api::ChargesController < Api::BaseController
         :stripe_charge_id => charge.id
         }
     else
-      render {error: "Payment failed."}.to_json, status: 400  # http response status is 400
+      render :json => { error: "Payment failed." }, status: 400  # http response status is 400
     end
 
 
     rescue Stripe::CardError => e
-      render {error: e.message}.to_json
+      render :json => {error: e.message}
   end
 end

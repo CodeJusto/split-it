@@ -109,6 +109,7 @@ class Api::CartsController < Api::BaseController
       contributors: @contributors,
       custom_minimum_payment: @minimum_payment,
       remaining_balance: @remaining_balance,
+      current_user: current_user
     }
   end
 

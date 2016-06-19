@@ -11,9 +11,6 @@ $(document).ready(function() {
     });
   });
 
-
-
-
   $('.cart_form').on('click', function(e) {
     debugger
     e.preventDefault();
