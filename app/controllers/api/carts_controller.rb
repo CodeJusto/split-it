@@ -7,11 +7,7 @@ class Api::CartsController < Api::BaseController
   skip_before_action :require_login, only: [:invite]
 
   def index
-    # @crtprg = {}
     @carts = current_user.carts
-    # @carts.each do |cart|
-    #    @crtprg << {cart.progress}
-    # end
     render :json => {
       carts: @carts.as_json(methods: [:progress, :total, :total_payment], include: [:products, :status])
     }
@@ -62,8 +58,6 @@ class Api::CartsController < Api::BaseController
 
     session[:cart_id] = @cart.id
     @cart_payments = get_cart_payments(@cart.id)
-    ## cart_payments returns an array of all payments made - including
-    ## username, id, amount, date
     @paying_contributors = Payment.where(cart_id: @cart.id).joins(:user)
     @cart_refunds = Refund.where(cart_id: @cart.id).sum(:amount)
 

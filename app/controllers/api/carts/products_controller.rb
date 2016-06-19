@@ -4,7 +4,12 @@ class Api::Carts::ProductsController < ApplicationController
   protect_from_forgery with: :null_session
 
   def create
-    @product = Product.new(product_params)
+    @product = Product.new(
+      display_name: params[:display_name],
+      url: params[:url],
+      quantity: params[:quantity],
+      cart_id: params[:cart_id]
+      )
     if @product.save
       render :json => {
         notice: "#{@product.display_name} was added successfully!"
@@ -26,17 +31,12 @@ class Api::Carts::ProductsController < ApplicationController
     end
   end
 
-  def destroy
-    @product = Product.destroy(params[:id])
-    redirect_to cart_path(params[:cart_id])
-  end
-
   protected
 
-  def product_params
-    params.require(:product).permit(
-      :display_name, :url, :quantity, :cart_id
-    )
-  end
+  # def product_params
+  #   params.require(:product).permit(
+  #     :display_name, :url, :quantity, :cart_id
+  #   )
+  # end
 
 end
