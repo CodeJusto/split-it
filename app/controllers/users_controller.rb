@@ -15,6 +15,7 @@ def create
       Notifications.welcome_email(@user).deliver_now
       session[:user_id] = @user.id
       cookies[:user_name] = @user.name
+      cookies[:user_id] = @user.id
       if session[:key]
         key = session[:key]
         session[:key] = nil

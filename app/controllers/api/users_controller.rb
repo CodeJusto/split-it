@@ -2,9 +2,9 @@ class UsersController < ApplicationController
 
   def update
     # @cart = Cart.find(session[:cart_id])
-    @user = User.find(params[:id])
+    @user = CartRole.find_by(user_id: params[:user_id], cart_id: params[:cart_id])
     # @user.password = SecureRandom.uuid
-    @user.update_attributes(user_params)
+    @user.update_attributes()
     if @user.save
       # @cart = Cart.find(session[:cart_id])
       render :json => {

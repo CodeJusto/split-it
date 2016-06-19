@@ -8,12 +8,14 @@ class Api::CartsController < Api::BaseController
 
   def index
     # @crtprg = {}
-    @carts = current_user.carts
+    # @carts = current_user.carts
     # @carts.each do |cart|
     #    @crtprg << {cart.progress}
     # end
+
+    @user = User.find(7)
     render :json => {
-      carts: @carts.as_json(methods: [:progress, :total, :total_payment], include: [:products, :status])
+      user: @user.as_json(include: [:carts => { :methods => [:progress, :total, :total_payment], include: [:products, :status, :users, :payments => { include: :user }]}]),
     }
   end
 
