@@ -1,12 +1,22 @@
 // color palette
 $primary-teal: #4ECDC4;
-$dark-grey: #292F36;
-$mid-grey: #eee;
-$light-grey: #F7FFF7;
 $hot-pink: #FF6B6B;
 $mid-yellow: #FFE66D;
+$primary-grey: #a6a6a6;
+$dark-grey: darken($primary-grey, 15%);
+$light-grey: lighten($primary-grey, 15%);
+
 $light-yellow: lighten($mid-yellow, 15%);
 $dark-yellow: darken($mid-yellow, 15%);
+
+// border-color
+$border-grey: #eee;
+
+// text color
+$text-light: #F7FFF7;
+$text-dark: #292F36;
+
+
 
 // variables
 $primary-color: $primary-teal !default;

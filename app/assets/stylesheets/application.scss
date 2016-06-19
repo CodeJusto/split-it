@@ -38,10 +38,17 @@
 
 html,
 body {
-  color: $dark-grey;
+  color: $text-dark;
 }
 
-// be more specific!!
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', 'Roboto', Arial
+}
 
 
 
@@ -49,7 +56,7 @@ body {
 .tabs {
   li.tab {
     a {
-      color: $dark-grey;
+      color: $text-dark;
     }
 
     a.active {
@@ -70,7 +77,7 @@ body {
 
 .btn-primary {
   background-color: $primary-color;
-  color: $light-grey;
+  color: $text-light;
   border-color: $primary-color;
 }
 
@@ -88,7 +95,7 @@ body {
 
 .btn-secondary:hover {
   background-color: $primary-color;
-  color: $light-grey;
+  color: $text-light;
 }
 
 .progress {
@@ -102,7 +109,12 @@ body {
 }
 
 nav {
-  background-color: $dark-grey;
+  background-color: $text-dark;
+
+  .logo {
+    display: block;
+    width: 100%;
+  }
 
   #nav-menu-btn {
     margin: 0 3%;
@@ -136,11 +148,29 @@ nav {
   }
 }
 
+.toucan-bg {
+  background: 
+    linear-gradient(
+      rgba(0,0,0, 0.5), 
+      rgba(0,0,0, 0.5)
+    ),
+    url(http://jecamartinez.com/wp/wp-content/uploads/2014/04/Bg-Toucan.png);
+  background-size: cover;
+  // background-position: 50% -170px;
+  background-repeat: no-repeat;
+}
+
 section#hero {
   background: url(http://blendermedia.com/wp-content/themes/blender2015/img/home-banner2.jpg);
+  // background: 
+  //   linear-gradient(
+  //     rgba(0,0,0, 0.7), 
+  //     rgba(0,0,0, 0.7)
+  //   ),
+  //   url(http://jecamartinez.com/wp/wp-content/uploads/2014/04/Bg-Toucan.png);
   background-size: cover;
   height: 769px;
-  color: $light-grey;
+  color: $text-light;
   position: relative;
 
   .logo {
@@ -167,23 +197,25 @@ section#hero {
 
     h1 {
       margin-top: 0;
+      font-weight: 900;
     }
 
     h5 {
       line-height: 1.5;
       margin-bottom: 1rem;
+      font-weight: 400;
     }
   }
 }
 
 .modal {
-  color: $dark-grey;
+  color: $text-dark;
   // max-height: 100%;
 
   .modal-header {
     padding: 24px;
     text-align: center;
-    border-bottom: 1px solid $mid-grey;
+    border-bottom: 1px solid $border-grey;
     position: relative;
 
     .modal-close {
@@ -199,7 +231,7 @@ section#hero {
   }
 
   .modal-content {
-    border-bottom: 1px solid $mid-grey;
+    border-bottom: 1px solid $border-grey;
 
     .btn-facebook {
       @extend .blue, .darken-4;
@@ -207,7 +239,14 @@ section#hero {
   }
 
   .modal-footer {
-    // color: $dark-grey;
+    // color: $text-dark;
+  }
+}
+
+.user-greeting {
+  h1 {
+    color: $text-light;
+    padding: 5rem 2rem;
   }
 }
 
@@ -217,7 +256,7 @@ section#hero {
   }
 
   li>a {
-    color: $dark-grey;
+    color: $text-dark;
   }
 
   .cart-card {
@@ -299,6 +338,7 @@ section#hero {
   h2 {
     display: inline-block;
     vertical-align: middle;
+    font-weight: 700;
   }
 
   .chip{
@@ -317,8 +357,13 @@ section#hero {
     vertical-align: bottom;
     width: 30%;
 
+    h4 {
+      font-weight: 900;
+      margin-bottom: 0.3rem;
+    }
+
     span {
-      color: #ccc;
+      color: $light-grey;
     }
   }
 
@@ -372,7 +417,7 @@ section#hero {
 
   a {
     i.material-icons {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       vertical-align: top;
     }
   }
@@ -382,12 +427,12 @@ section#hero {
   margin: 0;
   margin-bottom: 1rem;
   border-radius: 6px;
-  border: 1px solid $mid-grey;
+  border: 1px solid $border-grey;
 
   .product-item {
     padding: 20px;
     padding-left: 72px;
-    border-bottom: 1px solid $mid-grey;
+    border-bottom: 1px solid $border-grey;
 
     img.circle {
       top: 1.47rem;
@@ -398,13 +443,11 @@ section#hero {
     }  
 
     .product-ops {
-      // opacity: 0;
       display: none;
     }
   }
 
   .product-item:hover .product-ops {
-    // opacity: 1;
     display: block;
   }
 }
@@ -416,7 +459,7 @@ section#hero {
   .payment-entry {
     padding: 1rem;
     border-radius: 6px;
-    border: 1px solid $mid-grey;
+    border: 1px solid $border-grey;
 
     .avatar {
       img {

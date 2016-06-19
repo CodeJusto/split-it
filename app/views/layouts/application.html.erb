@@ -6,6 +6,7 @@
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <script type="text/javascript">Stripe.setPublishableKey('pk_test_fUkk8bcH5pCRu0YdNcwWPKXg');</script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lato:900,700,400' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application'%>
   
@@ -16,5 +17,7 @@
   <main>
     <%= yield %>
   </main>
+
+  <%= render 'layouts/footer' %>
 </body>
 </html>

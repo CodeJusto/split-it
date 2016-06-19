@@ -60,5 +60,5 @@ $(document).ready(function(){
   // });
 
 
-  setTimeout(function(){ Materialize.showStaggeredList('.cart-list'); }, 1200);
+  setTimeout(function(){ Materialize.showStaggeredList('.cart-list'); }, 500);
 });
