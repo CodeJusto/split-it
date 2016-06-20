@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :users
 
-  
+  resources :users do
+    get '/login', to: 'users#login_test' # delete this before deployment
+  end
 # test index for cookie testing
 get '/cookie', to: 'carts#cookie', as: 'cookie'
 
