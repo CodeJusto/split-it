@@ -7,14 +7,23 @@ class Api::CartsController < Api::BaseController
   skip_before_action :require_login, only: [:invite]
 
   def index
-    @carts = current_user.carts
+    @carts = Cart.all
     render :json => {
       carts: @carts.as_json(methods: [:progress, :total, :total_payment], include: [:products, :status])
     }
   end
 
   def create
-    @cart = Cart.new(cart_params)
+    @cart = Cart.new(
+     name: params[:name], 
+     expiry: params[:expiry], 
+     street_address: params[:street_address], 
+     street_address2: params[:street_address2], 
+     country: params[:country], 
+     city: params[:city], 
+     province: params[:province], 
+     zip_code: params[:zip_code]
+    )
     @cart.status_id = 1
     @cart.key = SecureRandom.uuid
     if @cart.save
@@ -28,7 +37,7 @@ class Api::CartsController < Api::BaseController
         :cart => @cart
         }
     else
-      render :json => {errors: "Cart creation failed, ya toucan!"}.to_json, status: 400
+      render :json => {errors: "There was a problem while creating your cart."}.to_json, status: 400
       # render error message iN JSON
     end
   end

@@ -44,6 +44,7 @@ get '/cookie', to: 'carts#cookie', as: 'cookie'
 
   post '/api/charges', to: 'charges#create'
   post '/api/carts/:id/products', to: 'api/carts/products#create'
+  get '/carts', to: 'api/carts#index'
 
   namespace :admin do
     resources :users
