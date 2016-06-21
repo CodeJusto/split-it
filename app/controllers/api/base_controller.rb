@@ -4,6 +4,6 @@ class Api::BaseController < ApplicationController
   
   def current_user
     # binding.pry
-    @current_user ||= User.find(1)
+    @current_user ||= User.find(params[:id]) unless params[:id].nil?
   end
 end

@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find(1)
+    @current_user ||= User.find(params[:id]) unless params[:id].nil?
   end
 
   def user_role(user, cart)
