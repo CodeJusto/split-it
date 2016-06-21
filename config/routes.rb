@@ -20,7 +20,7 @@ get '/cookie', to: 'carts#cookie', as: 'cookie'
 
   namespace :api do
     resources :charges, only: [:create]
-    resources :carts, only: [:index, :create, :invite, :show, :destroy]
+    resources :carts, only: [:index, :create, :invite,  :show, :destroy] 
     resources :users, only: [:create]
   end
 

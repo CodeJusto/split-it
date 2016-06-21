@@ -7,13 +7,16 @@ class Api::CartsController < Api::BaseController
   skip_before_action :require_login, only: [:invite]
 
   def index
-    @carts = Cart.all
+    # @user = User.find_by(id: params[:user_id])
+    @carts = current_user.carts
     render :json => {
+      user: current_user,
       carts: @carts.as_json(methods: [:progress, :total, :total_payment], include: [:products, :status])
     }
   end
 
   def create
+    binding.pry
     @cart = Cart.new(
      name: params[:name], 
      expiry: params[:expiry], 
@@ -87,7 +90,12 @@ class Api::CartsController < Api::BaseController
     end
     
     if @cart.custom_minimum_payment.nil?
-      @minimum_payment = (@remaining_balance / @contributors.length)
+      if @products.length == 0
+        @minimum_payment = 0
+      else 
+        @minimum_payment = (@remaining_balance / (@contributors.length == 0 ? 1 : @contributors.length))
+
+      end
     else
       @minimum_payment = @cart.custom_minimum_payment
     end
