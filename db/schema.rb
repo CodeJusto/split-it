@@ -33,13 +33,13 @@ ActiveRecord::Schema.define(version: 20160620200857) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "key"
+    t.integer  "custom_minimum_payment"
     t.string   "country"
     t.string   "street_address"
     t.string   "street_address2"
     t.string   "city"
     t.string   "province"
     t.string   "zip_code"
-    t.integer  "custom_minimum_payment"
   end
 
   create_table "notification_templates", force: :cascade do |t|
@@ -82,12 +82,12 @@ ActiveRecord::Schema.define(version: 20160620200857) do
   create_table "refunds", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "cart_id"
-    t.integer  "payment_id"
     t.integer  "amount"
     t.string   "stripe_customer_id"
     t.string   "stripe_charge_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "payment_id"
   end
 
   create_table "roles", force: :cascade do |t|
