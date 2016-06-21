@@ -1,0 +1,34 @@
+// color palette
+$primary-teal: #4ECDC4;
+$hot-pink: #FF6B6B;
+$mid-yellow: #FFE66D;
+$primary-grey: #a6a6a6;
+$dark-grey: darken($primary-grey, 15%);
+$light-grey: lighten($primary-grey, 15%);
+
+$light-yellow: lighten($mid-yellow, 15%);
+$dark-yellow: darken($mid-yellow, 15%);
+
+// border-color
+$border-grey: #eee;
+
+// text color
+$text-light: #F7FFF7;
+$text-dark: #292F36;
+
+
+
+// variables
+$primary-color: $primary-teal !default;
+$primary-color-light: false !default;
+$primary-color-dark: false !default;
+@if not $primary-color-light {
+  $primary-color-light: lighten($primary-color, 15%);
+}
+@if not $primary-color-dark {
+  $primary-color-dark: darken($primary-color, 15%);
+}
+$secondary-color: $primary-color-dark !default;
+$error-color: $hot-pink !default;
+$success-color: $primary-color !default;
+$link-color: $primary-color !default;

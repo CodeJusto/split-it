@@ -43,6 +43,8 @@ gem 'whenever', :require => false
 
 gem 'twilio-ruby'
 
+gem 'materialize-sass'
+
 gem 'rack-cors', :require => 'rack/cors'
 
 # Use Unicorn as the app server
