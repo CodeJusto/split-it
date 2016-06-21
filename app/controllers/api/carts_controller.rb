@@ -15,7 +15,6 @@ class Api::CartsController < Api::BaseController
   end
 
   def create
-    binding.pry
     @cart = Cart.new(
      name: params[:name], 
      expiry: params[:expiry], 

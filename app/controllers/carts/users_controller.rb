@@ -1,4 +1,6 @@
 class Carts::UsersController < ApplicationController
+ skip_before_action :verify_authenticity_token
+
 
  def remove
   @user = User.find(params[:id])
@@ -12,15 +14,14 @@ class Carts::UsersController < ApplicationController
   end
 
   def invite
-    @inviter = current_user
-    @cart = Cart.find(params[:cart_id])
-    @emails = params[:emails]
-    @emails.each do |key, email|
-      # binding.pry
-      Notifications.invite_contributor(@inviter, @cart, email).deliver_now
-      # Do we need to create a notification row for this?
-    end
-    redirect_to root_path
+      @inviter = current_user
+      @cart = Cart.find(params[:cart_id])
+      @email = params[:email]
+      # @emails.each do |key, email|
+        Notifications.invite_contributor(@inviter, @cart, @email).deliver_now
+        # Do we need to create a notification row for this?
+      # end 
+      render :json => { message: "Hey #{@inviter.name}, your invitation to #{@email} was sent successfully."}, status: 200
   end
 
   protected

@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.oauth_token = auth.credentials.token
       user.password = SecureRandom.uuid.to_s
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.oauth_expires_at = auth.credentials.expires_at.nil? ? 7 : Time.at(auth.credentials.expires_at)
       user.save!
     end
   end
