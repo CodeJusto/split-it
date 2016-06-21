@@ -33,6 +33,13 @@ def create
   def destroy
   end
 
+  def login_test
+    cookies[:user_name] = User.find(params[:user_id]).name
+    cookies[:user_id] = params[:user_id]
+    session[:user_id] = params[:user_id]
+    redirect_to api_carts_path
+  end
+
   protected
 
   def user_params

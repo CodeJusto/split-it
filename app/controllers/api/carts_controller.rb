@@ -11,7 +11,7 @@ class Api::CartsController < Api::BaseController
     @carts = current_user.carts
     render :json => {
       user: current_user,
-      carts: @carts.as_json(methods: [:progress, :total, :total_payment], include: [:products, :status])
+      carts: @carts.as_json(methods: [:progress, :total, :total_payment, :organizer, :thumb_img], include: [:products, :status])
     }
   end
 
