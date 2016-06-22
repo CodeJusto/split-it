@@ -2,7 +2,7 @@ require 'SecureRandom'
 class UsersController < ApplicationController
   # def index
   #   @cart = Cart.new
-  #   @user = User.new
+    @user = User.new
   #   @carts = current_user.carts if current_user
 
   #   return @carts
@@ -14,18 +14,8 @@ def create
     if @user.save 
       Notifications.welcome_email(@user).deliver_now
       redirect_to "http://localhost:3000/dashboard?token=#{user.id}"
-      # if session[:key]
-      #   key = session[:key]
-      #   session[:key] = nil
-      #   @cart = Cart.find_by(key: params[:key])
-      #   # Will only redirect users to the invite page IF that is how 
-      #   # they reached the site in the first place
-      #    redirect_to root_path
-      # else
-      #    redirect_to root_path 
-      # end
     else
-         redirect_to root_path
+      redirect_to root_path
     end
   end
 
