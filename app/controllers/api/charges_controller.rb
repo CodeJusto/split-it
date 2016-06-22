@@ -45,7 +45,6 @@ class Api::ChargesController < Api::BaseController
       contributor_text = find_role(2, 'text')
       unless organizer_text.empty?
         organizer_text.each do |text| 
-          binding.pry
           $twilio.account.sms.messages.create(
             :from => ENV['COMPANY_PHONE'],
             :to => "+1#{text.number}",
@@ -66,6 +65,7 @@ class Api::ChargesController < Api::BaseController
 
       Notification.create(cart_id: @cart_id, notification_template_id: 2)
 
+      render :json => {message: "Success!"}
       # render :json => {
       #   :payment => format_price(@payment.amount),
       #   :payee => @payee,
