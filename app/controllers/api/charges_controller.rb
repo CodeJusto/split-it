@@ -33,7 +33,6 @@ class Api::ChargesController < Api::BaseController
     @payee = User.where(id: @payment.user_id)
 
     if @payment.save
-      render :json => {success: "Your payment has been received!"}.to_json, status: 200
       organizer_email = find_role(1, 'email')
       contributor_email = find_role(2, 'email')
       Notifications.update_contributor(organizer_email, @payee, @payment).deliver_now unless organizer_email.empty?
@@ -66,13 +65,13 @@ class Api::ChargesController < Api::BaseController
 
       Notification.create(cart_id: @cart_id, notification_template_id: 2)
 
-      render :json => {
-        :payment => format_price(@payment.amount),
-        :payee => @payee,
-        :updated_cart_total => format_price(@updated_cart_total),
-        :updated_pctg => @updated_pctg,
-        :stripe_charge_id => charge.id
-        }
+      # render :json => {
+      #   :payment => format_price(@payment.amount),
+      #   :payee => @payee,
+      #   :updated_cart_total => format_price(@updated_cart_total),
+      #   :updated_pctg => @updated_pctg,
+      #   :stripe_charge_id => charge.id
+      #   }
     else
       render :json => { error: "Payment failed." }, status: 400
     end
