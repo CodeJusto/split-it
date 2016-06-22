@@ -29,7 +29,7 @@ class Api::ChargesController < Api::BaseController
       stripe_charge_id: charge.id,
       amount: charge.amount
     ) 
-    
+
     @payee = User.where(id: @payment.user_id)
 
     if @payment.save

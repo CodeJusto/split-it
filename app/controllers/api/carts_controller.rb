@@ -16,6 +16,7 @@ class Api::CartsController < Api::BaseController
   end
 
   def create
+    @current_user = User.find(params[:user_id])
     @cart = Cart.new(
      name: params[:name], 
      expiry: params[:expiry], 
@@ -29,18 +30,15 @@ class Api::CartsController < Api::BaseController
     @cart.status_id = 1
     @cart.key = SecureRandom.uuid
     if @cart.save
-      update_user_address(params)
-      current_user.cart_roles.create(user_id: current_user.id, cart_id: @cart.id, role_id: 1)
-      current_user.save
+      update_user_address(@current_user, params)
+      @current_user.cart_roles.create(user_id: @current_user.id, cart_id: @cart.id, role_id: 1)
       params[:cart_id] = @cart.id
-      # render Json
+
       render :json => {
-        # :payment => format_price(@payment.amount),
         :cart => @cart
         }
     else
       render :json => {errors: "There was a problem while creating your cart."}.to_json, status: 400
-      # render error message iN JSON
     end
   end
 
@@ -62,11 +60,7 @@ class Api::CartsController < Api::BaseController
   def show
     @contributors = []
     @cart = Cart.find(params[:id])
-
-    # if cart has product, update status to 'Active'
-    # @cart.update(status_id: 2) if @cart.products.size > 0
     @cart.check_status
-
     session[:cart_id] = @cart.id
     @cart_payments = get_cart_payments(@cart.id)
     @paying_contributors = Payment.where(cart_id: @cart.id).joins(:user)
@@ -166,10 +160,10 @@ class Api::CartsController < Api::BaseController
   protected
 
 
-  def cart_params
-    params.require(:cart).permit(
-      :name, :expiry, :street_address, :street_address2, :country, :city, :province, :zip_code
-    )
-  end
+  # def cart_params
+  #   params.require(:cart).permit(
+  #     :name, :expiry, :street_address, :street_address2, :country, :city, :province, :zip_code
+  #   )
+  # end
 
 end

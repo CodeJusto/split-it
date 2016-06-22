@@ -75,7 +75,7 @@ class Cart < ActiveRecord::Base
         end
       end
 
-    elsif status.id == 2 && progress < 100 && expiry > Date.today
+    elsif status.id == 2 && progress < 100 && expiry < Date.today
       update_attribute(:status_id, 3)
       Notification.create(cart_id: @cart_id, notification_template_id: 4)
       unless contributor_email.empty?

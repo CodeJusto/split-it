@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   validates :url, presence: true
   validates :quantity, presence: true
   validates :price, presence: true, unless: :form_check?
-  validates :description, presence: true, unless: :form_check?
+  # validates :description, presence: true, unless: :form_check?
   validates :cart_id, presence: true
 
 

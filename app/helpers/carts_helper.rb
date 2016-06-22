@@ -18,7 +18,7 @@ module CartsHelper
   # end
 
 
-  def update_user_address(user_params)
+  def update_user_address(current_user, user_params)
     current_user.update(street_address: user_params["cart"]["street_address"], 
                         street_address2: user_params["cart"]["street_address2"],
                         country: user_params["cart"]["country"],
@@ -26,7 +26,7 @@ module CartsHelper
                         province: user_params["cart"]["province"],
                         zip_code: user_params["cart"]["zip_code"],
                         )
-    current_user.save!
+    current_user.save
   end
 
 end
