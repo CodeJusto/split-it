@@ -13,7 +13,7 @@ def create
     @user = User.new(user_params)
     if @user.save 
       Notifications.welcome_email(@user).deliver_now
-      redirect_to "http://localhost:3000/dashboard?token=#{user.id}"
+      redirect_to "http://localhost:3000/?token=#{user.id}"
       # if session[:key]
       #   key = session[:key]
       #   session[:key] = nil

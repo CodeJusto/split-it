@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
      user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to "http://localhost:3000/dashboard?token=#{user.id}"
+      redirect_to "http://localhost:3000/?token=#{user.id}"
       # if session[:key] 
       #   key = session[:key]
       #   session[:key] = nil

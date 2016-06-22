@@ -3,7 +3,7 @@ class OmniauthSessionsController < ApplicationController
     session[:errors] = nil
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to "http://localhost:3000/dashboard?token=#{user.id}"
+    redirect_to "http://localhost:3000/?token=#{user.id}"
     # if session[:key]
     #     key = session[:key]
     #     session[:key] = nil
