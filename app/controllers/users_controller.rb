@@ -1,15 +1,11 @@
 require 'SecureRandom'
 class UsersController < ApplicationController
-  # def index
-  #   @cart = Cart.new
+  def index
     @user = User.new
-  #   @carts = current_user.carts if current_user
-
-  #   return @carts
-  # end
+    render :index
+  end
 
 def create
-    session[:errors] = nil
     @user = User.new(user_params)
     if @user.save 
       Notifications.welcome_email(@user).deliver_now
@@ -27,7 +23,7 @@ def create
     cookies[:user_name] = User.find(params[:user_id]).name
     cookies[:user_id] = params[:user_id]
     session[:user_id] = params[:user_id]
-    redirect_to api_carts_path
+    redirect_to "http://localhost:3000/dashboard?token=#{params[:user_id]}"
   end
 
   protected

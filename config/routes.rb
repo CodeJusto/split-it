@@ -58,6 +58,6 @@ get '/cookie', to: 'carts#cookie', as: 'cookie'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  root to: 'carts#cookie'
+  root to: 'users#index'
 
 end
