@@ -7,7 +7,6 @@ class Api::CartsController < Api::BaseController
   skip_before_action :require_login, only: [:invite]
 
   def index
-    # @user = User.find_by(id: params[:user_id])
     @carts = current_user.carts
     render :json => {
       user: current_user,
@@ -16,7 +15,6 @@ class Api::CartsController < Api::BaseController
   end
 
   def create
-    binding.pry
     @cart = Cart.new(
      name: params[:name], 
      expiry: params[:expiry], 
