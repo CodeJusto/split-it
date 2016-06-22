@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     render :index
   end
 
-def create
+  def create
     @user = User.new(user_params)
     if @user.save 
       Notifications.welcome_email(@user).deliver_now

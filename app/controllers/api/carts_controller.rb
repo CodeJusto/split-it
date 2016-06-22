@@ -7,9 +7,10 @@ class Api::CartsController < Api::BaseController
   skip_before_action :require_login, only: [:invite]
 
   def index
-    @carts = current_user.carts
+    @current_user = User.find(params[:token])
+    @carts = @current_user.carts
     render :json => {
-      user: current_user,
+      user: @current_user,
       carts: @carts.as_json(methods: [:progress, :total, :total_payment, :organizer, :thumb_img], include: [:products, :status])
     }
   end
@@ -118,7 +119,7 @@ class Api::CartsController < Api::BaseController
       contributors: @contributors,
       custom_minimum_payment: @minimum_payment,
       remaining_balance: @remaining_balance,
-      current_user: current_user
+      current_user: User.find(params[:token])
     }
   end
 

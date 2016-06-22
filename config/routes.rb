@@ -20,11 +20,7 @@ get '/cookie', to: 'carts#cookie', as: 'cookie'
 
 
 
-  namespace :api do
-    resources :charges, only: [:create]
-    resources :carts, only: [:index, :create, :invite,  :show, :destroy] 
-    resources :users, only: [:create]
-  end
+  
 
   namespace :carts do
     scope '/:cart_id' do
@@ -42,21 +38,30 @@ get '/cookie', to: 'carts#cookie', as: 'cookie'
 
   post 'refunds', to: 'refunds#create', as: 'refunds'
 
+  # api
+  namespace :api do
+    resources :charges, only: [:create]
+    resources :carts, only: [:index, :create, :invite, :show, :destroy] 
+    resources :users, only: [:create]
+  end
+
   post '/api/charges', to: 'charges#create'
   post '/api/carts/:id/products', to: 'api/carts/products#create'
-  get '/carts', to: 'api/carts#index'
-
-  namespace :admin do
-    resources :users
-    resources :carts, only:[:index]
-    resources :charges
-  end
+  get 'api/carts/token/:token', to: 'api/carts#index'
+  get '/api/carts/:id/:token', to:'api/carts#show'
 
   resources :sessions, only:[:create, :destroy]
 
   get 'auth/:provider/callback', to: 'omniauth_sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  # admin
+  namespace :admin do
+    resources :users
+    resources :carts, only:[:index]
+    resources :charges
+  end
 
   root to: 'users#index'
 
