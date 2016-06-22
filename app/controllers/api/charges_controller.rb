@@ -33,25 +33,16 @@ class Api::ChargesController < Api::BaseController
     @payee = User.where(id: @payment.user_id)
 
     if @payment.save
-      # @cart = Cart.find(@payment.cart_id)
-      # @updated_cart_total = calculate_total_payments(get_cart_payments(@cart.id))
-      # @goal = @cart.total
-      # @updated_pctg = cart_progress(@updated_cart_total, @goal)
-      # # @total = @cart.payments.sum(:amount)
-
       organizer_email = find_role(1, 'email')
       contributor_email = find_role(2, 'email')
       Notifications.update_contributor(organizer_email, @payee, @payment).deliver_now unless organizer_email.empty?
-      
       unless contributor_email.empty?
         contributor_email.each do |contributor|
           Notifications.send_invoice(contributor, @payment, @cart).deliver_now
         end
       end
-
       organizer_text = find_role(1, 'text')
       contributor_text = find_role(2, 'text')
-      
       unless organizer_text.empty?
         organizer_text.each do |text| 
           $twilio.account.sms.messages.create(
@@ -74,15 +65,15 @@ class Api::ChargesController < Api::BaseController
 
       Notification.create(cart_id: @cart_id, notification_template_id: 2)
 
-      render :json => {
-        :payment => format_price(@payment.amount),
-        :payee => @payee,
-        :updated_cart_total => format_price(@updated_cart_total),
-        :updated_pctg => @updated_pctg,
-        :stripe_charge_id => charge.id
-        }
+      # render :json => {
+      #   :payment => format_price(@payment.amount),
+      #   :payee => @payee,
+      #   :updated_cart_total => format_price(@updated_cart_total),
+      #   :updated_pctg => @updated_pctg,
+      #   :stripe_charge_id => charge.id
+      #   }
     else
-      render :json => { error: "Payment failed." }, status: 400  # http response status is 400
+      render :json => { error: "Payment failed." }, status: 400
     end
 
 

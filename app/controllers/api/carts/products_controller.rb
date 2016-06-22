@@ -11,25 +11,21 @@ class Api::Carts::ProductsController < ApplicationController
       cart_id: params[:cart_id]
       )
     if @product.save
-      render :json => {
-        notice: "#{@product.display_name} was added successfully!"
-        }
-    elsif @product.errors[:external_id].size > 0 || @product.errors[:description].size > 0 || @product.errors[:price].size > 0
-      render :new_full
-    else
-      render :new
+      render :json => {success: "#{@product.display_name} was added successfully!"}.to_json, status: 200
+    else @product.errors[:external_id].size > 0 || @product.errors[:description].size > 0 || @product.errors[:price].size > 0
+      render :json => {error: "There was an issue with the product you tried to add."}.to_json, status: 400
     end
   end
 
-  def update
-    @product = Product.find(params[:id])
+  # def update
+  #   @product = Product.find(params[:id])
 
-    if @product.update_attributes(product_params)
-      redirect_to cart_path(params[:cart_id])
-    else
-      render :edit
-    end
-  end
+  #   if @product.update_attributes(product_params)
+  #     redirect_to cart_path(params[:cart_id])
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   protected
 
