@@ -39,7 +39,7 @@ class Cart < ActiveRecord::Base
   end
 
   def organizer
-    User.joins(:cart_roles).find_by(cart_roles: {cart_id: id})
+    User.joins(:cart_roles).find_by(cart_roles: {cart_id: 1, role_id: 1})
   end
 
   def thumb_img

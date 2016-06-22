@@ -56,6 +56,7 @@ class ChargesController < ApplicationController
 
       organizer_text = find_role(1, 'text')
       contributor_text = find_role(2, 'text')
+
       
       unless organizer_text.empty?
         organizer_text.each do |text| 

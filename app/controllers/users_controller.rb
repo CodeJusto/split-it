@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save 
       Notifications.welcome_email(@user).deliver_now
-      redirect_to "http://localhost:3000/dashboard?token=#{user.id}"
+      redirect_to "http://localhost:3000/dashboard?token=#{@user.id}"
     else
       redirect_to root_path
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :number)
+    params.require(:user).permit("name", "email", "password", "number")
   end
 
 end
