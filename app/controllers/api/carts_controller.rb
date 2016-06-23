@@ -8,7 +8,7 @@ class Api::CartsController < Api::BaseController
 
   def index
     @current_user = User.find(params[:token])
-    @carts = @current_user.carts
+    @carts = @current_user.carts.where("status_id = 1 OR status_id = 2").order(created_at: :desc)
     render :json => {
       user: @current_user,
       carts: @carts.as_json(methods: [:progress, :total, :total_payment, :organizer, :thumb_img], include: [:products, :status])

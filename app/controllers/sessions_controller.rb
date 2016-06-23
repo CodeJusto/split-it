@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:key] = nil
-    cookies[:user_name] = nil
     redirect_to root_url
   end
 end
