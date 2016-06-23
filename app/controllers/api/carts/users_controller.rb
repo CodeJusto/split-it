@@ -1,6 +1,9 @@
-class Carts::UsersController < ApplicationController
+class Api::Carts::UsersController < ApplicationController
  skip_before_action :verify_authenticity_token
 
+  def current_user
+    @current_user ||= User.find(params[:id]) unless params[:id].nil?
+  end
 
  def remove
   @user = User.find(params[:id])
@@ -14,11 +17,10 @@ class Carts::UsersController < ApplicationController
   end
 
   def invite
-    # THIS IS THE OLD ONE
+    #THE RIGHT ONE
       @inviter = current_user
       @cart = Cart.find(params[:cart_id])
       @email = params[:email]
-      binding.pry
       # @emails.each do |key, email|
         Notifications.invite_contributor(@inviter, @cart, @email).deliver_now
         # Do we need to create a notification row for this?
