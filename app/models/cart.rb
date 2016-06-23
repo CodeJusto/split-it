@@ -39,10 +39,10 @@ class Cart < ActiveRecord::Base
   end
 
   def organizer
-    User.joins(:cart_roles).find_by(cart_roles: {cart_id: 1, role_id: 1})
+    User.joins(:cart_roles).find_by(cart_roles: {cart_id: id, role_id: 1})
   end
 
-  def thumb_img
+  def thumb_img 
     products.select{ |product| !product.image.nil? }.map{ |product| product.image }
   end
 

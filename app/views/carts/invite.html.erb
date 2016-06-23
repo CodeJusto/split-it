@@ -1,4 +1,4 @@
-<h1><%= @cart.name %></h1>
+<h1>Hello</h1>
 <% if current_user %>
   <% if @cart_array.include?(current_user.id) %>
     <p>You already have access to this cart<p>
@@ -10,5 +10,8 @@
     <% current_user.cart_roles.create(user_id: current_user.id, cart_id: @cart.id, role_id: 2) %>
   <% end %>
 <% else %>
-  <p>Login or register above to join this cart</p> 
+  <p>Login or register below to join this cart</p> 
+  <a href="http://localhost:4000">Click me</a>
+
+  
 <% end %>

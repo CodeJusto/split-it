@@ -35,6 +35,16 @@ class CartsController < ApplicationController
     @user = User.new
   end
 
+  def invite
+    # @user = User.new
+    @cart = Cart.find_by(key: params[:key])
+    session[:key] = @cart.id
+    # @cart_array = @cart.cart_roles.map do |c|
+    #   c.user_id
+    # end
+    @email = params[:email]
+  end
+
 
   protected 
 

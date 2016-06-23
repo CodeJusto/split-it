@@ -19,11 +19,11 @@ User.create(name: "Justin", email: "justincwong89@gmail.com", password: 'passwor
 Cart.create(status_id: 1, expiry: Time.new(2016, 8, 31), name: "New couch for the office", country: "Canada", street_address: "19-8591 Blundell Road", city: "Richmond", province: "British Columbia", zip_code: "V6Y 1K2")
 
 User.all.each do |user|
-  CartRole.create(user_id: user.id, cart_id: 1, role_id: 2, email_notifications: false, text_notifications: false)
+  CartRole.create(user_id: user.id, cart_id: 1, role_id: 2, email_notifications: true, text_notifications: false)
 end
 
 
-@role = CartRole.find(7)
+@role = CartRole.find(6)
 @role.role_id = 1
 @role.email_notifications = true
 @role.text_notifications = true
