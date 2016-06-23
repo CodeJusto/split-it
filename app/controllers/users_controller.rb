@@ -1,4 +1,4 @@
-require 'SecureRandom'
+require 'securerandom'
 class UsersController < ApplicationController
   def index
     @user = User.new

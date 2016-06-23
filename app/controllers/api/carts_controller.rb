@@ -1,4 +1,4 @@
-require 'SecureRandom'
+require 'securerandom'
 
 class Api::CartsController < Api::BaseController
 
