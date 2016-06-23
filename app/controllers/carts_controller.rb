@@ -43,6 +43,7 @@ class CartsController < ApplicationController
     #   c.user_id
     # end
     @email = params[:email]
+    redirect_to root_path
   end
 
 
