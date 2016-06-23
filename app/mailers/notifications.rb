@@ -34,7 +34,7 @@ class Notifications < ApplicationMailer
   end
 
   def send_invoice(contributor, payment, cart)
-    @contributor = contributor
+    @contributor = contributor.first
     @cart = cart
     @payment = payment
     mail(to: @contributor.email, subject: "You have made a contribution to #{ @cart.name }")

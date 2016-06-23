@@ -35,8 +35,9 @@ class Api::ChargesController < Api::BaseController
     if @payment.save
       organizer_email = find_role(1, 'email')
       contributor_email = find_role(2, 'email')
+      Notifications.send_invoice(organizer_email, @payment, @cart).deliver_now unless organizer_email.empty?  
       Notifications.update_contributor(organizer_email, @payee, @payment).deliver_now unless organizer_email.empty?
-      unless contributor_email.empty?
+      unless contributor_email.empty? 
         contributor_email.each do |contributor|
           Notifications.send_invoice(contributor, @payment, @cart).deliver_now
         end
@@ -48,7 +49,7 @@ class Api::ChargesController < Api::BaseController
           $twilio.account.sms.messages.create(
             :from => ENV['COMPANY_PHONE'],
             :to => "+1#{text.number}",
-            :body => "#{@payee[0].name} has contributed #{@payment.amount} for a cart!"
+            :body => "#{@payee[0].name} has contributed $#{@payment.amount/100} towards your cart!"
           )
         end
       end
@@ -58,7 +59,7 @@ class Api::ChargesController < Api::BaseController
           $twilio.account.sms.messages.create(
             :from => ENV['COMPANY_PHONE'],
             :to => "+1#{text.number}",
-            :body => "You have has contributed #{@payment.amount} for a cart!"
+            :body => "You have has contributed $#{@payment.amount/100} towards your cart!"
           )
         end
       end
