@@ -26,7 +26,8 @@ module SplitIt
     # We only need this in development, because webpack needs to run on a separate port.
     # In production the react application is served from the public folder (same domain/port)
     if Rails.env.development?
-        config.middleware.insert_before 0, "Rack::Cors" do
+        # config.middleware.insert_before 0, "Rack::Cors" do
+        config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
           allow do
             origins '*'
             resource '*', :headers => :any, :methods => [:get, :post, :options]
