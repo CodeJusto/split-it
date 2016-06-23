@@ -87,7 +87,6 @@ class Api::CartsController < Api::BaseController
         @minimum_payment = 0
       else 
         @minimum_payment = (@remaining_balance / (@contributors.length == 0 ? 1 : @contributors.length))
-
       end
     else
       @minimum_payment = @cart.custom_minimum_payment
