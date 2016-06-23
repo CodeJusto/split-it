@@ -112,7 +112,7 @@ class Api::CartsController < Api::BaseController
       contributors: @contributors,
       custom_minimum_payment: @minimum_payment,
       remaining_balance: @remaining_balance,
-      current_user: User.find(params[:id])
+      current_user: User.find(params[:token])
     }
   end
 

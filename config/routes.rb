@@ -41,7 +41,9 @@ get '/cookie', to: 'carts#cookie', as: 'cookie'
   # api
   namespace :api do
     resources :charges, only: [:create]
-    resources :carts, only: [:index, :create, :invite, :show, :destroy] 
+    resources :carts, only: [:index, :create, :invite, :show, :destroy] do
+      post '/products', to: 'api/products#remove'
+    end
     resources :users, only: [:create]
   end
 

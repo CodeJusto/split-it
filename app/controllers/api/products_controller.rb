@@ -27,10 +27,20 @@ class Api::Carts::ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.destroy(params[:id])
-    redirect_to cart_path(params[:cart_id])
+    @product = Product.destroy(params[:product])
+    # redirect_to cart_path(params[:cart_id])
+    render :json => {
+     message: "Success"
+    }
   end
 
+  def remove
+    @product = Product.destroy(params[:product])
+    # redirect_to cart_path(params[:cart_id])
+    render :json => {
+     message: "Success"
+    }
+  end
   protected
 
   def product_params
