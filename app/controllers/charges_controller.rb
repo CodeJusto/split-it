@@ -82,7 +82,6 @@ class ChargesController < ApplicationController
 
       respond_to do |t|
         t.json do
-          #... json here
           render :json => {
             :payment => format_price(@payment.amount),
             :payee => @payee,

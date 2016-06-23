@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+    </p>
+  </body>
+</html>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -127,7 +138,7 @@
                   </tr>
                   <tr>
                     <td class="headline">
-                      <%= @cart.name %> didn't have quite enough to meet it's goal.
+                      <%= @cart.name %> has successfully reached its goal of <%= format_price(@cart.total) 
                     </td>
                   </tr>
                   <tr>
@@ -153,7 +164,7 @@
                           <center>
                         <![endif]-->
                         <p>
-                                If you've contributed any money, it will automatically be refunded within a few days. Better luck next time!<br>
+                          The gift will automatically be shipped to <%= @organizer.name %> shortly.<br>
 
                         <!--[if mso]>
                           </center>
